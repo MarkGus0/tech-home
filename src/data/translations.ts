@@ -187,7 +187,7 @@ export const translations = {
     "en": "Someone waits by the door until the crowd thins, and only then asks:"
   },
   "happening.p3": {
-    "zh": "\"我有一个想法，但现在还什么都没有。这里有人愿意和我聊聊吗？\"",
+    "zh": "“我有一个想法，但现在还什么都没有。这里有人愿意和我聊聊吗？”",
     "en": "\"I have an idea, but I have nothing to show yet. Is anyone here willing to talk about it?\""
   },
   "happening.p4": {
@@ -403,11 +403,11 @@ export const translations = {
     "en": "Submit your project"
   },
   "opportunities.title": {
-    "zh": "让\"链接资源\"变成一次具体的连接",
+    "zh": "让“链接资源”变成一次具体的连接",
     "en": "Turning \"connecting resources\" into a concrete connection"
   },
   "opportunities.p1": {
-    "zh": "我们不太喜欢把所有事情都概括成\"链接资源\"。",
+    "zh": "我们不太喜欢把所有事情都概括成“链接资源”。",
     "en": "We're not fond of reducing everything to \"connecting resources.\""
   },
   "opportunities.p2": {
@@ -595,7 +595,7 @@ export const translations = {
     "en": "Grand words do not replace concrete action"
   },
   "principles.item4.desc": {
-    "zh": "比起\"赋能\"\"生态\"和\"链接一切\"，我们更愿意把一个活动办好、把一个项目介绍清楚、把一个需求交到合适的人手中。",
+    "zh": "比起“赋能”“生态”和“链接一切”，我们更愿意把一个活动办好、把一个项目介绍清楚、把一个需求交到合适的人手中。",
     "en": "Rather than \"empowerment,\" \"ecosystem,\" and \"connecting everything,\" we'd rather run an event well, introduce a project clearly, and put a need into the right person's hands."
   },
   "future.title": {
@@ -927,7 +927,7 @@ export const translations = {
     "en": "AI+X Creation Festival | Suzhou"
   },
   "events.past.event1.desc": {
-    "zh": "有人已经使用 AI 很久，也有人刚刚接触几天。大家从一个真实问题出发，尝试把 AI 放进自己的学习、工作与项目中。那天下午，没有人只停留在\"听懂\"，而是打开电脑，把一个想法真正向前推进了一步。",
+    "zh": "有人已经使用 AI 很久，也有人刚刚接触几天。大家从一个真实问题出发，尝试把 AI 放进自己的学习、工作与项目中。那天下午，没有人只停留在“听懂”，而是打开电脑，把一个想法真正向前推进了一步。",
     "en": "Some had been using AI for a long time; others had just started. Everyone began with a real problem and tried to integrate AI into their studies, work, or projects. That afternoon, no one stopped at just understanding — they opened their laptops and pushed an idea one real step forward."
   },
   "events.past.event1.label": {
@@ -1115,7 +1115,7 @@ export const translations = {
     "en": "We welcome mature approaches and respect explorations still in progress."
   },
   "joinPage.sharer.p5": {
-    "zh": "因为真正有价值的分享，往往不只是告诉别人\"应该怎么做\"，而是诚实地讲清楚：自己曾经如何开始，又经历了什么。",
+    "zh": "因为真正有价值的分享，往往不只是告诉别人“应该怎么做”，而是诚实地讲清楚：自己曾经如何开始，又经历了什么。",
     "en": "Because truly valuable sharing is often not just telling others \"what to do,\" but honestly explaining: how you started, and what you went through."
   },
   "joinPage.recorder.title": {

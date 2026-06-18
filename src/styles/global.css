@@ -10,12 +10,12 @@
 
 @font-face {
   font-family: "Smiley Sans";
-  src: url("/assets/fonts/smiley-sans-techflows-393af2df.woff2") format("woff2");
+  src: url("/assets/fonts/SmileySans-Oblique.ttf.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
   font-synthesis: none;
-  unicode-range: U+2E80-2EFF, U+2F00-2FDF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+  unicode-range: U+00B7, U+2010-2027, U+2030-205E, U+2E80-2EFF, U+2F00-2FFF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE10-FE1F, U+FE30-FE4F, U+FF00-FFEF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+2CEB0-2EBEF, U+30000-3134F;
 }
 
 /* ========== CSS VARIABLES ========== */
@@ -44,6 +44,10 @@
   --font-geist-mono: "Geist Mono";
   --font-smiley-sans: "Smiley Sans";
   --font-sans: var(--font-geist-mono), var(--font-smiley-sans), ui-monospace, monospace, sans-serif;
+}
+
+html[lang^="zh"] {
+  --font-sans: var(--font-smiley-sans), var(--font-geist-mono), ui-monospace, monospace, sans-serif;
 }
 
 /* ========== RESET ========== */
@@ -192,7 +196,34 @@ a, button, [role="button"], .button {
   min-height: 32px; transition: color 120ms ease, border-color 120ms ease;
 }
 .reading-mode-toggle:hover, .reading-mode-toggle:focus-visible { color: var(--blue); border-color: var(--blue); }
-.reading-mode-icon { font-size: 13px; line-height: 1; }
+.reading-mode-icon {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 12px;
+  width: 12px;
+  height: 14px;
+}
+.reading-mode-icon::before,
+.reading-mode-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+}
+.reading-mode-icon::before {
+  top: 1px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+  transform: translateX(-50%);
+}
+.reading-mode-icon::after {
+  bottom: 1px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateX(-50%) rotate(45deg);
+}
 
 body:not(.is-reading-mode) .reveal {
   opacity: 1;

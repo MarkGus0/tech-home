@@ -142,7 +142,7 @@ const principleItems = [1, 2, 3, 4];
   <aside class="reading-map" aria-label={locale === "zh" ? "阅读章节" : "Reading chapters"} data-reading-map>
     <div class="reading-mode-control">
       <button class="reading-mode-toggle" type="button" data-reading-mode-toggle>
-        <span class="reading-mode-icon" aria-hidden="true">↧</span>
+        <span class="reading-mode-icon" aria-hidden="true"></span>
         <span class="reading-mode-label">{locale === "zh" ? "逐行阅读" : "Line-by-line"}</span>
       </button>
     </div>
@@ -313,6 +313,7 @@ const principleItems = [1, 2, 3, 4];
 
   <script>
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const desktopReadingMode = window.matchMedia("(min-width: 1025px)").matches;
     const body = document.body;
     const button = document.querySelector("[data-reading-mode-toggle]");
     const label = button?.querySelector(".reading-mode-label");
@@ -389,5 +390,7 @@ const principleItems = [1, 2, 3, 4];
       event.preventDefault();
       showLine(index + (event.deltaY > 0 ? 1 : -1));
     }, { passive: false });
+
+    if (desktopReadingMode) enable();
   </script>
 </BaseLayout>
