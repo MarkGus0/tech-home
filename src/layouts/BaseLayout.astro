@@ -14,6 +14,7 @@ type Props = {
 };
 
 const { locale, page, noindex = false } = Astro.props;
+const enableVercelInsights = import.meta.env.PUBLIC_ENABLE_VERCEL_INSIGHTS === "true";
 const meta = pages[page];
 const canonical = absoluteUrl(meta.paths[locale]);
 const alternateZh = absoluteUrl(meta.paths.zh);
@@ -104,7 +105,7 @@ const structuredData = {
     <Header locale={locale} page={page} />
     <slot />
     <Footer locale={locale} />
-    <Analytics />
-    <SpeedInsights />
+    {enableVercelInsights && <Analytics />}
+    {enableVercelInsights && <SpeedInsights />}
   </body>
 </html>

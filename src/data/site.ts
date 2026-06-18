@@ -7,7 +7,7 @@ export const locales: Locale[] = ["zh", "en"];
 
 export const site = {
   name: "TechFlows",
-  url: "https://techflows.app",
+  url: "https://www.techflows.app",
   logo: "/assets/techflows-logo.png",
   email: "join@techflows.app",
   partnerEmail: "partner@techflows.app",

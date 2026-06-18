@@ -12,5 +12,5 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-# LLM-readable site overview: https://techflows.app/llms.txt
-Sitemap: https://techflows.app/sitemap.xml
+# LLM-readable site overview: https://www.techflows.app/llms.txt
+Sitemap: https://www.techflows.app/sitemap.xml

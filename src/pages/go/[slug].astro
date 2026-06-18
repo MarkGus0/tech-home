@@ -11,6 +11,7 @@ export function getStaticPaths() {
 
 const slug = Astro.params.slug as GoSlug;
 const pageTitleZh = "外部链接确认";
+const enableVercelInsights = import.meta.env.PUBLIC_ENABLE_VERCEL_INSIGHTS === "true";
 ---
 
 <!doctype html>
@@ -25,7 +26,7 @@ const pageTitleZh = "外部链接确认";
   </head>
   <body class="redirect-body" data-locale="zh" data-page="redirect">
     <RedirectPage slug={slug} locale="zh" />
-    <Analytics />
-    <SpeedInsights />
+    {enableVercelInsights && <Analytics />}
+    {enableVercelInsights && <SpeedInsights />}
   </body>
 </html>

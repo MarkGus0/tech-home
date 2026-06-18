@@ -132,13 +132,24 @@ function redirectWithPreference(url: URL, locale: string) {
   return new Response(null, { status: 302, headers });
 }
 
-export default function middleware(request: Request) {
-  if (request.method !== "GET" && request.method !== "HEAD") {
-    return next();
-  }
+function methodNotAllowed() {
+  return new Response("Method Not Allowed", {
+    status: 405,
+    headers: {
+      "Allow": "GET, HEAD",
+      "Cache-Control": "no-store",
+      "Content-Type": "text/plain; charset=utf-8"
+    }
+  });
+}
 
+export default function middleware(request: Request) {
   const url = new URL(request.url);
   const { pathname } = url;
+
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return isStaticOrSystemPath(pathname) ? next() : methodNotAllowed();
+  }
 
   if (isStaticOrSystemPath(pathname)) {
     return next();

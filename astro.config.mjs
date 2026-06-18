@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://techflows.app",
+  site: "https://www.techflows.app",
   trailingSlash: "always"
 });

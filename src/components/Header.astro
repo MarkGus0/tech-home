@@ -14,7 +14,15 @@ const switchPath = `${pages[page].paths[otherLocale]}?lang=${otherLocale}`;
 <header class="site-header" data-header>
   <div class="header-inner">
     <a class="brand" href={pagePath("home", locale)} aria-label={locale === "zh" ? "TechFlows 首页" : "TechFlows home"}>
-      <img src="/assets/techflows-logo.png" alt="TechFlows" width="320" height="84" />
+      <img
+        src="/assets/techflows-logo.png"
+        alt="TechFlows"
+        width="320"
+        height="84"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
     </a>
 
     <button

@@ -24,7 +24,7 @@ export function GET() {
     "",
     "> TechFlows is a bilingual public website for a young tech creator community, early-stage projects, events, partnerships, and participation opportunities.",
     "",
-    "This file gives AI search agents and assistants a concise map of the public, indexable content on https://techflows.app. Redirect confirmation pages under `/go/` and `/en/go/` are intentionally marked noindex and should not be treated as primary content.",
+    "This file gives AI search agents and assistants a concise map of the public, indexable content on https://www.techflows.app. Redirect confirmation pages under `/go/` and `/en/go/` are intentionally marked noindex and should not be treated as primary content.",
     "",
     "## Core Pages",
     pageLinks,
