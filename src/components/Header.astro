@@ -9,7 +9,7 @@ type Props = {
 
 const { locale, page } = Astro.props;
 const otherLocale = oppositeLocale(locale);
-const switchPath = pages[page].paths[otherLocale];
+const switchPath = `${pages[page].paths[otherLocale]}?lang=${otherLocale}`;
 ---
 <header class="site-header" data-header>
   <div class="header-inner">
