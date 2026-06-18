@@ -141,7 +141,8 @@ public/assets/fonts/SmileySans-Oblique.ttf.woff2
 - `public/assets/og-partners.png`
 - `public/assets/og-join.png`
 - `public/assets/apple-touch-icon.png`
-- `public/favicon.svg`
+- `public/favicon.png`
+- `public/favicon.ico`
 
 源 Logo 备份位于：
 

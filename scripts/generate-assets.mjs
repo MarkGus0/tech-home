@@ -4,6 +4,7 @@ import sharp from "sharp";
 
 const out = (name) => resolve("public/assets", name);
 const logoData = readFileSync("public/assets/techflows-logo.png").toString("base64");
+const favicon = resolve("public/favicon.png");
 
 const cards = [
   {
@@ -66,17 +67,17 @@ function ogSvg({ title, subtitle, label }) {
     <text x="100" y="312" fill="#5c6a7d" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="420">${safeSubtitle}</text>
     <rect x="100" y="410" width="330" height="6" rx="3" fill="url(#line)"/>
     <text x="100" y="476" fill="#016fc4" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">${safeLabel}</text>
-    <text x="100" y="520" fill="#5c6a7d" font-family="Inter, Arial, sans-serif" font-size="22">techflows.app</text>
+    <text x="100" y="520" fill="#5c6a7d" font-family="Inter, Arial, sans-serif" font-size="22">www.techflows.app</text>
     <circle cx="1026" cy="458" r="76" fill="#f2f5f8" stroke="#cbd6e3"/>
     <path d="M976 456h102M1000 424l-30 32 30 32M1054 424l30 32-30 32" fill="none" stroke="#0288f0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
 }
 
-await sharp(Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
-  <rect width="180" height="180" rx="38" fill="#0a0d14"/>
-  <path d="M42 64h96M42 90h70M42 116h96" fill="none" stroke="#4ad4df" stroke-width="14" stroke-linecap="round"/>
-  <path d="M42 64h56M42 116h56" fill="none" stroke="#0288f0" stroke-width="14" stroke-linecap="round"/>
-</svg>`)).png().toFile(out("apple-touch-icon.png"));
+await sharp(favicon)
+  .resize(180, 180, { fit: "contain", background: "#ffffff" })
+  .flatten({ background: "#ffffff" })
+  .png({ compressionLevel: 9, adaptiveFiltering: true })
+  .toFile(out("apple-touch-icon.png"));
 
 for (const card of cards) {
   await sharp(Buffer.from(ogSvg(card))).png().toFile(out(card.file));
