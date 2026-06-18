@@ -1,0 +1,100 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button.astro";
+import { goPath } from "@data/forms";
+import { site, type Locale } from "@data/site";
+import { t } from "@utils/i18n";
+
+type Props = { locale: Locale };
+const { locale } = Astro.props;
+const roles = ["participant", "creator", "sharer", "recorder", "connector", "builder"];
+---
+<BaseLayout locale={locale} page="join">
+  <main id="main" class="subpage-main subpage-main--join">
+    <section class="hero sub-hero">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <h1>{t("nav.join", locale)}</h1>
+          <div class="hero-detail hero-detail--compact">
+            <p>{t("joinPage.hero.p1", locale)}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section section-soft">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <h2>{t("joinPage.method.title", locale)}</h2>
+          <p>{t("joinPage.method.p1", locale)}</p>
+          <p>{t("joinPage.method.p2", locale)}</p>
+          <Button href={goPath(locale, "join", "join_method_form")}>{t("joinPage.cta.button1", locale)}</Button>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <h2>{t("joinPage.place.title", locale)}</h2>
+          <p>{t("joinPage.place.p1", locale)}</p>
+          <p>{t("joinPage.place.p2", locale)}</p>
+        </div>
+      </div>
+    </section>
+
+    {roles.map((role, index) => (
+      <section class={`reading-section join-role-section ${index % 2 === 0 ? "section-soft" : ""}`}>
+        <div class="section-shell">
+          <div class="chapter-copy">
+            <h3>{t(`joinPage.${role}.title`, locale)}</h3>
+            {[1, 2, 3, 4].map((num) => {
+              const key = `joinPage.${role}.p${num}`;
+              const value = t(key, locale);
+              return value === key ? null : <p>{value}</p>;
+            })}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="reading-section section-soft">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <h2>{t("joinPage.roles.title", locale)}</h2>
+          <p>{t("joinPage.roles.p1", locale)}</p>
+          <p>{t("joinPage.roles.p2", locale)}</p>
+          <p>{t("joinPage.roles.p3", locale)}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles-section">
+      <div class="wide-shell">
+        <div class="section-intro">
+          <h2>{t("joinPage.principles.title", locale)}</h2>
+        </div>
+        <div class="principle-list">
+          {roles.map((role) => (
+            <article class="principle">
+              <h3>{t(`joinPage.${role}.title`, locale)}</h3>
+              <p>{t(`joinPage.principles.${role}.desc`, locale)}</p>
+            </article>
+          ))}
+        </div>
+        <p class="text-closing-note">{t("joinPage.principles.closing", locale)}</p>
+      </div>
+    </section>
+
+    <section class="final-cta final-cta--compact">
+      <div class="final-shell">
+        <h2>{t("joinPage.cta.title", locale)}</h2>
+        <div class="final-actions">
+          <Button href={goPath(locale, "join", "join_final_form")}>{t("joinPage.cta.button1", locale)}</Button>
+          <Button href={`mailto:${site.email}`} variant="secondary" external>{t("joinPage.cta.button2", locale)}</Button>
+        </div>
+        <p class="closing-line">{t("joinPage.cta.closing", locale)}</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

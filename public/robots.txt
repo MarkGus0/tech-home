@@ -1,0 +1,16 @@
+# Search engines and AI crawlers may access public pages.
+User-agent: *
+Allow: /
+
+# Explicit OpenAI crawler access for ChatGPT search and user-requested browsing.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# LLM-readable site overview: https://techflows.app/llms.txt
+Sitemap: https://techflows.app/sitemap.xml

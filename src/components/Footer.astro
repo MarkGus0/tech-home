@@ -1,0 +1,25 @@
+---
+import { footerLinks, site, type Locale } from "@data/site";
+import { pagePath } from "@utils/i18n";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <a class="footer-brand" href={pagePath("home", locale)}>TechFlows</a>
+      <p>{locale === "zh" ? "关注青年科技创造者与早期项目的开放社区。" : "An open community for young tech creators and early-stage projects."}</p>
+    </div>
+    <nav class="footer-nav" aria-label={locale === "zh" ? "页脚导航" : "Footer navigation"}>
+      {footerLinks.map((item) => (
+        <a href={pagePath(item.page, locale)}>{item.label[locale]}</a>
+      ))}
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </nav>
+    <p class="footer-tagline">{locale === "zh" ? "让想做点什么的人，先找到彼此。" : "Let people who want to build something find each other first."}</p>
+  </div>
+</footer>

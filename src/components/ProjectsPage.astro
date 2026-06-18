@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button.astro";
+import { goPath } from "@data/forms";
+import { projectEmptyState } from "@data/projects";
+import type { Locale } from "@data/site";
+
+type Props = { locale: Locale };
+const { locale } = Astro.props;
+---
+<BaseLayout locale={locale} page="projects">
+  <main id="main" class="subpage-main subpage-main--projects">
+    <section class="hero sub-hero">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <h1>{locale === "zh" ? "项目记录" : "Projects"}</h1>
+          <div class="hero-detail hero-detail--compact">
+            <p>{locale === "zh" ? "认真记录那些还没有成熟、但已经开始发生的项目。" : "Documenting projects that are not mature yet, but have already begun."}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section section-soft">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <h2>{projectEmptyState.title[locale]}</h2>
+          <p>{projectEmptyState.body[locale]}</p>
+          <ul class="plain-list">
+            {projectEmptyState.details.map((item) => <li>{item[locale]}</li>)}
+          </ul>
+          <Button href={goPath(locale, "project", "projects_empty_submit")}>{locale === "zh" ? "提交你的项目" : "Submit your project"}</Button>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta final-cta--compact">
+      <div class="final-shell">
+        <h2>{locale === "zh" ? "一个项目被介绍清楚，有时就是它继续向前的第一步。" : "Sometimes, explaining a project clearly is the first step toward moving it forward."}</h2>
+        <div class="final-actions">
+          <Button href={goPath(locale, "project", "projects_final_project")}>{locale === "zh" ? "提交项目或想法" : "Submit a project or idea"}</Button>
+          <Button href={goPath(locale, "join", "projects_final_join")} variant="secondary">{locale === "zh" ? "加入 TechFlows" : "Join TechFlows"}</Button>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

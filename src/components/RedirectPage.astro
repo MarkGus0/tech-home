@@ -1,0 +1,36 @@
+﻿---
+import { goLinks, type GoSlug } from "@data/forms";
+import type { Locale } from "@data/site";
+
+type Props = {
+  slug: GoSlug;
+  locale: Locale;
+};
+
+const { slug, locale } = Astro.props;
+const link = goLinks[slug];
+const title = locale === "zh" ? "即将前往外部链接" : "Leaving TechFlows";
+const heading = locale === "zh"
+  ? "你将前往以下地址"
+  : "You are about to visit";
+const confirmLabel = locale === "zh" ? "确认并前往" : "Confirm & continue";
+const returnLabel = locale === "zh" ? "返回 TechFlows" : "Back to TechFlows";
+const returnPath = locale === "zh" ? "/" : "/en/";
+---
+
+<main class="redirect-shell">
+  <img
+    src="/assets/techflows-logo.png"
+    alt="TechFlows"
+    width="1610"
+    height="182"
+    class="redirect-logo"
+  />
+  <h1>{title}</h1>
+  <p>{heading}</p>
+  <p class="redirect-link-target">{link.target}</p>
+  <div class="redirect-actions">
+    <a class="button button-primary" rel="noopener noreferrer" href={link.target}>{confirmLabel}</a>
+    <a class="button button-secondary" href={returnPath}>{returnLabel}</a>
+  </div>
+</main>

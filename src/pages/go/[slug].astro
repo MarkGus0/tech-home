@@ -1,0 +1,31 @@
+﻿---
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+import RedirectPage from "@components/RedirectPage.astro";
+import { goLinks, type GoSlug } from "@data/forms";
+import "@styles/global.css";
+
+export function getStaticPaths() {
+  return Object.keys(goLinks).map((slug) => ({ params: { slug } }));
+}
+
+const slug = Astro.params.slug as GoSlug;
+const pageTitleZh = "外部链接确认";
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{pageTitleZh} — TechFlows</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  </head>
+  <body class="redirect-body" data-locale="zh" data-page="redirect">
+    <RedirectPage slug={slug} locale="zh" />
+    <Analytics />
+    <SpeedInsights />
+  </body>
+</html>

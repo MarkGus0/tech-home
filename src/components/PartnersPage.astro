@@ -1,0 +1,59 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button.astro";
+import RoleList from "@components/RoleList.astro";
+import { goPath } from "@data/forms";
+import { partnerTypes } from "@data/partners";
+import { site, type Locale } from "@data/site";
+import { t } from "@utils/i18n";
+
+type Props = { locale: Locale };
+const { locale } = Astro.props;
+---
+<BaseLayout locale={locale} page="partners">
+  <main id="main" class="subpage-main subpage-main--partners">
+    <section class="hero sub-hero">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <h1>{t("nav.partners", locale)}</h1>
+          <div class="hero-detail hero-detail--compact">
+            <p>{t("partners.hero.p1", locale)}</p>
+            <p>{t("partners.hero.p2", locale)}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section section-soft">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <h2>{t("partners.collab.title", locale)}</h2>
+          {[1, 2, 3, 4].map((num) => <p>{t(`partners.collab.p${num}`, locale)}</p>)}
+          <p class="mt-24"><strong>{locale === "zh" ? "联系我们：" : "Contact us: "}<a href={`mailto:${site.partnerEmail}`}>{site.partnerEmail}</a></strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <h2>{t("partners.who.title", locale)}</h2>
+          <RoleList items={partnerTypes} locale={locale} />
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta final-cta--compact">
+      <div class="final-shell">
+        <h2>{t("partners.cta.title", locale)}</h2>
+        <div class="final-copy">
+          {[1, 2, 3].map((num) => <p>{t(`partners.cta.p${num}`, locale)}</p>)}
+        </div>
+        <div class="final-actions">
+          <Button href={goPath(locale, "partner", "partners_final_partner")}>{t("partners.cta.button", locale)}</Button>
+          <Button href={`mailto:${site.partnerEmail}`} variant="secondary" external>{locale === "zh" ? "邮件联系" : "Email us"}</Button>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

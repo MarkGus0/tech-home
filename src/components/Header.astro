@@ -1,0 +1,90 @@
+---
+import { navItems, pages, type Locale, type PageId } from "@data/site";
+import { languageName, oppositeLocale, pagePath } from "@utils/i18n";
+
+type Props = {
+  locale: Locale;
+  page: PageId;
+};
+
+const { locale, page } = Astro.props;
+const otherLocale = oppositeLocale(locale);
+const switchPath = pages[page].paths[otherLocale];
+---
+<header class="site-header" data-header>
+  <div class="header-inner">
+    <a class="brand" href={pagePath("home", locale)} aria-label={locale === "zh" ? "TechFlows 首页" : "TechFlows home"}>
+      <img src="/assets/techflows-logo.png" alt="TechFlows" width="320" height="84" />
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label={locale === "zh" ? "打开导航" : "Open navigation"}
+      aria-expanded="false"
+      aria-controls="nav-panel"
+      data-menu-toggle
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-panel" id="nav-panel" data-nav-panel>
+      <nav class="primary-nav" aria-label={locale === "zh" ? "主导航" : "Main navigation"}>
+        {navItems.map((item) => (
+          <a href={pagePath(item.page, locale)} aria-current={item.page === page ? "page" : undefined}>
+            {item.label[locale]}
+          </a>
+        ))}
+      </nav>
+      <a
+        class="lang-toggle"
+        href={switchPath}
+        hreflang={otherLocale === "zh" ? "zh-CN" : "en"}
+        aria-label={locale === "zh" ? "Switch to English" : "切换到中文"}
+      >
+        <svg class="lang-toggle__icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M3 12h18"></path>
+          <path d="M12 3a13 13 0 0 1 0 18"></path>
+          <path d="M12 3a13 13 0 0 0 0 18"></path>
+        </svg>
+        <span>{languageName(locale)}</span>
+      </a>
+    </div>
+  </div>
+</header>
+<div class="nav-backdrop" data-nav-backdrop aria-hidden="true"></div>
+
+<script>
+  const header = document.querySelector("[data-header]");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const navPanel = document.querySelector("[data-nav-panel]");
+  const navBackdrop = document.querySelector("[data-nav-backdrop]");
+
+  const closeLabel = document.documentElement.lang.toLowerCase().startsWith("zh") ? "关闭导航" : "Close navigation";
+  const openLabel = document.documentElement.lang.toLowerCase().startsWith("zh") ? "打开导航" : "Open navigation";
+
+  function setMenu(open: boolean) {
+    if (!(header instanceof HTMLElement)) return;
+    header.dataset.open = String(open);
+    menuToggle?.setAttribute("aria-expanded", String(open));
+    menuToggle?.setAttribute("aria-label", open ? closeLabel : openLabel);
+    if (navBackdrop instanceof HTMLElement) {
+      navBackdrop.hidden = !open;
+      navBackdrop.style.opacity = open ? "1" : "0";
+    }
+  }
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = header instanceof HTMLElement && header.dataset.open === "true";
+    setMenu(!isOpen);
+  });
+  navBackdrop?.addEventListener("click", () => setMenu(false));
+  navPanel?.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest("a")) setMenu(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenu(false);
+  });
+</script>

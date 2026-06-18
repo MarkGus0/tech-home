@@ -1,0 +1,393 @@
+---
+import Button from "@components/Button.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { goPath } from "@data/forms";
+import type { Locale } from "@data/site";
+import { pagePath, t } from "@utils/i18n";
+
+type Props = { locale: Locale };
+const { locale } = Astro.props;
+
+const readingMap = [
+  ["happening", "readingMap.happening"],
+  ["community", "readingMap.community"],
+  ["work", "readingMap.work"],
+  ["stories", "readingMap.stories"],
+  ["opportunities", "readingMap.opportunities"],
+  ["path", "readingMap.path"],
+  ["identity", "readingMap.identity"],
+  ["co-build", "readingMap.coBuild"],
+  ["principles", "readingMap.principles"],
+  ["future", "readingMap.future"],
+  ["about", "readingMap.about"],
+  ["join", "readingMap.join"]
+];
+
+const narrativeSections = [
+  {
+    id: "happening",
+    title: "happening.title",
+    html: true,
+    soft: false,
+    paragraphs: [
+      "happening.p1",
+      "happening.p2",
+      "happening.p3",
+      "happening.p4",
+      "happening.p5",
+      "happening.p6",
+      "happening.p7",
+      "happening.p8",
+      "happening.p9",
+      "happening.p10",
+      "happening.p11"
+    ],
+    sub: {
+      title: "happening.sub.title",
+      paragraphs: ["happening.sub.p1", "happening.sub.p2", "happening.sub.p3", "happening.sub.p4", "happening.sub.p5"],
+      link: { href: pagePath("events", locale), label: "happening.link" }
+    }
+  },
+  {
+    id: "community",
+    title: "community.title",
+    soft: true,
+    paragraphs: [
+      "community.p1",
+      "community.p2",
+      "community.p3",
+      "community.p4",
+      "community.p5",
+      "community.p6",
+      "community.p7",
+      "community.p8"
+    ],
+    sub: {
+      title: "community.sub.title",
+      paragraphs: [
+        "community.sub.p1",
+        "community.sub.p2",
+        "community.sub.p3",
+        "community.sub.p4",
+        "community.sub.p5",
+        "community.sub.p6"
+      ]
+    }
+  },
+  {
+    id: "stories",
+    title: "stories.title",
+    paragraphs: ["stories.p1", "stories.p2", "stories.p3", "stories.p4"],
+    list: ["stories.list.1", "stories.list.2", "stories.list.3", "stories.list.4"],
+    after: ["stories.p5"],
+    link: { href: pagePath("projects", locale), label: "stories.link" }
+  },
+  {
+    id: "opportunities",
+    title: "opportunities.title",
+    soft: true,
+    paragraphs: [
+      "opportunities.p1",
+      "opportunities.p2",
+      "opportunities.p3",
+      "opportunities.p4",
+      "opportunities.p5",
+      "opportunities.p6",
+      "opportunities.p7"
+    ],
+    link: { href: pagePath("join", locale), label: "opportunities.link" }
+  },
+  {
+    id: "co-build",
+    title: "coBuild.title",
+    soft: true,
+    paragraphs: ["coBuild.p1", "coBuild.p2", "coBuild.p3", "coBuild.p4", "coBuild.p5", "coBuild.p6", "coBuild.p7", "coBuild.p8"],
+    link: { href: goPath(locale, "cobuild", "home_cobuild_section"), label: "coBuild.link" }
+  },
+  {
+    id: "future",
+    title: "future.title",
+    paragraphs: [
+      "future.p1",
+      "future.p2",
+      "future.p3",
+      "future.p4",
+      "future.p5",
+      "future.p6",
+      "future.p7",
+      "future.p8",
+      "future.p9",
+      "future.p10",
+      "future.p11"
+    ]
+  },
+  {
+    id: "about",
+    title: "about.title",
+    soft: true,
+    paragraphs: ["about.p1", "about.p2", "about.p3", "about.p4", "about.p5", "about.p6", "about.p7", "about.p8"]
+  }
+];
+
+const workItems = [1, 2, 3, 4];
+const pathSteps = [1, 2, 3, 4, 5];
+const identityItems = [1, 2, 3, 4, 5, 6];
+const principleItems = [1, 2, 3, 4];
+---
+<BaseLayout locale={locale} page="home">
+  <nav class="mobile-section-nav" aria-label={locale === "zh" ? "快速导航" : "Quick navigation"} data-mobile-section-nav>
+    {readingMap.map(([id, key]) => <a href={`#${id}`}>{t(key, locale)}</a>)}
+  </nav>
+
+  <aside class="reading-map" aria-label={locale === "zh" ? "阅读章节" : "Reading chapters"} data-reading-map>
+    <div class="reading-mode-control">
+      <button class="reading-mode-toggle" type="button" data-reading-mode-toggle>
+        <span class="reading-mode-icon" aria-hidden="true">↧</span>
+        <span class="reading-mode-label">{locale === "zh" ? "逐行阅读" : "Line-by-line"}</span>
+      </button>
+    </div>
+    <nav>
+      {readingMap.map(([id, key]) => <a href={`#${id}`}>{t(key, locale)}</a>)}
+    </nav>
+  </aside>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <h1 id="hero-title" class="reveal" set:html={t("hero.title", locale)} />
+          <div class="hero-detail">
+            <div class="hero-summary">
+              {[1, 2, 3, 4].map((num) => <p class="reveal">{t(`hero.summary.${num}`, locale)}</p>)}
+            </div>
+            <div class="hero-actions reveal" aria-label={locale === "zh" ? "主要行动" : "Primary actions"}>
+              <Button href={pagePath("events", locale)}>{locale === "zh" ? "看看近期活动" : "See upcoming events"}</Button>
+              <Button href={goPath(locale, "project", "home_hero_project")} variant="secondary">{locale === "zh" ? "提交项目或想法" : "Submit a project"}</Button>
+              <Button href={goPath(locale, "cobuild", "home_hero_cobuild")} variant="secondary">{locale === "zh" ? "参与社区共建" : "Help build the community"}</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {narrativeSections.slice(0, 2).map((section) => (
+      <section class={`reading-section ${section.soft ? "section-soft" : ""}`} id={section.id} aria-labelledby={`${section.id}-title`}>
+        <div class="section-shell">
+          <div class="chapter-copy">
+            <h2 id={`${section.id}-title`} class="reveal" set:html={section.html ? t(section.title, locale) : undefined}>{!section.html && t(section.title, locale)}</h2>
+            {section.paragraphs.map((key) => <p class="reveal">{t(key, locale)}</p>)}
+            {section.sub && (
+              <div class="subchapter">
+                <h3 class="reveal">{t(section.sub.title, locale)}</h3>
+                {section.sub.paragraphs.map((key) => <p class="reveal">{t(key, locale)}</p>)}
+                {section.sub.link && <a class="text-link reveal" href={section.sub.link.href}>{t(section.sub.link.label, locale)}</a>}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="work-section" id="work" aria-labelledby="work-title">
+      <div class="wide-shell">
+        <div class="section-intro">
+          <h2 id="work-title" class="reveal">{t("work.title", locale)}</h2>
+          <p class="reveal">{t("work.intro", locale)}</p>
+        </div>
+        <div class="work-list">
+          {workItems.map((num) => (
+            <article class="work-item reveal">
+              <h3>{t(`work.item${num}.title`, locale)}</h3>
+              <p>{t(`work.item${num}.desc`, locale)}</p>
+            </article>
+          ))}
+        </div>
+        <p class="work-end reveal">{t("work.end", locale)}</p>
+      </div>
+    </section>
+
+    {narrativeSections.slice(2, 4).map((section) => (
+      <section class={`reading-section ${section.soft ? "section-soft" : ""}`} id={section.id} aria-labelledby={`${section.id}-title`}>
+        <div class="section-shell">
+          <div class="chapter-copy">
+            <h2 id={`${section.id}-title`} class="reveal">{t(section.title, locale)}</h2>
+            {section.paragraphs.map((key) => <p class="reveal">{t(key, locale)}</p>)}
+            {section.list && <ul class="plain-list reveal">{section.list.map((key) => <li>{t(key, locale)}</li>)}</ul>}
+            {section.after?.map((key) => <p class="reveal">{t(key, locale)}</p>)}
+            {section.link && <a class="text-link reveal" href={section.link.href}>{t(section.link.label, locale)}</a>}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="path-section" id="path" aria-labelledby="path-title">
+      <div class="wide-shell">
+        <div class="section-intro">
+          <h2 id="path-title" class="reveal">{t("path.title", locale)}</h2>
+        </div>
+        <ol class="path-list">
+          {pathSteps.map((num) => (
+            <li class="path-step reveal">
+              <h3>{t(`path.step${num}.title`, locale)}</h3>
+              <p>{t(`path.step${num}.desc`, locale)}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="path-close">
+          <p class="reveal">{t("path.close1", locale)}</p>
+          <p class="reveal">{t("path.close2", locale)}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="identity-section" id="identity" aria-labelledby="identity-title">
+      <div class="wide-shell">
+        <div class="identity-grid">
+          <div class="section-intro">
+            <h2 id="identity-title" class="reveal">{t("identity.title", locale)}</h2>
+            <p class="reveal">{t("identity.intro", locale)}</p>
+          </div>
+          <ul class="identity-list">
+            {identityItems.map((num) => <li class="reveal">{t(`identity.item${num}`, locale)}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section section-soft" id="co-build" aria-labelledby="co-build-title">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <h2 id="co-build-title" class="reveal">{t("coBuild.title", locale)}</h2>
+          {["coBuild.p1", "coBuild.p2", "coBuild.p3", "coBuild.p4", "coBuild.p5"].map((key) => <p class="reveal">{t(key, locale)}</p>)}
+          <p class="reveal role-line">{t("coBuild.p6", locale)}</p>
+          {["coBuild.p7", "coBuild.p8"].map((key) => <p class="reveal">{t(key, locale)}</p>)}
+          <a class="text-link reveal" href={goPath(locale, "cobuild", "home_cobuild_section")}>{t("coBuild.link", locale)}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles-section" id="principles" aria-labelledby="principles-title">
+      <div class="wide-shell">
+        <div class="section-intro">
+          <h2 id="principles-title" class="reveal">{t("principles.title", locale)}</h2>
+        </div>
+        <div class="principle-list">
+          {principleItems.map((num) => (
+            <article class="principle reveal">
+              <h3>{t(`principles.item${num}.title`, locale)}</h3>
+              <p>{t(`principles.item${num}.desc`, locale)}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {narrativeSections.slice(5).map((section) => (
+      <section class={`reading-section ${section.soft ? "section-soft" : ""}`} id={section.id} aria-labelledby={`${section.id}-title`}>
+        <div class="section-shell">
+          <div class="chapter-copy">
+            <h2 id={`${section.id}-title`} class="reveal">{t(section.title, locale)}</h2>
+            {section.paragraphs.map((key) => <p class="reveal">{t(key, locale)}</p>)}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="final-cta" id="join" aria-labelledby="join-title">
+      <div class="final-shell">
+        <h2 id="join-title" class="reveal">{t("join.title", locale)}</h2>
+        <div class="final-copy">
+          {[1, 2, 3, 4, 5, 6].map((num) => (
+            <p class={`reveal ${num === 5 ? "strong-line" : ""}`}>{t(`join.p${num}`, locale)}</p>
+          ))}
+        </div>
+        <div class="final-actions reveal" aria-label={locale === "zh" ? "加入 TechFlows 的方式" : "Ways to join TechFlows"}>
+          <Button href={goPath(locale, "join", "home_final_join")}>{t("join.action.join", locale)}</Button>
+          <Button href={goPath(locale, "project", "home_final_project")} variant="secondary">{t("join.action.submit", locale)}</Button>
+          <Button href={goPath(locale, "cobuild", "home_final_cobuild")} variant="secondary">{t("join.action.coBuild", locale)}</Button>
+        </div>
+        <p class="closing-line reveal">{t("join.closing", locale)}</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const body = document.body;
+    const button = document.querySelector("[data-reading-mode-toggle]");
+    const label = button?.querySelector(".reading-mode-label");
+    const lines = Array.from(document.querySelectorAll(".reveal"));
+    const mapLinks = Array.from(document.querySelectorAll(".reading-map a, .mobile-section-nav a"));
+    let active = false;
+    let index = -1;
+
+    function text(on: boolean) {
+      const isZh = document.documentElement.lang.toLowerCase().startsWith("zh");
+      return on ? (isZh ? "显示全部" : "Show all") : (isZh ? "逐行阅读" : "Line-by-line");
+    }
+
+    function clearLines() {
+      lines.forEach((line) => line.classList.remove("is-line-active", "is-line-read"));
+      body.classList.remove("has-js");
+      body.classList.remove("is-reading-mode");
+    }
+
+    function setActiveNav() {
+      const current = lines[index];
+      const section = current instanceof Element ? current.closest("section") : null;
+      const href = section?.id ? `#${section.id}` : "";
+      mapLinks.forEach((link) => {
+        const match = link.getAttribute("href") === href;
+        if (match) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+    }
+
+    function showLine(next: number) {
+      if (!active || lines.length === 0) return;
+      index = Math.max(0, Math.min(next, lines.length - 1));
+      lines.forEach((line, lineIndex) => {
+        line.classList.toggle("is-line-read", lineIndex < index);
+        line.classList.toggle("is-line-active", lineIndex === index);
+      });
+      const current = lines[index];
+      if (current instanceof Element) {
+        const top = current.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: Math.max(0, top - window.innerHeight * 0.28 - 80), behavior: reducedMotion ? "auto" : "smooth" });
+      }
+      setActiveNav();
+    }
+
+    function enable() {
+      if (reducedMotion) return;
+      active = true;
+      body.classList.add("has-js", "is-reading-mode");
+      if (label) label.textContent = text(true);
+      showLine(0);
+    }
+
+    function disable() {
+      active = false;
+      if (label) label.textContent = text(false);
+      clearLines();
+    }
+
+    button?.addEventListener("click", () => active ? disable() : enable());
+    document.addEventListener("keydown", (event) => {
+      if (!active) return;
+      if (event.key === "ArrowDown" || event.key === "j") {
+        event.preventDefault();
+        showLine(index + 1);
+      }
+      if (event.key === "ArrowUp" || event.key === "k") {
+        event.preventDefault();
+        showLine(index - 1);
+      }
+    });
+    document.addEventListener("wheel", (event) => {
+      if (!active) return;
+      event.preventDefault();
+      showLine(index + (event.deltaY > 0 ? 1 : -1));
+    }, { passive: false });
+  </script>
+</BaseLayout>

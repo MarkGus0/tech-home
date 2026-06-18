@@ -1,0 +1,110 @@
+---
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { absoluteUrl } from "@utils/i18n";
+import { pages, site, type Locale, type PageId } from "@data/site";
+import "@styles/global.css";
+
+type Props = {
+  locale: Locale;
+  page: PageId;
+  noindex?: boolean;
+};
+
+const { locale, page, noindex = false } = Astro.props;
+const meta = pages[page];
+const canonical = absoluteUrl(meta.paths[locale]);
+const alternateZh = absoluteUrl(meta.paths.zh);
+const alternateEn = absoluteUrl(meta.paths.en);
+const image = absoluteUrl(meta.image);
+const htmlLang = locale === "zh" ? "zh-CN" : "en";
+const imageAlt = locale === "zh" ? `${site.name} 页面预览图` : `${site.name} page preview`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${site.url}/#organization`,
+      url: site.url,
+      name: site.name,
+      alternateName: ["TechFlows Community", "TechFlows社区"],
+      description: meta.description[locale],
+      foundingDate: "2026",
+      areaServed: ["China", "Global"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: site.email,
+        contactType: "community"
+      },
+      sameAs: ["https://mp.weixin.qq.com/s/Xd6AtWla_79RNiVMIC3OuA"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+      inLanguage: ["zh-CN", "en"],
+      publisher: { "@id": `${site.url}/#organization` }
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: meta.title[locale],
+      description: meta.description[locale],
+      inLanguage: htmlLang,
+      isPartOf: { "@id": `${site.url}/#website` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: image
+      },
+      dateModified: site.lastUpdated
+    }
+  ]
+};
+---
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f8fafb" />
+    <meta name="author" content="TechFlows" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
+    <title>{meta.title[locale]}</title>
+    <meta name="description" content={meta.description[locale]} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="zh" href={alternateZh} />
+    <link rel="alternate" hreflang="en" href={alternateEn} />
+    <link rel="alternate" hreflang="x-default" href={alternateZh} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TechFlows" />
+    <meta property="og:title" content={meta.title[locale]} />
+    <meta property="og:description" content={meta.description[locale]} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:locale" content={locale === "zh" ? "zh_CN" : "en_US"} />
+    <meta property="og:locale:alternate" content={locale === "zh" ? "en_US" : "zh_CN"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={meta.title[locale]} />
+    <meta name="twitter:description" content={meta.description[locale]} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body data-locale={locale} data-page={page}>
+    <a class="skip-link" href="#main">{locale === "zh" ? "跳到正文" : "Skip to content"}</a>
+    <Header locale={locale} page={page} />
+    <slot />
+    <Footer locale={locale} />
+    <Analytics />
+    <SpeedInsights />
+  </body>
+</html>

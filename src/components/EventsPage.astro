@@ -1,0 +1,124 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button.astro";
+import EventCard from "@components/EventCard.astro";
+import { goLinks, goPath } from "@data/forms";
+import { pastEvents, upcomingEvent } from "@data/events";
+import type { Locale } from "@data/site";
+import { pagePath, t } from "@utils/i18n";
+
+type Props = { locale: Locale };
+const { locale } = Astro.props;
+---
+<BaseLayout locale={locale} page="events">
+  <main id="main" class="subpage-main subpage-main--events">
+    <section class="hero sub-hero">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <h1>{t("nav.events", locale)}</h1>
+          <div class="hero-detail hero-detail--compact">
+            <p>{t("events.hero.p1", locale)}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section section-soft">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <p>{t("events.intro.p1", locale)}</p>
+          <p>{t("events.intro.p2", locale)}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <h2>{t("events.upcoming.title", locale)}</h2>
+          <article class="event-card event-card--featured">
+            <p class="event-card__label">{upcomingEvent.status[locale]}</p>
+            <h3>{upcomingEvent.title[locale]}</h3>
+            <p>{t("events.upcoming.p1", locale)}</p>
+            <p>{upcomingEvent.summary[locale]}</p>
+            <Button href={goPath(locale, upcomingEvent.cta, "events_upcoming_notice")}>{goLinks[upcomingEvent.cta].label[locale]}</Button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section section-soft">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <h2>{t("events.hope.title", locale)}</h2>
+          <div class="work-list">
+            {[1, 2, 3].map((num) => (
+              <article class="work-item">
+                <h3>{t(`events.hope.h${num}.title`, locale)}</h3>
+                <p>{t(`events.hope.h${num}.desc`, locale)}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="path-section">
+      <div class="wide-shell">
+        <div class="section-intro">
+          <h2>{t("events.past.title", locale)}</h2>
+          <p>{t("events.past.intro", locale)}</p>
+        </div>
+        <div class="event-grid">
+          {pastEvents.map((event) => <EventCard event={event} locale={locale} source="events_past_review" />)}
+          <article class="event-card">
+            <p class="event-card__label">{locale === "zh" ? "持续记录" : "Ongoing records"}</p>
+            <h3>{t("events.past.event2.title", locale)}</h3>
+            <p>{t("events.past.event2.desc", locale)}</p>
+            <Button href={goPath(locale, "wechat-album", "events_wechat_album")} variant="secondary">{t("events.past.event2.button", locale)}</Button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <h2>{t("events.part.title", locale)}</h2>
+          <p>{t("events.part.intro", locale)}</p>
+          <div class="work-list">
+            <article class="work-item">
+              <h3>{t("events.part.h1.title", locale)}</h3>
+              <p>{t("events.part.h1.desc", locale)}</p>
+              <Button href={goPath(locale, "project", "events_part_project")}>{t("events.part.h1.button", locale)}</Button>
+            </article>
+            <article class="work-item">
+              <h3>{t("events.part.h2.title", locale)}</h3>
+              <p>{t("events.part.h2.desc", locale)}</p>
+              <Button href={goPath(locale, "cobuild", "events_part_cobuild")} variant="secondary">{t("events.part.h2.button", locale)}</Button>
+            </article>
+            <article class="work-item">
+              <h3>{t("events.part.h3.title", locale)}</h3>
+              <p>{t("events.part.h3.desc", locale)}</p>
+              <Button href={goPath(locale, "partner", "events_part_partner")} variant="secondary">{t("partners.cta.button", locale)}</Button>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta final-cta--compact">
+      <div class="final-shell">
+        <h2>{t("events.cta.title", locale)}</h2>
+        <div class="final-copy">
+          <p>{t("events.cta.p1", locale)}</p>
+          <p>{t("events.cta.p2", locale)}</p>
+        </div>
+        <div class="final-actions">
+          <Button href={goPath(locale, "join", "events_final_join")}>{t("join.action.join", locale)}</Button>
+          <Button href={pagePath("projects", locale)} variant="secondary">{locale === "zh" ? "查看项目记录" : "View projects"}</Button>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

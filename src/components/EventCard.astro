@@ -1,0 +1,21 @@
+---
+import Button from "@components/Button.astro";
+import { goLinks, goPath } from "@data/forms";
+import type { Locale } from "@data/site";
+import type { EventEntry } from "@data/events";
+
+type Props = {
+  event: EventEntry;
+  locale: Locale;
+  source: string;
+};
+
+const { event, locale, source } = Astro.props;
+const cta = goLinks[event.cta];
+---
+<article class="event-card">
+  <p class="event-card__label">{event.label[locale]}</p>
+  <h3>{event.title[locale]}</h3>
+  <p>{event.summary[locale]}</p>
+  <Button href={goPath(locale, cta.slug, source)} variant="secondary">{cta.label[locale]}</Button>
+</article>
