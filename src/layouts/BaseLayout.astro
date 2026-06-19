@@ -100,6 +100,7 @@ const structuredData = {
     <meta name="twitter:image" content={image} />
     <meta name="twitter:image:alt" content={imageAlt} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script is:inline src="/assets/console-easter-egg.js" defer></script>
   </head>
   <body data-locale={locale} data-page={page}>
     <a class="skip-link" href="#main">{locale === "zh" ? "跳到正文" : "Skip to content"}</a>
