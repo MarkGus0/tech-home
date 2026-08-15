@@ -1,0 +1,107 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button.astro";
+import { goPath } from "@data/forms";
+import { type Locale } from "@data/site";
+import { pagePath, t } from "@utils/i18n";
+
+type Props = { locale: Locale };
+const { locale } = Astro.props;
+const formats = ["hackathon", "challenge", "sprint", "showcase"] as const;
+const builderSignals = ["onsite", "commitment", "together"] as const;
+---
+<BaseLayout locale={locale} page="unfino">
+  <main id="main" class="subpage-main subpage-main--unfino">
+    <section class="hero sub-hero">
+      <div class="hero-shell">
+        <div class="hero-copy unfino-reveal">
+          <p class="unfino-wordmark">未完场 / UNFINO</p>
+          <h1>{t("unfinoBrand.hero.title", locale)}</h1>
+          <div class="hero-detail hero-detail--compact">
+            <p>{t("unfinoBrand.hero.lead", locale)}</p>
+          </div>
+          <div class="final-actions unfino-actions">
+            <Button href="#formats">{t("unfinoBrand.hero.button1", locale)}</Button>
+            <Button href={pagePath("events", locale)} variant="secondary">{t("unfinoBrand.hero.button2", locale)}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section section-soft unfino-reveal" id="formats" aria-labelledby="formats-title">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <p class="unfino-kicker">{t("unfinoBrand.formats.kicker", locale)}</p>
+          <h2 id="formats-title">{t("unfinoBrand.formats.title", locale)}</h2>
+          <p>{t("unfinoBrand.formats.intro", locale)}</p>
+          <div class="work-list unfino-format-list">
+            {formats.map((format, index) => (
+              <article class="work-item unfino-format-item unfino-reveal" style={`--delay: ${index * 60}ms`}>
+                <div class="unfino-format-item__heading">
+                  <span class="unfino-index">0{index + 1}</span>
+                  <h3>{t(`unfinoBrand.formats.${format}.title`, locale)}</h3>
+                  {format === "hackathon" && <span class="unfino-format-item__tag">{t("unfinoBrand.formats.example", locale)}</span>}
+                </div>
+                <p>{t(`unfinoBrand.formats.${format}.description`, locale)}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading-section unfino-reveal" id="builder" aria-labelledby="builder-title">
+      <div class="section-shell">
+        <div class="chapter-copy">
+          <p class="unfino-kicker">{t("unfinoBrand.builder.kicker", locale)}</p>
+          <h2 id="builder-title">{t("unfinoBrand.builder.title", locale)}</h2>
+          <p>{t("unfinoBrand.builder.lead", locale)}</p>
+          <div class="work-list unfino-builder-list">
+            {builderSignals.map((signal, index) => (
+              <article class="work-item unfino-builder-item unfino-reveal" style={`--delay: ${index * 60}ms`}>
+                <div class="unfino-builder-item__heading">
+                  <span class="unfino-index">0{index + 1}</span>
+                  <h3>{t(`unfinoBrand.builder.${signal}.title`, locale)}</h3>
+                </div>
+                <p>{t(`unfinoBrand.builder.${signal}.description`, locale)}</p>
+              </article>
+            ))}
+          </div>
+          <p class="unfino-builder-note">{t("unfinoBrand.builder.note", locale)}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta final-cta--compact unfino-final unfino-reveal" id="next" aria-labelledby="next-title">
+      <div class="final-shell">
+        <p class="unfino-kicker">{t("unfinoBrand.next.kicker", locale)}</p>
+        <h2 id="next-title">{t("unfinoBrand.next.title", locale)}</h2>
+        <div class="final-copy">
+          <p>{t("unfinoBrand.next.copy", locale)}</p>
+        </div>
+        <div class="final-actions">
+          <Button href={pagePath("events", locale)}>{t("unfinoBrand.next.button1", locale)}</Button>
+          <Button href={goPath(locale, "project", "unfino_next_project")} variant="secondary">{t("unfinoBrand.next.button2", locale)}</Button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealItems = Array.from(document.querySelectorAll(".unfino-reveal"));
+
+    if (reduceMotion) {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8%" });
+      revealItems.forEach((item) => observer.observe(item));
+    }
+  </script>
+</BaseLayout>

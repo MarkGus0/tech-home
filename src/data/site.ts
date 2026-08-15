@@ -1,7 +1,7 @@
 import type { Localized } from "./translations";
 
 export type Locale = "zh" | "en";
-export type PageId = "home" | "events" | "join" | "partners" | "projects";
+export type PageId = "home" | "events" | "unfino" | "join" | "partners" | "projects";
 
 export const locales: Locale[] = ["zh", "en"];
 
@@ -46,6 +46,16 @@ export const pages: Record<PageId, PageMeta> = {
     paths: { zh: "/events/", en: "/en/events/" },
     image: "/assets/og-events.png"
   },
+  unfino: {
+    id: "unfino",
+    title: { zh: "未完场 UNFINO — TechFlows", en: "UNFINO — TechFlows" },
+    description: {
+      zh: "未完场 UNFINO 是 TechFlows 旗下的项目续航型科技赛事，让项目在颁奖之后继续推进。",
+      en: "UNFINO is TechFlows' project-continuation challenge, built to help early projects keep moving after the event ends."
+    },
+    paths: { zh: "/unfino/", en: "/en/unfino/" },
+    image: "/assets/og-events.png"
+  },
   join: {
     id: "join",
     title: { zh: "申请加入 — TechFlows", en: "Join — TechFlows" },
@@ -81,6 +91,7 @@ export const pages: Record<PageId, PageMeta> = {
 export const navItems: Array<{ page: PageId; label: Localized<string> }> = [
   { page: "home", label: { zh: "首页", en: "Home" } },
   { page: "events", label: { zh: "活动", en: "Events" } },
+  { page: "unfino", label: { zh: "UNFINO", en: "UNFINO" } },
   { page: "projects", label: { zh: "项目记录", en: "Projects" } },
   { page: "partners", label: { zh: "合作伙伴", en: "Partners" } },
   { page: "join", label: { zh: "申请加入", en: "Join" } }
@@ -88,6 +99,7 @@ export const navItems: Array<{ page: PageId; label: Localized<string> }> = [
 
 export const footerLinks: Array<{ page: PageId; label: Localized<string> }> = [
   { page: "events", label: { zh: "活动", en: "Events" } },
+  { page: "unfino", label: { zh: "UNFINO", en: "UNFINO" } },
   { page: "projects", label: { zh: "项目", en: "Projects" } },
   { page: "join", label: { zh: "社区共建", en: "Co-build" } },
   { page: "partners", label: { zh: "合作伙伴", en: "Partners" } }

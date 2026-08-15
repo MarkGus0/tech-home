@@ -3,6 +3,7 @@ import { pages, site } from "@data/site";
 const sitemapMeta = {
   home: { changefreq: "weekly", priority: "1.0" },
   events: { changefreq: "weekly", priority: "0.9" },
+  unfino: { changefreq: "monthly", priority: "0.9" },
   projects: { changefreq: "weekly", priority: "0.8" },
   partners: { changefreq: "monthly", priority: "0.7" },
   join: { changefreq: "monthly", priority: "0.7" }

@@ -1,6 +1,6 @@
 ---
-import Button from "@components/Button.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button.astro";
 import { goPath } from "@data/forms";
 import type { Locale } from "@data/site";
 import { pagePath, t } from "@utils/i18n";
@@ -9,130 +9,120 @@ type Props = { locale: Locale };
 const { locale } = Astro.props;
 
 const readingMap = [
-  ["happening", "readingMap.happening"],
-  ["community", "readingMap.community"],
-  ["work", "readingMap.work"],
-  ["stories", "readingMap.stories"],
-  ["opportunities", "readingMap.opportunities"],
-  ["path", "readingMap.path"],
-  ["identity", "readingMap.identity"],
-  ["co-build", "readingMap.coBuild"],
-  ["principles", "readingMap.principles"],
-  ["future", "readingMap.future"],
-  ["about", "readingMap.about"],
-  ["join", "readingMap.join"]
-];
+  ["now", "home.nav.now"],
+  ["start", "home.nav.start"],
+  ["principles", "home.nav.principles"],
+  ["status", "home.nav.status"],
+  ["join", "home.nav.join"]
+] as const;
 
-const narrativeSections = [
+const entryCards = [
   {
-    id: "happening",
-    title: "happening.title",
-    html: true,
-    soft: false,
-    paragraphs: [
-      "happening.p1",
-      "happening.p2",
-      "happening.p3",
-      "happening.p4",
-      "happening.p5",
-      "happening.p6",
-      "happening.p7",
-      "happening.p8",
-      "happening.p9",
-      "happening.p10",
-      "happening.p11"
-    ],
-    sub: {
-      title: "happening.sub.title",
-      paragraphs: ["happening.sub.p1", "happening.sub.p2", "happening.sub.p3", "happening.sub.p4", "happening.sub.p5"],
-      link: { href: pagePath("events", locale), label: "happening.link" }
-    }
+    status: "hero.entry.events.status",
+    title: "hero.entry.events.title",
+    description: "hero.entry.events.description",
+    cta: "hero.entry.events.cta",
+    href: pagePath("events", locale),
+    variant: "primary"
   },
   {
-    id: "community",
-    title: "community.title",
-    soft: true,
-    paragraphs: [
-      "community.p1",
-      "community.p2",
-      "community.p3",
-      "community.p4",
-      "community.p5",
-      "community.p6",
-      "community.p7",
-      "community.p8"
-    ],
-    sub: {
-      title: "community.sub.title",
-      paragraphs: [
-        "community.sub.p1",
-        "community.sub.p2",
-        "community.sub.p3",
-        "community.sub.p4",
-        "community.sub.p5",
-        "community.sub.p6"
-      ]
-    }
+    status: "hero.entry.project.status",
+    title: "hero.entry.project.title",
+    description: "hero.entry.project.description",
+    cta: "hero.entry.project.cta",
+    href: goPath(locale, "project", "home_entry_project"),
+    variant: "secondary"
   },
   {
-    id: "stories",
-    title: "stories.title",
-    paragraphs: ["stories.p1", "stories.p2", "stories.p3", "stories.p4"],
-    list: ["stories.list.1", "stories.list.2", "stories.list.3", "stories.list.4"],
-    after: ["stories.p5"],
-    link: { href: pagePath("projects", locale), label: "stories.link" }
-  },
-  {
-    id: "opportunities",
-    title: "opportunities.title",
-    soft: true,
-    paragraphs: [
-      "opportunities.p1",
-      "opportunities.p2",
-      "opportunities.p3",
-      "opportunities.p4",
-      "opportunities.p5",
-      "opportunities.p6",
-      "opportunities.p7"
-    ],
-    link: { href: pagePath("join", locale), label: "opportunities.link" }
-  },
-  {
-    id: "co-build",
-    title: "coBuild.title",
-    soft: true,
-    paragraphs: ["coBuild.p1", "coBuild.p2", "coBuild.p3", "coBuild.p4", "coBuild.p5", "coBuild.p6", "coBuild.p7", "coBuild.p8"],
-    link: { href: goPath(locale, "cobuild", "home_cobuild_section"), label: "coBuild.link" }
-  },
-  {
-    id: "future",
-    title: "future.title",
-    paragraphs: [
-      "future.p1",
-      "future.p2",
-      "future.p3",
-      "future.p4",
-      "future.p5",
-      "future.p6",
-      "future.p7",
-      "future.p8",
-      "future.p9",
-      "future.p10",
-      "future.p11"
-    ]
-  },
-  {
-    id: "about",
-    title: "about.title",
-    soft: true,
-    paragraphs: ["about.p1", "about.p2", "about.p3", "about.p4", "about.p5", "about.p6", "about.p7", "about.p8"]
+    status: "hero.entry.cobuild.status",
+    title: "hero.entry.cobuild.title",
+    description: "hero.entry.cobuild.description",
+    cta: "hero.entry.cobuild.cta",
+    href: goPath(locale, "cobuild", "home_entry_cobuild"),
+    variant: "secondary"
   }
-];
+] as const;
 
-const workItems = [1, 2, 3, 4];
-const pathSteps = [1, 2, 3, 4, 5];
-const identityItems = [1, 2, 3, 4, 5, 6];
-const principleItems = [1, 2, 3, 4];
+const workCards = [
+  {
+    title: "home.now.events.title",
+    description: "home.now.events.description",
+    link: "home.now.events.link",
+    href: pagePath("events", locale)
+  },
+  {
+    title: "home.now.projects.title",
+    description: "home.now.projects.description",
+    link: "home.now.projects.link",
+    href: pagePath("projects", locale)
+  },
+  {
+    title: "home.now.connections.title",
+    description: "home.now.connections.description",
+    link: "home.now.connections.link",
+    href: goPath(locale, "cobuild", "home_now_connections")
+  }
+] as const;
+
+const startCards = [
+  {
+    title: "home.start.curious.title",
+    description: "home.start.curious.description",
+    cta: "home.start.curious.cta",
+    href: pagePath("events", locale),
+    variant: "secondary"
+  },
+  {
+    title: "home.start.project.title",
+    description: "home.start.project.description",
+    cta: "home.start.project.cta",
+    href: goPath(locale, "project", "home_start_project"),
+    variant: "primary"
+  },
+  {
+    title: "home.start.builder.title",
+    description: "home.start.builder.description",
+    cta: "home.start.builder.cta",
+    href: goPath(locale, "cobuild", "home_start_builder"),
+    variant: "secondary"
+  },
+  {
+    title: "home.start.partner.title",
+    description: "home.start.partner.description",
+    cta: "home.start.partner.cta",
+    href: pagePath("partners", locale),
+    variant: "secondary"
+  }
+] as const;
+
+const principles = ["maturity", "honesty", "continuity"] as const;
+
+const statusRows = [
+  {
+    label: "home.status.events.label",
+    value: "home.status.events.value",
+    cta: "home.status.events.cta",
+    href: pagePath("events", locale)
+  },
+  {
+    label: "home.status.projects.label",
+    value: "home.status.projects.value",
+    cta: "home.status.projects.cta",
+    href: pagePath("projects", locale)
+  },
+  {
+    label: "home.status.cobuild.label",
+    value: "home.status.cobuild.value",
+    cta: "home.status.cobuild.cta",
+    href: goPath(locale, "cobuild", "home_status_cobuild")
+  },
+  {
+    label: "home.status.partners.label",
+    value: "home.status.partners.value",
+    cta: "home.status.partners.cta",
+    href: pagePath("partners", locale)
+  }
+] as const;
 ---
 <BaseLayout locale={locale} page="home">
   <nav class="mobile-section-nav" aria-label={locale === "zh" ? "快速导航" : "Quick navigation"} data-mobile-section-nav>
@@ -151,162 +141,128 @@ const principleItems = [1, 2, 3, 4];
     </nav>
   </aside>
 
-  <main id="main">
-    <section class="hero" id="home" aria-labelledby="hero-title">
+  <main id="main" class="home-main">
+    <section class="hero home-hero" id="home" aria-labelledby="hero-title">
       <div class="hero-shell">
         <div class="hero-copy">
           <h1 id="hero-title" class="reveal" set:html={t("hero.title", locale)} />
           <div class="hero-detail">
             <div class="hero-summary">
-              {[1, 2, 3, 4].map((num) => <p class="reveal">{t(`hero.summary.${num}`, locale)}</p>)}
+              <p class="reveal">{t("hero.summary.1", locale)}</p>
+              <p class="reveal">{t("hero.summary.2", locale)}</p>
+              <p class="reveal">{t("hero.summary.3", locale)}</p>
             </div>
-            <div class="hero-actions reveal" aria-label={locale === "zh" ? "主要行动" : "Primary actions"}>
-              <Button href={pagePath("events", locale)}>{locale === "zh" ? "看看近期活动" : "See upcoming events"}</Button>
-              <Button href={goPath(locale, "project", "home_hero_project")} variant="secondary">{locale === "zh" ? "提交项目或想法" : "Submit a project"}</Button>
-              <Button href={goPath(locale, "cobuild", "home_hero_cobuild")} variant="secondary">{locale === "zh" ? "参与社区共建" : "Help build the community"}</Button>
-            </div>
+            <p class="hero-functional reveal">{t("hero.summary.4", locale)}</p>
+          </div>
+
+          <div class="hero-entry-heading reveal">
+            <p class="hero-entry-kicker">{t("hero.entry.kicker", locale)}</p>
+            <h2>{t("hero.entry.title", locale)}</h2>
+          </div>
+          <div class="hero-entry-grid" aria-label={locale === "zh" ? "现在可以从这里开始" : "Start here"}>
+            {entryCards.map((card) => (
+              <article class="hero-entry-card reveal">
+                <p class="hero-entry-card__status">{t(card.status, locale)}</p>
+                <h3>{t(card.title, locale)}</h3>
+                <p class="hero-entry-card__description">{t(card.description, locale)}</p>
+                <Button href={card.href} variant={card.variant}>{t(card.cta, locale)}</Button>
+              </article>
+            ))}
           </div>
         </div>
       </div>
     </section>
 
-    {narrativeSections.slice(0, 2).map((section) => (
-      <section class={`reading-section ${section.soft ? "section-soft" : ""}`} id={section.id} aria-labelledby={`${section.id}-title`}>
-        <div class="section-shell">
-          <div class="chapter-copy">
-            <h2 id={`${section.id}-title`} class="reveal" set:html={section.html ? t(section.title, locale) : undefined}>{!section.html && t(section.title, locale)}</h2>
-            {section.paragraphs.map((key) => <p class="reveal">{t(key, locale)}</p>)}
-            {section.sub && (
-              <div class="subchapter">
-                <h3 class="reveal">{t(section.sub.title, locale)}</h3>
-                {section.sub.paragraphs.map((key) => <p class="reveal">{t(key, locale)}</p>)}
-                {section.sub.link && <a class="text-link reveal" href={section.sub.link.href}>{t(section.sub.link.label, locale)}</a>}
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-    ))}
-
-    <section class="work-section" id="work" aria-labelledby="work-title">
+    <section class="home-compact-section home-now-section" id="now" aria-labelledby="now-title">
       <div class="wide-shell">
-        <div class="section-intro">
-          <h2 id="work-title" class="reveal">{t("work.title", locale)}</h2>
-          <p class="reveal">{t("work.intro", locale)}</p>
+        <div class="section-intro reveal">
+          <p class="home-section-kicker">{t("home.now.kicker", locale)}</p>
+          <h2 id="now-title">{t("home.now.title", locale)}</h2>
+          <p>{t("home.now.intro", locale)}</p>
         </div>
-        <div class="work-list">
-          {workItems.map((num) => (
-            <article class="work-item reveal">
-              <h3>{t(`work.item${num}.title`, locale)}</h3>
-              <p>{t(`work.item${num}.desc`, locale)}</p>
-            </article>
-          ))}
-        </div>
-        <p class="work-end reveal">{t("work.end", locale)}</p>
-      </div>
-    </section>
-
-    {narrativeSections.slice(2, 4).map((section) => (
-      <section class={`reading-section ${section.soft ? "section-soft" : ""}`} id={section.id} aria-labelledby={`${section.id}-title`}>
-        <div class="section-shell">
-          <div class="chapter-copy">
-            <h2 id={`${section.id}-title`} class="reveal">{t(section.title, locale)}</h2>
-            {section.paragraphs.map((key) => <p class="reveal">{t(key, locale)}</p>)}
-            {section.list && <ul class="plain-list reveal">{section.list.map((key) => <li>{t(key, locale)}</li>)}</ul>}
-            {section.after?.map((key) => <p class="reveal">{t(key, locale)}</p>)}
-            {section.link && <a class="text-link reveal" href={section.link.href}>{t(section.link.label, locale)}</a>}
-          </div>
-        </div>
-      </section>
-    ))}
-
-    <section class="path-section" id="path" aria-labelledby="path-title">
-      <div class="wide-shell">
-        <div class="section-intro">
-          <h2 id="path-title" class="reveal">{t("path.title", locale)}</h2>
-        </div>
-        <ol class="path-list">
-          {pathSteps.map((num) => (
-            <li class="path-step reveal">
-              <h3>{t(`path.step${num}.title`, locale)}</h3>
-              <p>{t(`path.step${num}.desc`, locale)}</p>
-            </li>
-          ))}
-        </ol>
-        <div class="path-close">
-          <p class="reveal">{t("path.close1", locale)}</p>
-          <p class="reveal">{t("path.close2", locale)}</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="identity-section" id="identity" aria-labelledby="identity-title">
-      <div class="wide-shell">
-        <div class="identity-grid">
-          <div class="section-intro">
-            <h2 id="identity-title" class="reveal">{t("identity.title", locale)}</h2>
-            <p class="reveal">{t("identity.intro", locale)}</p>
-          </div>
-          <ul class="identity-list">
-            {identityItems.map((num) => <li class="reveal">{t(`identity.item${num}`, locale)}</li>)}
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="reading-section section-soft" id="co-build" aria-labelledby="co-build-title">
-      <div class="section-shell">
-        <div class="chapter-copy">
-          <h2 id="co-build-title" class="reveal">{t("coBuild.title", locale)}</h2>
-          {["coBuild.p1", "coBuild.p2", "coBuild.p3", "coBuild.p4", "coBuild.p5"].map((key) => <p class="reveal">{t(key, locale)}</p>)}
-          <p class="reveal role-line">{t("coBuild.p6", locale)}</p>
-          {["coBuild.p7", "coBuild.p8"].map((key) => <p class="reveal">{t(key, locale)}</p>)}
-          <a class="text-link reveal" href={goPath(locale, "cobuild", "home_cobuild_section")}>{t("coBuild.link", locale)}</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="principles-section" id="principles" aria-labelledby="principles-title">
-      <div class="wide-shell">
-        <div class="section-intro">
-          <h2 id="principles-title" class="reveal">{t("principles.title", locale)}</h2>
-        </div>
-        <div class="principle-list">
-          {principleItems.map((num) => (
-            <article class="principle reveal">
-              <h3>{t(`principles.item${num}.title`, locale)}</h3>
-              <p>{t(`principles.item${num}.desc`, locale)}</p>
+        <div class="home-feature-grid">
+          {workCards.map((card) => (
+            <article class="home-feature-card reveal">
+              <h3>{t(card.title, locale)}</h3>
+              <p>{t(card.description, locale)}</p>
+              <a class="text-link" href={card.href}>{t(card.link, locale)}</a>
             </article>
           ))}
         </div>
       </div>
     </section>
 
-    {narrativeSections.slice(5).map((section) => (
-      <section class={`reading-section ${section.soft ? "section-soft" : ""}`} id={section.id} aria-labelledby={`${section.id}-title`}>
-        <div class="section-shell">
-          <div class="chapter-copy">
-            <h2 id={`${section.id}-title`} class="reveal">{t(section.title, locale)}</h2>
-            {section.paragraphs.map((key) => <p class="reveal">{t(key, locale)}</p>)}
-          </div>
+    <section class="home-compact-section home-start-section" id="start" aria-labelledby="start-title">
+      <div class="wide-shell">
+        <div class="section-intro reveal">
+          <p class="home-section-kicker">{t("home.start.kicker", locale)}</p>
+          <h2 id="start-title">{t("home.start.title", locale)}</h2>
+          <p>{t("home.start.intro", locale)}</p>
         </div>
-      </section>
-    ))}
+        <div class="home-start-grid">
+          {startCards.map((card, index) => (
+            <article class="home-start-card reveal">
+              <p class="home-start-card__index">0{index + 1}</p>
+              <h3>{t(card.title, locale)}</h3>
+              <p>{t(card.description, locale)}</p>
+              <Button href={card.href} variant={card.variant}>{t(card.cta, locale)}</Button>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
 
-    <section class="final-cta" id="join" aria-labelledby="join-title">
+    <section class="home-compact-section home-principles-section" id="principles" aria-labelledby="principles-title">
+      <div class="wide-shell">
+        <div class="section-intro reveal">
+          <p class="home-section-kicker">{t("home.principles.kicker", locale)}</p>
+          <h2 id="principles-title">{t("home.principles.title", locale)}</h2>
+        </div>
+        <div class="home-principle-grid">
+          {principles.map((principle, index) => (
+            <article class="home-principle-card reveal">
+              <p class="home-principle-card__index">0{index + 1}</p>
+              <h3>{t(`home.principles.${principle}.title`, locale)}</h3>
+              <p>{t(`home.principles.${principle}.description`, locale)}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="home-compact-section home-status-section" id="status" aria-labelledby="status-title">
+      <div class="wide-shell">
+        <div class="section-intro reveal">
+          <p class="home-section-kicker">{t("home.status.kicker", locale)}</p>
+          <h2 id="status-title">{t("home.status.title", locale)}</h2>
+          <p>{t("home.status.intro", locale)}</p>
+        </div>
+        <div class="home-status-list">
+          {statusRows.map((row) => (
+            <a class="home-status-row reveal" href={row.href}>
+              <span class="home-status-row__label">{t(row.label, locale)}</span>
+              <span class="home-status-row__value">{t(row.value, locale)}</span>
+              <span class="home-status-row__cta">{t(row.cta, locale)}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta final-cta--compact home-final-cta" id="join" aria-labelledby="join-title">
       <div class="final-shell">
-        <h2 id="join-title" class="reveal">{t("join.title", locale)}</h2>
-        <div class="final-copy">
-          {[1, 2, 3, 4, 5, 6].map((num) => (
-            <p class={`reveal ${num === 5 ? "strong-line" : ""}`}>{t(`join.p${num}`, locale)}</p>
-          ))}
+        <p class="home-section-kicker reveal">{t("home.join.kicker", locale)}</p>
+        <h2 id="join-title" class="reveal">{t("home.join.title", locale)}</h2>
+        <div class="final-copy home-final-copy">
+          <p class="reveal">{t("home.join.p1", locale)}</p>
+          <p class="reveal strong-line">{t("home.join.p2", locale)}</p>
         </div>
         <div class="final-actions reveal" aria-label={locale === "zh" ? "加入 TechFlows 的方式" : "Ways to join TechFlows"}>
           <Button href={goPath(locale, "join", "home_final_join")}>{t("join.action.join", locale)}</Button>
           <Button href={goPath(locale, "project", "home_final_project")} variant="secondary">{t("join.action.submit", locale)}</Button>
           <Button href={goPath(locale, "cobuild", "home_final_cobuild")} variant="secondary">{t("join.action.coBuild", locale)}</Button>
         </div>
-        <p class="closing-line reveal">{t("join.closing", locale)}</p>
+        <p class="closing-line home-closing-line reveal">{t("home.join.closing", locale)}</p>
       </div>
     </section>
   </main>

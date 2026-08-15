@@ -162,6 +162,302 @@ export const translations = {
     "zh": "我们通过活动、项目记录、机会分享和社区连接，让正在行动的人被看见，让还在生长的想法遇见可能的同行者。",
     "en": "Through events, project documentation, opportunity sharing, and community connections, we help those in motion be seen."
   },
+  "hero.entry.kicker": {
+    "zh": "现在可以从这里开始",
+    "en": "Start here"
+  },
+  "hero.entry.title": {
+    "zh": "带着你现在拥有的东西来",
+    "en": "Bring what you have right now"
+  },
+  "hero.entry.events.status": {
+    "zh": "近期活动｜筹备中",
+    "en": "Upcoming｜In preparation"
+  },
+  "hero.entry.events.title": {
+    "zh": "先来一次见面",
+    "en": "Start with a gathering"
+  },
+  "hero.entry.events.description": {
+    "zh": "参加活动，或先留下联系方式，等下一次真实的见面发生。",
+    "en": "Join an event, or leave your contact so you can hear when the next real gathering takes shape."
+  },
+  "hero.entry.events.cta": {
+    "zh": "看看近期活动",
+    "en": "See upcoming events"
+  },
+  "hero.entry.project.status": {
+    "zh": "项目记录｜正在征集",
+    "en": "Project stories｜Now collecting"
+  },
+  "hero.entry.project.title": {
+    "zh": "让想法先被听见",
+    "en": "Let an idea be heard first"
+  },
+  "hero.entry.project.description": {
+    "zh": "提交正在做的项目、原型，或者还没有完全想清楚的方向。",
+    "en": "Submit a project, a prototype, or a direction you are still figuring out."
+  },
+  "hero.entry.project.cta": {
+    "zh": "提交项目或想法",
+    "en": "Submit a project or idea"
+  },
+  "hero.entry.cobuild.status": {
+    "zh": "社区共建｜持续开放",
+    "en": "Co-building｜Always open"
+  },
+  "hero.entry.cobuild.title": {
+    "zh": "一起完成一件具体的事",
+    "en": "Help make one concrete thing happen"
+  },
+  "hero.entry.cobuild.description": {
+    "zh": "如果你愿意做活动、记录、设计、技术或联络，可以从这里开始。",
+    "en": "If you want to help with events, documentation, design, technology, or outreach, start here."
+  },
+  "hero.entry.cobuild.cta": {
+    "zh": "参与社区共建",
+    "en": "Help build the community"
+  },
+  "home.nav.now": {
+    "zh": "正在做什么",
+    "en": "What we do"
+  },
+  "home.nav.start": {
+    "zh": "从哪里开始",
+    "en": "Start here"
+  },
+  "home.nav.principles": {
+    "zh": "我们守住什么",
+    "en": "What we protect"
+  },
+  "home.nav.status": {
+    "zh": "当前状态",
+    "en": "Current status"
+  },
+  "home.nav.join": {
+    "zh": "加入",
+    "en": "Join"
+  },
+  "home.now.kicker": {
+    "zh": "TechFlows 的工作",
+    "en": "The work of TechFlows"
+  },
+  "home.now.title": {
+    "zh": "我们现在做三件事",
+    "en": "We are doing three things right now"
+  },
+  "home.now.intro": {
+    "zh": "有人还没有项目，有人已经做出了原型，也有人只是想找一个愿意认真聊聊的人。我们从这三种真实需要开始。",
+    "en": "Some people do not have a project yet, some have already built a prototype, and some are simply looking for someone willing to have a serious conversation. We start with these real needs."
+  },
+  "home.now.events.title": {
+    "zh": "把人带到同一个现场",
+    "en": "Bring people into the same room"
+  },
+  "home.now.events.description": {
+    "zh": "围绕 AI、开源、黑客松和科技创新发起交流活动，让原本不会相遇的人先见面。",
+    "en": "We create gatherings around AI, open source, hackathons, and tech innovation so people who might not otherwise meet can start there."
+  },
+  "home.now.events.link": {
+    "zh": "查看活动",
+    "en": "See events"
+  },
+  "home.now.projects.title": {
+    "zh": "让项目被认真介绍",
+    "en": "Explain projects with care"
+  },
+  "home.now.projects.description": {
+    "zh": "记录黑客松、校园项目、开源工具、AI 应用和创业尝试，让一个还不成熟的项目先被理解。",
+    "en": "We document hackathon, campus, open-source, AI, and early startup projects so an unfinished project can first be understood."
+  },
+  "home.now.projects.link": {
+    "zh": "查看项目记录",
+    "en": "See project stories"
+  },
+  "home.now.connections.title": {
+    "zh": "让连接继续发生",
+    "en": "Keep the connection moving"
+  },
+  "home.now.connections.description": {
+    "zh": "活动之后继续寻找反馈、队友、共建者和合作机会，让一次见面有机会继续向前。",
+    "en": "After a gathering, we keep looking for feedback, teammates, co-builders, and partners so one meeting can move further."
+  },
+  "home.now.connections.link": {
+    "zh": "参与社区共建",
+    "en": "Help build the community"
+  },
+  "home.start.kicker": {
+    "zh": "你的入口不止一个",
+    "en": "There is more than one way in"
+  },
+  "home.start.title": {
+    "zh": "你可以从哪一步开始",
+    "en": "Where can you start?"
+  },
+  "home.start.intro": {
+    "zh": "不需要先准备好，也不需要先给自己贴上一个身份。带着你现在拥有的东西，从最接近的一步开始。",
+    "en": "You do not need to be ready or choose an identity first. Start with the step closest to what you have right now."
+  },
+  "home.start.curious.title": {
+    "zh": "我还没有项目",
+    "en": "I do not have a project yet"
+  },
+  "home.start.curious.description": {
+    "zh": "先参加活动，认识正在做类似事情的人，或者留下联系方式等待下一次见面。",
+    "en": "Join an event, meet people working on similar things, or leave your contact for the next gathering."
+  },
+  "home.start.curious.cta": {
+    "zh": "从活动开始",
+    "en": "Start with an event"
+  },
+  "home.start.project.title": {
+    "zh": "我已经做了一些东西",
+    "en": "I have already built something"
+  },
+  "home.start.project.description": {
+    "zh": "提交项目、原型或还没有完全想清楚的方向，让它先被认真听见。",
+    "en": "Submit a project, prototype, or direction you are still figuring out, and let it be heard with care."
+  },
+  "home.start.project.cta": {
+    "zh": "提交项目",
+    "en": "Submit a project"
+  },
+  "home.start.builder.title": {
+    "zh": "我愿意帮忙做事",
+    "en": "I want to help make things happen"
+  },
+  "home.start.builder.description": {
+    "zh": "活动执行、记录、设计、摄影、技术和联络，都可以成为第一次参与。",
+    "en": "Event operations, documentation, design, photography, technology, and outreach can all be a first contribution."
+  },
+  "home.start.builder.cta": {
+    "zh": "参与共建",
+    "en": "Help build"
+  },
+  "home.start.partner.title": {
+    "zh": "我有资源可以连接",
+    "en": "I have resources to connect"
+  },
+  "home.start.partner.description": {
+    "zh": "如果你代表高校、企业、技术社区或创新空间，可以从一次具体合作开始。",
+    "en": "If you represent a university, company, tech community, or innovation space, start with one concrete collaboration."
+  },
+  "home.start.partner.cta": {
+    "zh": "了解合作",
+    "en": "Explore partnership"
+  },
+  "home.principles.kicker": {
+    "zh": "我们希望守住的事",
+    "en": "What we want to protect"
+  },
+  "home.principles.title": {
+    "zh": "社区可以很开放，但行动需要具体",
+    "en": "A community can be open, but action should stay concrete"
+  },
+  "home.principles.maturity.title": {
+    "zh": "不要求成熟，才值得被看见",
+    "en": "You do not have to be finished to be seen"
+  },
+  "home.principles.maturity.description": {
+    "zh": "我们关注结果，也尊重一个人刚刚开始的阶段。",
+    "en": "We care about outcomes while respecting the stage where someone is just beginning."
+  },
+  "home.principles.honesty.title": {
+    "zh": "不用虚假的承诺换取加入",
+    "en": "No joining through false promises"
+  },
+  "home.principles.honesty.description": {
+    "zh": "无法保证的事情，不提前包装成服务。",
+    "en": "We do not package what we cannot guarantee as a service."
+  },
+  "home.principles.continuity.title": {
+    "zh": "不把一次活动当成关系的结束",
+    "en": "An event is not the end of a relationship"
+  },
+  "home.principles.continuity.description": {
+    "zh": "一次见面只是开始，后续的交流和行动更重要。",
+    "en": "A gathering is only the beginning; what follows matters more."
+  },
+  "home.status.kicker": {
+    "zh": "不把未完成写成已完成",
+    "en": "Do not call unfinished work finished"
+  },
+  "home.status.title": {
+    "zh": "现在的 TechFlows",
+    "en": "TechFlows right now"
+  },
+  "home.status.intro": {
+    "zh": "我们还在早期。下面这些事情正在发生，也欢迎你从其中一个入口加入。",
+    "en": "We are still early. These are the things currently taking shape, and you are welcome to enter through any one of them."
+  },
+  "home.status.events.label": {
+    "zh": "下一场活动",
+    "en": "Next gathering"
+  },
+  "home.status.events.value": {
+    "zh": "正在筹备",
+    "en": "In preparation"
+  },
+  "home.status.events.cta": {
+    "zh": "获取通知",
+    "en": "Get updates"
+  },
+  "home.status.projects.label": {
+    "zh": "项目记录",
+    "en": "Project stories"
+  },
+  "home.status.projects.value": {
+    "zh": "正在征集",
+    "en": "Now collecting"
+  },
+  "home.status.projects.cta": {
+    "zh": "提交项目",
+    "en": "Submit a project"
+  },
+  "home.status.cobuild.label": {
+    "zh": "社区共建",
+    "en": "Community co-building"
+  },
+  "home.status.cobuild.value": {
+    "zh": "持续开放",
+    "en": "Always open"
+  },
+  "home.status.cobuild.cta": {
+    "zh": "参与共建",
+    "en": "Help build"
+  },
+  "home.status.partners.label": {
+    "zh": "合作申请",
+    "en": "Partnerships"
+  },
+  "home.status.partners.value": {
+    "zh": "欢迎联系",
+    "en": "Open to conversations"
+  },
+  "home.status.partners.cta": {
+    "zh": "了解合作",
+    "en": "Explore partnership"
+  },
+  "home.join.kicker": {
+    "zh": "从你现在拥有的东西开始",
+    "en": "Start with what you have"
+  },
+  "home.join.title": {
+    "zh": "也许你还没有一个完整的项目",
+    "en": "Maybe you do not have a complete project yet"
+  },
+  "home.join.p1": {
+    "zh": "也许它只是在备忘录里写了几行，也许你已经做出了一些东西，却不知道该给谁看。都没有关系。",
+    "en": "Maybe it is only a few lines in your notes, or maybe you have built something but do not know who to show it to. That is okay."
+  },
+  "home.join.p2": {
+    "zh": "带着你现在拥有的东西来。",
+    "en": "Bring what you have right now."
+  },
+  "home.join.closing": {
+    "zh": "很多事情开始之前，只差遇见一个人。",
+    "en": "Before many things begin, it is just one person you have not met yet."
+  },
   "hero.action.events": {
     "zh": "看看最近发生了什么",
     "en": "See what's been happening"
@@ -1006,6 +1302,10 @@ export const translations = {
     "zh": "很多事情不会在一场活动里立刻得到答案。但它可能从这里，第一次有了下一步。",
     "en": "Many things won't get answered in a single event. But it might be here that it first gets a next step."
   },
+  "events.cta.button3": {
+    "zh": "了解 UNFINO",
+    "en": "Explore UNFINO"
+  },
   "events.cta.button1": {
     "zh": "加入 TechFlows",
     "en": "Join TechFlows"
@@ -1261,5 +1561,429 @@ export const translations = {
   "joinPage.cta.closing": {
     "zh": "很多事情开始之前，只差遇见一个人。",
     "en": "Before many things begin, it's just one person you haven't met yet."
-  }
+  },
+  "unfino.hero.title": {
+    "zh": "未完，不散场。",
+    "en": "Unfinished. Still moving."
+  },
+  "unfino.hero.p1": {
+    "zh": "UNFINO 是 TechFlows 旗下的项目续航型科技赛事。",
+    "en": "UNFINO is TechFlows' project-continuation challenge."
+  },
+  "unfino.hero.p2": {
+    "zh": "让人在线下相遇，让项目在现场成形，也让一次活动结束之后，仍然有下一步。",
+    "en": "It brings people together, helps projects take shape, and keeps a next step alive after the event ends."
+  },
+  "unfino.hero.button1": {
+    "zh": "看懂 UNFINO",
+    "en": "How UNFINO works"
+  },
+  "unfino.hero.button2": {
+    "zh": "查看近期活动",
+    "en": "See upcoming events"
+  },
+  "unfino.journey.kicker": {
+    "zh": "一场活动，三段旅程",
+    "en": "One event, three movements"
+  },
+  "unfino.journey.title": {
+    "zh": "从见面，到继续做下去",
+    "en": "From meeting to keeping it moving"
+  },
+  "unfino.journey.intro": {
+    "zh": "我们不把路演和颁奖当成终点，而把它们当成项目进入下一阶段的起点。",
+    "en": "We do not treat the demo or the awards as the finish line. They are the start of the next stage."
+  },
+  "unfino.journey.meet.title": {
+    "zh": "先见",
+    "en": "Meet"
+  },
+  "unfino.journey.meet.description": {
+    "zh": "围绕真实问题，让原本不会相遇的人来到同一个现场。",
+    "en": "Bring people who would not otherwise meet around a real problem."
+  },
+  "unfino.journey.make.title": {
+    "zh": "成形",
+    "en": "Make"
+  },
+  "unfino.journey.make.description": {
+    "zh": "组队、制作、验证，让一个模糊想法变成可以继续推进的项目。",
+    "en": "Team up, build, and test until an idea becomes something that can move forward."
+  },
+  "unfino.journey.continue.title": {
+    "zh": "续行",
+    "en": "Continue"
+  },
+  "unfino.journey.continue.description": {
+    "zh": "活动之后找到反馈、资源和下一个可验证的里程碑。",
+    "en": "Find feedback, resources, and the next milestone after the event."
+  },
+  "unfino.difference.kicker": {
+    "zh": "为什么不只是一次黑客松",
+    "en": "More than a hackathon"
+  },
+  "unfino.difference.title": {
+    "zh": "奖项在现场，项目在之后",
+    "en": "The prize is on site. The project is after."
+  },
+  "unfino.difference.problem.title": {
+    "zh": "从真实问题开始",
+    "en": "Start with a real problem"
+  },
+  "unfino.difference.problem.description": {
+    "zh": "不只围绕一个主题做 Demo，而是把真实的技术、产品或社会问题带到现场。",
+    "en": "Do not build around an empty theme. Bring a real technical, product, or social problem into the room."
+  },
+  "unfino.difference.prize.title": {
+    "zh": "奖金是继续行动的燃料",
+    "en": "Prize money is fuel for the next step"
+  },
+  "unfino.difference.prize.description": {
+    "zh": "奖金、资源和合作机会，帮助项目离开现场之后继续验证。",
+    "en": "Prizes, resources, and partner connections help projects keep testing after they leave the room."
+  },
+  "unfino.difference.after.title": {
+    "zh": "赛后仍然有下一步",
+    "en": "There is a next step after the event"
+  },
+  "unfino.difference.after.description": {
+    "zh": "我们关注的不是谁在当天讲得最好，而是哪一个项目愿意继续做下去。",
+    "en": "We care less about who presents best that day and more about which project keeps going."
+  },
+  "unfino.entry.kicker": {
+    "zh": "你可以从这里进入",
+    "en": "Choose your way in"
+  },
+  "unfino.entry.title": {
+    "zh": "不需要先准备好",
+    "en": "You do not have to be ready first"
+  },
+  "unfino.entry.participant.title": {
+    "zh": "我想来参加",
+    "en": "I want to participate"
+  },
+  "unfino.entry.participant.description": {
+    "zh": "带着问题、能力或好奇来到现场，先认识可能的同行者。",
+    "en": "Bring a question, a skill, or curiosity and meet people you may build with."
+  },
+  "unfino.entry.participant.cta": {
+    "zh": "查看活动",
+    "en": "See events"
+  },
+  "unfino.entry.project.title": {
+    "zh": "我有一个项目",
+    "en": "I have a project"
+  },
+  "unfino.entry.project.description": {
+    "zh": "项目可以还不成熟，但需要已经开始。提交它，让它先被认真理解。",
+    "en": "Your project does not have to be finished, but it should have started. Submit it to be understood with care."
+  },
+  "unfino.entry.project.cta": {
+    "zh": "提交项目",
+    "en": "Submit a project"
+  },
+  "unfino.entry.partner.title": {
+    "zh": "我想提供支持",
+    "en": "I want to support"
+  },
+  "unfino.entry.partner.description": {
+    "zh": "高校、企业、技术社区和创新空间，都可以从一次具体合作开始。",
+    "en": "Universities, companies, tech communities, and innovation spaces can start with one concrete collaboration."
+  },
+  "unfino.entry.partner.cta": {
+    "zh": "了解合作",
+    "en": "Explore partnership"
+  },
+  "unfino.next.kicker": {
+    "zh": "从下一步开始",
+    "en": "Start with the next step"
+  },
+  "unfino.next.title": {
+    "zh": "让项目继续发生",
+    "en": "Keep the project moving"
+  },
+  "unfino.next.p1": {
+    "zh": "UNFINO 不承诺每个项目都会成功，但希望每个认真开始的项目，都能找到一个值得验证的下一步。",
+    "en": "UNFINO cannot promise that every project will succeed, but every serious beginning should find a next step worth testing."
+  },
+  "unfino.next.button1": {
+    "zh": "提交项目或想法",
+    "en": "Submit a project or idea"
+  },
+  "unfino.next.button2": {
+    "zh": "参与社区共建",
+    "en": "Help build the community"
+  },
+  "unfinoPage.hero.title": {
+    "zh": "黑客松不是终点。",
+    "en": "A hackathon is not the finish line."
+  },
+  "unfinoPage.hero.lead": {
+    "zh": "UNFINO 把一次线下黑客松，连接到项目之后的长期 Builder 社区。",
+    "en": "UNFINO connects an in-person hackathon to a long-term Builder community after the event."
+  },
+  "unfinoPage.hero.button1": {
+    "zh": "看一次活动怎么走",
+    "en": "See how it works"
+  },
+  "unfinoPage.hero.button2": {
+    "zh": "查看近期活动",
+    "en": "See upcoming events"
+  },
+  "unfinoPage.example.kicker": {
+    "zh": "一个具体的例子",
+    "en": "A concrete example"
+  },
+  "unfinoPage.example.title": {
+    "zh": "以一场 AI 黑客松为例",
+    "en": "Take an AI hackathon"
+  },
+  "unfinoPage.example.intro": {
+    "zh": "你来到现场，不只是为了在截止时间前做出一个 Demo，而是为了找到一个愿意继续做下去的下一步。",
+    "en": "You do not come only to ship a demo before the deadline. You come to find the next step worth continuing."
+  },
+  "unfinoPage.example.brief.title": {
+    "zh": "真实问题进入现场",
+    "en": "A real problem enters the room"
+  },
+  "unfinoPage.example.brief.description": {
+    "zh": "高校、企业、技术社区或参与者带来一个真实问题，成为这次黑客松的起点。",
+    "en": "A university, company, tech community, or participant brings a real problem as the starting point."
+  },
+  "unfinoPage.example.build.title": {
+    "zh": "团队让想法成形",
+    "en": "Teams make an idea tangible"
+  },
+  "unfinoPage.example.build.description": {
+    "zh": "开发、产品、设计和领域经验在现场相遇，一起做出可以被验证的原型。",
+    "en": "Engineering, product, design, and domain experience meet to build a prototype that can be tested."
+  },
+  "unfinoPage.example.prize.title": {
+    "zh": "奖金给项目下一步燃料",
+    "en": "The prize fuels the next step"
+  },
+  "unfinoPage.example.prize.description": {
+    "zh": "奖金不只是对现场表现的奖励，也可以成为项目继续验证和迭代的第一笔资源。",
+    "en": "The prize is not only recognition. It can become the first resource for testing and iteration."
+  },
+  "unfinoPage.example.builder.title": {
+    "zh": "现场放出 Builder 资格",
+    "en": "Builder access is announced on site"
+  },
+  "unfinoPage.example.builder.description": {
+    "zh": "每次赛后，现场公布进入长期 Builder 社区的资格和参与方式。",
+    "en": "After each event, the qualification and way to join the long-term Builder community are announced on site."
+  },
+  "unfinoPage.example.flow.one": {
+    "zh": "现场相遇",
+    "en": "Meet on site"
+  },
+  "unfinoPage.example.flow.two": {
+    "zh": "项目成形",
+    "en": "Make it real"
+  },
+  "unfinoPage.example.flow.three": {
+    "zh": "赛后续行",
+    "en": "Keep going"
+  },
+  "unfinoPage.builder.visual": {
+    "zh": "长期同行",
+    "en": "Keep building"
+  },
+  "unfinoPage.builder.kicker": {
+    "zh": "UNFINO BUILDER",
+    "en": "UNFINO BUILDER"
+  },
+  "unfinoPage.builder.title": {
+    "zh": "赛后，愿意继续的人可以留下。",
+    "en": "After the event, the people who want to continue can stay."
+  },
+  "unfinoPage.builder.lead": {
+    "zh": "Builder 不是一个普通活动群，而是一群愿意在每次活动之后，继续与项目和彼此并肩同行的人。",
+    "en": "Builder is not another event chat. It is a group of people willing to keep building alongside projects and one another after each event."
+  },
+  "unfinoPage.builder.onsite.title": {
+    "zh": "资格在现场公布",
+    "en": "Qualification is announced on site"
+  },
+  "unfinoPage.builder.onsite.description": {
+    "zh": "每场活动结束前，现场公布本次 Builder 社区的资格与参与方式。",
+    "en": "Before each event ends, the qualification and participation details for that Builder cohort are announced on site."
+  },
+  "unfinoPage.builder.commitment.title": {
+    "zh": "继续做，比围观更重要",
+    "en": "Commitment matters more than attendance"
+  },
+  "unfinoPage.builder.commitment.description": {
+    "zh": "愿意继续推进项目、贡献能力或认真参与下一步的人，才是 Builder 想留下的人。",
+    "en": "Builder is for people willing to move a project forward, contribute a skill, or take the next step seriously."
+  },
+  "unfinoPage.builder.together.title": {
+    "zh": "下一次活动继续并肩",
+    "en": "Build together again"
+  },
+  "unfinoPage.builder.together.description": {
+    "zh": "你可以继续参与项目、下一场活动和新的真实问题，让一次相遇变成长期同行。",
+    "en": "Keep contributing to projects, future events, and new real problems so one encounter can become a longer journey."
+  },
+  "unfinoPage.builder.note": {
+    "zh": "具体资格规则以每场活动现场公布为准。",
+    "en": "The exact qualification rules are announced at each event."
+  },
+  "unfinoPage.next.kicker": {
+    "zh": "下一场，现场见",
+    "en": "See you at the next one"
+  },
+  "unfinoPage.next.title": {
+    "zh": "先来一次见面，再决定要走多远。",
+    "en": "Start with one gathering. Decide how far to go next."
+  },
+  "unfinoPage.next.copy": {
+    "zh": "你可以带着一个问题、一个项目，或者一项愿意贡献的能力来到 UNFINO。",
+    "en": "Come to UNFINO with a question, a project, or a skill you are willing to contribute."
+  },
+  "unfinoPage.next.button1": {
+    "zh": "查看活动",
+    "en": "See events"
+  },
+  "unfinoPage.next.button2": {
+    "zh": "提交项目",
+    "en": "Submit a project"
+  },
+  "unfinoBrand.hero.title": {
+    "zh": "一个独立的赛事品牌，给项目一个下一步。",
+    "en": "An independent event brand for the next step of a project."
+  },
+  "unfinoBrand.hero.lead": {
+    "zh": "UNFINO 属于 TechFlows，但不等同于一次活动。它可以是一场短时黑客松、主题挑战、共创冲刺或项目展示场；形式可以变化，目标始终是让项目在现场发生，并在赛后继续。",
+    "en": "UNFINO belongs to TechFlows, but it is more than one event. It can be a short hackathon, a themed challenge, a build sprint, or a project showcase. The format changes; the goal stays the same: make something happen on site, then keep it moving."
+  },
+  "unfinoBrand.hero.button1": {
+    "zh": "查看赛事形式",
+    "en": "Explore the formats"
+  },
+  "unfinoBrand.hero.button2": {
+    "zh": "查看近期活动",
+    "en": "See upcoming events"
+  },
+  "unfinoBrand.hero.tile": {
+    "zh": "未完，不散场",
+    "en": "Unfinished, still moving"
+  },
+  "unfinoBrand.formats.kicker": {
+    "zh": "形式可以变化，目标不变",
+    "en": "Different formats, one direction"
+  },
+  "unfinoBrand.formats.title": {
+    "zh": "黑客松只是一个例子",
+    "en": "A hackathon is only one format"
+  },
+  "unfinoBrand.formats.intro": {
+    "zh": "UNFINO 是一套长期赛事品牌。我们根据问题、参与者和现场条件，选择最适合让项目发生的活动形式。",
+    "en": "UNFINO is a long-term event brand. We choose the format that best helps a project happen, based on the problem, the people, and the setting."
+  },
+  "unfinoBrand.formats.example": {
+    "zh": "示例形式",
+    "en": "Example format"
+  },
+  "unfinoBrand.formats.hackathon.title": {
+    "zh": "短时黑客松",
+    "en": "Short hackathon"
+  },
+  "unfinoBrand.formats.hackathon.description": {
+    "zh": "在有限时间内组队、制作和展示一个可以继续验证的原型。",
+    "en": "Team up, build, and show a prototype that can be tested beyond the event."
+  },
+  "unfinoBrand.formats.challenge.title": {
+    "zh": "主题挑战赛",
+    "en": "Themed challenge"
+  },
+  "unfinoBrand.formats.challenge.description": {
+    "zh": "围绕一个真实问题展开挑战，让不同背景的人带着方案来到同一个现场。",
+    "en": "Bring different perspectives together around one real problem and a focused challenge."
+  },
+  "unfinoBrand.formats.sprint.title": {
+    "zh": "共创冲刺",
+    "en": "Build sprint"
+  },
+  "unfinoBrand.formats.sprint.description": {
+    "zh": "用半天、一天或几天完成一次集中共创，把一个方向推到更清楚的下一步。",
+    "en": "Use a half-day, a day, or several days of focused collaboration to clarify the next step."
+  },
+  "unfinoBrand.formats.showcase.title": {
+    "zh": "项目展示场",
+    "en": "Project showcase"
+  },
+  "unfinoBrand.formats.showcase.description": {
+    "zh": "让早期项目被看见、被反馈，并找到愿意一起继续的人。",
+    "en": "Help early projects be seen, receive feedback, and find people willing to continue with them."
+  },
+  "unfinoBrand.builder.kicker": {
+    "zh": "赛后长期机制",
+    "en": "The long-term layer"
+  },
+  "unfinoBrand.builder.title": {
+    "zh": "每次活动之后，愿意继续的人可以进入 Builder 社区。",
+    "en": "After each event, the people who want to continue can enter the Builder community."
+  },
+  "unfinoBrand.builder.lead": {
+    "zh": "Builder 不是普通活动群，也不是一次性会员。它是 UNFINO 留给下一段同行关系的空间：继续做项目、继续贡献能力，也继续参加新的现场。",
+    "en": "Builder is not another event chat or a one-time membership. It is UNFINO's space for the next part of the journey: keep building, keep contributing, and keep showing up."
+  },
+  "unfinoBrand.builder.onsite.title": {
+    "zh": "资格在现场公布",
+    "en": "Qualification is announced on site"
+  },
+  "unfinoBrand.builder.onsite.description": {
+    "zh": "每次赛后，现场公布本次 Builder 社区的资格与参与方式。",
+    "en": "After each event, the qualification and participation details are announced on site."
+  },
+  "unfinoBrand.builder.commitment.title": {
+    "zh": "愿意继续，比参加过更重要",
+    "en": "Willingness to continue matters more than attendance"
+  },
+  "unfinoBrand.builder.commitment.description": {
+    "zh": "愿意推进项目、贡献能力，或认真参与下一步的人，才是 Builder 想留下的人。",
+    "en": "Builder is for people willing to move a project forward, contribute a skill, or take the next step seriously."
+  },
+  "unfinoBrand.builder.together.title": {
+    "zh": "下一次现场继续并肩",
+    "en": "Keep building together"
+  },
+  "unfinoBrand.builder.together.description": {
+    "zh": "从一个项目到下一场活动，Builder 让一次相遇有机会变成长期同行。",
+    "en": "From one project to the next event, Builder gives one encounter a chance to become a longer journey."
+  },
+  "unfinoBrand.builder.note": {
+    "zh": "具体资格规则以每场活动现场公布为准。",
+    "en": "The exact qualification rules are announced at each event."
+  },
+  "unfinoBrand.builder.cardTitle": {
+    "zh": "继续做的人",
+    "en": "The people who keep building"
+  },
+  "unfinoBrand.builder.cardCaption": {
+    "zh": "从一次现场，到长期同行",
+    "en": "From one event to a longer journey"
+  },
+  "unfinoBrand.next.kicker": {
+    "zh": "下一场，现场见",
+    "en": "See you at the next one"
+  },
+  "unfinoBrand.next.title": {
+    "zh": "先进入一场活动，再决定要走多远。",
+    "en": "Enter one event first. Decide how far to go next."
+  },
+  "unfinoBrand.next.copy": {
+    "zh": "你可以带着一个问题、一个项目，或一项愿意贡献的能力来到 UNFINO。",
+    "en": "Come to UNFINO with a question, a project, or a skill you are willing to contribute."
+  },
+  "unfinoBrand.next.button1": {
+    "zh": "查看活动",
+    "en": "See events"
+  },
+  "unfinoBrand.next.button2": {
+    "zh": "提交项目",
+    "en": "Submit a project"
+  },
 } as const satisfies Record<string, Localized<string>>;
