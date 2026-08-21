@@ -3,11 +3,47 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Button from "@components/Button.astro";
 import { goPath } from "@data/forms";
 import { site, type Locale } from "@data/site";
-import { t } from "@utils/i18n";
+import { t, type TranslationKey } from "@utils/i18n";
 
 type Props = { locale: Locale };
 const { locale } = Astro.props;
-const roles = ["participant", "creator", "sharer", "recorder", "connector", "builder"] as const;
+
+const roles = [
+  {
+    title: "joinPage.participant.title",
+    paragraphs: ["joinPage.participant.p1", "joinPage.participant.p2", "joinPage.participant.p3", "joinPage.participant.p4"],
+    recap: "joinPage.principles.participant.desc"
+  },
+  {
+    title: "joinPage.creator.title",
+    paragraphs: ["joinPage.creator.p1", "joinPage.creator.p2", "joinPage.creator.p3", "joinPage.creator.p4", "joinPage.creator.p5"],
+    recap: "joinPage.principles.creator.desc"
+  },
+  {
+    title: "joinPage.sharer.title",
+    paragraphs: ["joinPage.sharer.p1", "joinPage.sharer.p2", "joinPage.sharer.p3", "joinPage.sharer.p4", "joinPage.sharer.p5"],
+    recap: "joinPage.principles.sharer.desc"
+  },
+  {
+    title: "joinPage.recorder.title",
+    paragraphs: ["joinPage.recorder.p1", "joinPage.recorder.p2", "joinPage.recorder.p3"],
+    recap: "joinPage.principles.recorder.desc"
+  },
+  {
+    title: "joinPage.connector.title",
+    paragraphs: ["joinPage.connector.p1", "joinPage.connector.p2", "joinPage.connector.p3"],
+    recap: "joinPage.principles.connector.desc"
+  },
+  {
+    title: "joinPage.builder.title",
+    paragraphs: ["joinPage.builder.p1", "joinPage.builder.p2", "joinPage.builder.p3", "joinPage.builder.p4"],
+    recap: "joinPage.principles.builder.desc"
+  }
+] as const satisfies ReadonlyArray<{
+  title: TranslationKey;
+  paragraphs: readonly TranslationKey[];
+  recap: TranslationKey;
+}>;
 ---
 <BaseLayout locale={locale} page="join">
   <main id="main" class="subpage-main subpage-main--join">
@@ -55,12 +91,8 @@ const roles = ["participant", "creator", "sharer", "recorder", "connector", "bui
             <article class="index-row index-row--essay">
               <p class="index-row__index">0{index + 1}</p>
               <div class="index-row__main">
-                <h3>{t(`joinPage.${role}.title`, locale)}</h3>
-                {[1, 2, 3, 4].map((num) => {
-                  const key = `joinPage.${role}.p${num}`;
-                  const value = t(key, locale);
-                  return value === key ? null : <p>{value}</p>;
-                })}
+                <h3>{t(role.title, locale)}</h3>
+                {role.paragraphs.map((key) => <p>{t(key, locale)}</p>)}
               </div>
             </article>
           ))}
@@ -79,8 +111,8 @@ const roles = ["participant", "creator", "sharer", "recorder", "connector", "bui
             <article class="index-row">
               <p class="index-row__index">0{index + 1}</p>
               <div class="index-row__main">
-                <h3>{t(`joinPage.${role}.title`, locale)}</h3>
-                <p>{t(`joinPage.principles.${role}.desc`, locale)}</p>
+                <h3>{t(role.title, locale)}</h3>
+                <p>{t(role.recap, locale)}</p>
               </div>
             </article>
           ))}

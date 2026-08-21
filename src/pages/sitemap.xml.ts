@@ -39,7 +39,7 @@ export function GET() {
         `    <lastmod>${site.lastUpdated}</lastmod>`,
         `    <changefreq>${meta.changefreq}</changefreq>`,
         `    <priority>${meta.priority}</priority>`,
-        `    <xhtml:link rel="alternate" hreflang="zh" href="${escapeXml(zh)}" />`,
+        `    <xhtml:link rel="alternate" hreflang="zh-CN" href="${escapeXml(zh)}" />`,
         `    <xhtml:link rel="alternate" hreflang="en" href="${escapeXml(en)}" />`,
         `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(zh)}" />`,
         "  </url>"

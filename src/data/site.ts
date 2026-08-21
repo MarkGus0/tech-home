@@ -9,6 +9,7 @@ export const site = {
   name: "TechFlows",
   url: "https://www.techflows.app",
   logo: "/assets/techflows-logo.png",
+  logoHeader: "/assets/techflows-logo-header.png",
   email: "join@techflows.app",
   partnerEmail: "partner@techflows.app",
   lastUpdated: "2026-08-21"
@@ -54,7 +55,7 @@ export const pages: Record<PageId, PageMeta> = {
       en: "UNFINO is TechFlows' project-continuation challenge, built to help early projects keep moving after the event ends."
     },
     paths: { zh: "/unfino/", en: "/en/unfino/" },
-    image: "/assets/og-events.png"
+    image: "/assets/og-unfino.png"
   },
   join: {
     id: "join",
@@ -97,10 +98,14 @@ export const navItems: Array<{ page: PageId; label: Localized<string> }> = [
   { page: "join", label: { zh: "申请加入", en: "Join" } }
 ];
 
-export const footerLinks: Array<{ page: PageId; label: Localized<string> }> = [
-  { page: "events", label: { zh: "活动", en: "Events" } },
-  { page: "unfino", label: { zh: "UNFINO", en: "UNFINO" } },
-  { page: "projects", label: { zh: "项目", en: "Projects" } },
-  { page: "join", label: { zh: "社区共建", en: "Co-build" } },
-  { page: "partners", label: { zh: "合作伙伴", en: "Partners" } }
+export type FooterLink =
+  | { kind: "page"; page: PageId; label: Localized<string> }
+  | { kind: "go"; slug: "cobuild"; source: string; label: Localized<string> };
+
+export const footerLinks: FooterLink[] = [
+  { kind: "page", page: "events", label: { zh: "活动", en: "Events" } },
+  { kind: "page", page: "unfino", label: { zh: "UNFINO", en: "UNFINO" } },
+  { kind: "page", page: "projects", label: { zh: "项目", en: "Projects" } },
+  { kind: "go", slug: "cobuild", source: "footer_cobuild", label: { zh: "社区共建", en: "Co-build" } },
+  { kind: "page", page: "partners", label: { zh: "合作伙伴", en: "Partners" } }
 ];

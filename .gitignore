@@ -29,3 +29,9 @@ yarn-error.log*
 Thumbs.db
 .idea/
 .vscode/
+
+# QA artifacts and local generator cache
+docs/qa_*/
+docs/**/*.png
+scripts/__pycache__/
+

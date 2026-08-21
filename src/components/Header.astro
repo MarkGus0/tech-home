@@ -1,25 +1,25 @@
 ---
-import { navItems, pages, type Locale, type PageId } from "@data/site";
-import { languageName, oppositeLocale, pagePath } from "@utils/i18n";
+import { navItems, pages, site, type Locale, type PageId } from "@data/site";
+import { languageName, oppositeLocale, pagePath, t } from "@utils/i18n";
 
 type Props = {
   locale: Locale;
-  page: PageId;
+  page?: PageId;
 };
 
 const { locale, page } = Astro.props;
 const otherLocale = oppositeLocale(locale);
-const switchPath = `${pages[page].paths[otherLocale]}?lang=${otherLocale}`;
-const navLabel = locale === "zh" ? "主导航" : "Main navigation";
+const switchPath = `${(page ? pages[page] : pages.home).paths[otherLocale]}?lang=${otherLocale}`;
+const navLabel = t("nav.primaryLabel", locale);
 ---
 <header class="site-header" data-header>
   <div class="header-inner">
-    <a class="brand" href={pagePath("home", locale)} aria-label={locale === "zh" ? "TechFlows 首页" : "TechFlows home"}>
+    <a class="brand" href={pagePath("home", locale)} aria-label={t("header.brandAria", locale)}>
       <img
-        src="/assets/techflows-logo.png"
+        src={site.logoHeader}
         alt="TechFlows"
-        width="320"
-        height="84"
+        width="264"
+        height="30"
         loading="eager"
         decoding="async"
         fetchpriority="high"
@@ -39,7 +39,7 @@ const navLabel = locale === "zh" ? "主导航" : "Main navigation";
         class="lang-toggle header-lang"
         href={switchPath}
         hreflang={otherLocale === "zh" ? "zh-CN" : "en"}
-        aria-label={locale === "zh" ? "Switch to English" : "切换到中文"}
+        aria-label={t("lang.switchTo.aria.en", locale)}
       >
         <svg class="lang-toggle__icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
           <circle cx="12" cy="12" r="9"></circle>
@@ -52,12 +52,16 @@ const navLabel = locale === "zh" ? "主导航" : "Main navigation";
       <button
         class="menu-toggle"
         type="button"
-        aria-label={locale === "zh" ? "打开菜单" : "Open menu"}
+        aria-label={t("nav.menuOpen", locale)}
         aria-expanded="false"
         aria-controls="nav-panel"
         data-menu-toggle
+        data-open-label={t("nav.menuOpen", locale)}
+        data-close-label={t("nav.menuClose", locale)}
+        data-menu-text={t("header.menu", locale)}
+        data-close-text={t("header.close", locale)}
       >
-        <span class="menu-toggle__label">{locale === "zh" ? "菜单" : "Menu"}</span>
+        <span class="menu-toggle__label">{t("header.menu", locale)}</span>
         <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
       </button>
     </div>
@@ -67,7 +71,7 @@ const navLabel = locale === "zh" ? "主导航" : "Main navigation";
 <div class="nav-panel" id="nav-panel" data-nav-panel>
   <div class="nav-panel__intro">
     <span>TechFlows</span>
-    <small>{locale === "zh" ? "选择一个入口，继续探索" : "Choose a path and keep exploring"}</small>
+    <small>{t("header.navIntro", locale)}</small>
   </div>
   <nav class="primary-nav" aria-label={navLabel}>
     {navItems.map((item) => (
@@ -80,7 +84,7 @@ const navLabel = locale === "zh" ? "主导航" : "Main navigation";
     class="lang-toggle"
     href={switchPath}
     hreflang={otherLocale === "zh" ? "zh-CN" : "en"}
-    aria-label={locale === "zh" ? "Switch to English" : "切换到中文"}
+    aria-label={t("lang.switchTo.aria.en", locale)}
   >
     <svg class="lang-toggle__icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
       <circle cx="12" cy="12" r="9"></circle>
@@ -98,20 +102,35 @@ const navLabel = locale === "zh" ? "主导航" : "Main navigation";
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const navPanel = document.querySelector("[data-nav-panel]");
   const navBackdrop = document.querySelector("[data-nav-backdrop]");
-
-  const isZh = document.documentElement.lang.toLowerCase().startsWith("zh");
-  const closeLabel = isZh ? "关闭菜单" : "Close menu";
-  const openLabel = isZh ? "打开菜单" : "Open menu";
   const menuText = menuToggle?.querySelector(".menu-toggle__label");
+  const openLabel = menuToggle?.getAttribute("data-open-label") ?? "";
+  const closeLabel = menuToggle?.getAttribute("data-close-label") ?? "";
+  const openText = menuToggle?.getAttribute("data-menu-text") ?? "";
+  const closeText = menuToggle?.getAttribute("data-close-text") ?? "";
+
+  function focusableItems() {
+    if (!(navPanel instanceof HTMLElement)) return [];
+    return Array.from(navPanel.querySelectorAll<HTMLElement>("a, button"));
+  }
 
   function setMenu(open: boolean) {
     if (!(header instanceof HTMLElement)) return;
+    const wasOpen = header.dataset.open === "true";
     header.dataset.open = String(open);
     menuPanelState(open);
     menuToggle?.setAttribute("aria-expanded", String(open));
     menuToggle?.setAttribute("aria-label", open ? closeLabel : openLabel);
-    if (menuText) menuText.textContent = open ? (isZh ? "关闭" : "Close") : (isZh ? "菜单" : "Menu");
+    if (menuText) menuText.textContent = open ? closeText : openText;
     document.body.classList.toggle("nav-open", open);
+
+    if (open) {
+      queueMicrotask(() => focusableItems()[0]?.focus());
+      return;
+    }
+
+    if (wasOpen && menuToggle instanceof HTMLElement) {
+      menuToggle.focus();
+    }
   }
 
   function menuPanelState(open: boolean) {
@@ -119,6 +138,29 @@ const navLabel = locale === "zh" ? "主导航" : "Main navigation";
     navBackdrop?.classList.toggle("is-visible", open);
     navBackdrop?.setAttribute("aria-hidden", String(!open));
     if (navPanel instanceof HTMLElement) navPanel.inert = !open;
+  }
+
+  function onDocumentKeydown(event: KeyboardEvent) {
+    const isOpen = header instanceof HTMLElement && header.dataset.open === "true";
+    if (event.key === "Escape" && isOpen) {
+      setMenu(false);
+      return;
+    }
+
+    if (!isOpen || event.key !== "Tab") return;
+
+    const focusable = focusableItems();
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   }
 
   menuPanelState(false);
@@ -131,7 +173,5 @@ const navLabel = locale === "zh" ? "主导航" : "Main navigation";
   navPanel?.addEventListener("click", (event) => {
     if (event.target instanceof Element && event.target.closest("a")) setMenu(false);
   });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setMenu(false);
-  });
+  document.addEventListener("keydown", onDocumentKeydown);
 </script>

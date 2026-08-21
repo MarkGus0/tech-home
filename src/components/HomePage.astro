@@ -88,7 +88,11 @@ const startCards = [
   }
 ] as const;
 
-const principles = ["maturity", "honesty", "continuity"] as const;
+const principles = [
+  { title: "home.principles.maturity.title", description: "home.principles.maturity.description" },
+  { title: "home.principles.honesty.title", description: "home.principles.honesty.description" },
+  { title: "home.principles.continuity.title", description: "home.principles.continuity.description" }
+] as const;
 
 const statusRows = [
   {
@@ -118,15 +122,18 @@ const statusRows = [
 ] as const;
 ---
 <BaseLayout locale={locale} page="home">
-  <nav class="mobile-section-nav" aria-label={locale === "zh" ? "快速导航" : "Quick navigation"} data-mobile-section-nav>
-    {readingMap.map(([id, key]) => <a href={`#${id}`}>{t(key, locale)}</a>)}
-  </nav>
-
-  <aside class="reading-map" aria-label={locale === "zh" ? "阅读章节" : "Reading chapters"} data-reading-map>
+  <aside class="reading-map" aria-label={t("readingMap.ariaLabel", locale)} data-reading-map>
     <div class="reading-mode-control">
-      <button class="reading-mode-toggle" type="button" data-reading-mode-toggle>
+      <button
+        class="reading-mode-toggle"
+        type="button"
+        data-reading-mode-toggle
+        aria-pressed="false"
+        data-label-off={t("readingMap.label.alt", locale)}
+        data-label-on={t("readingMap.label", locale)}
+      >
         <span class="reading-mode-icon" aria-hidden="true"></span>
-        <span class="reading-mode-label">{locale === "zh" ? "逐行阅读" : "Line-by-line"}</span>
+        <span class="reading-mode-label">{t("readingMap.label.alt", locale)}</span>
       </button>
     </div>
     <nav>
@@ -152,7 +159,7 @@ const statusRows = [
             <p class="home-section-kicker">{t("hero.entry.kicker", locale)}</p>
             <h2>{t("hero.entry.title", locale)}</h2>
           </div>
-          <div class="index-list" aria-label={locale === "zh" ? "现在可以从这里开始" : "Start here"}>
+          <div class="index-list" aria-label={t("home.start.listAria", locale)}>
             {entryCards.map((card, index) => (
               <article class="index-row reveal">
                 <p class="index-row__index">0{index + 1}</p>
@@ -224,8 +231,8 @@ const statusRows = [
             <article class="index-row reveal">
               <p class="index-row__index">0{index + 1}</p>
               <div class="index-row__main">
-                <h3>{t(`home.principles.${principle}.title`, locale)}</h3>
-                <p>{t(`home.principles.${principle}.description`, locale)}</p>
+                <h3>{t(principle.title, locale)}</h3>
+                <p>{t(principle.description, locale)}</p>
               </div>
             </article>
           ))}
@@ -260,7 +267,7 @@ const statusRows = [
           <p class="reveal">{t("home.join.p1", locale)}</p>
           <p class="reveal strong-line">{t("home.join.p2", locale)}</p>
         </div>
-        <div class="final-actions reveal" aria-label={locale === "zh" ? "加入 TechFlows 的方式" : "Ways to join TechFlows"}>
+        <div class="final-actions reveal" aria-label={t("home.join.actionsAria", locale)}>
           <Button href={goPath(locale, "join", "home_final_join")}>{t("join.action.join", locale)}</Button>
           <Button href={goPath(locale, "project", "home_final_project")} variant="secondary">{t("join.action.submit", locale)}</Button>
           <Button href={goPath(locale, "cobuild", "home_final_cobuild")} variant="secondary">{t("join.action.coBuild", locale)}</Button>
@@ -275,14 +282,16 @@ const statusRows = [
     const body = document.body;
     const button = document.querySelector("[data-reading-mode-toggle]");
     const label = button?.querySelector(".reading-mode-label");
+    const labelOn = button?.getAttribute("data-label-on") ?? "";
+    const labelOff = button?.getAttribute("data-label-off") ?? "";
     const lines = Array.from(document.querySelectorAll(".reveal"));
-    const mapLinks = Array.from(document.querySelectorAll(".reading-map a, .mobile-section-nav a"));
+    const mapLinks = Array.from(document.querySelectorAll(".reading-map a"));
     let active = false;
     let index = -1;
 
-    function text(on: boolean) {
-      const isZh = document.documentElement.lang.toLowerCase().startsWith("zh");
-      return on ? (isZh ? "显示全部" : "Show all") : (isZh ? "逐行阅读" : "Line-by-line");
+    function setPressed(on: boolean) {
+      button?.setAttribute("aria-pressed", String(on));
+      if (label) label.textContent = on ? labelOn : labelOff;
     }
 
     function clearLines() {
@@ -291,18 +300,31 @@ const statusRows = [
       body.classList.remove("is-reading-mode");
     }
 
+    function lineIndexForHash(hash: string) {
+      const id = hash.startsWith("#") ? hash.slice(1) : hash;
+      if (!id) return -1;
+      const section = document.getElementById(id);
+      if (!section) return -1;
+      return lines.findIndex((line) => line instanceof Element && section.contains(line));
+    }
+
     function setActiveNav() {
       const current = lines[index];
       const section = current instanceof Element ? current.closest("section") : null;
       const href = section?.id ? `#${section.id}` : "";
       mapLinks.forEach((link) => {
         const match = link.getAttribute("href") === href;
-        if (match) link.setAttribute("aria-current", "page");
+        if (match) link.setAttribute("aria-current", "true");
         else link.removeAttribute("aria-current");
       });
     }
 
-    function showLine(next: number) {
+    const desktopQuery = window.matchMedia("(min-width: 1025px)");
+    let optedOut = false;
+    let wheelLock = false;
+    let wheelTimer = 0;
+
+    function showLine(next: number, scroll = true) {
       if (!active || lines.length === 0) return;
       index = Math.max(0, Math.min(next, lines.length - 1));
       lines.forEach((line, lineIndex) => {
@@ -310,30 +332,59 @@ const statusRows = [
         line.classList.toggle("is-line-active", lineIndex === index);
       });
       const current = lines[index];
-      if (current instanceof Element) {
-        const top = current.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({ top: Math.max(0, top - window.innerHeight * 0.28 - 80), behavior: reducedMotion ? "auto" : "smooth" });
+      if (scroll && current instanceof Element) {
+        const scroller = document.scrollingElement ?? document.documentElement;
+        const top = current.getBoundingClientRect().top + scroller.scrollTop;
+        scroller.scrollTo({
+          top: Math.max(0, top - window.innerHeight * 0.28 - 80),
+          behavior: reducedMotion ? "auto" : "smooth"
+        });
       }
       setActiveNav();
     }
 
-    function enable() {
+    function enable(scroll = true) {
       if (reducedMotion) return;
+      if (!active) {
+        document.addEventListener("wheel", onWheel, { passive: false });
+      }
       active = true;
       body.classList.add("has-js", "is-reading-mode");
-      if (label) label.textContent = text(true);
-      showLine(0);
+      setPressed(true);
+      const fromHash = lineIndexForHash(location.hash);
+      showLine(fromHash >= 0 ? fromHash : 0, fromHash > 0 ? true : scroll);
     }
 
     function disable() {
+      if (active) {
+        document.removeEventListener("wheel", onWheel);
+      }
       active = false;
-      if (label) label.textContent = text(false);
+      wheelLock = false;
+      window.clearTimeout(wheelTimer);
+      setPressed(false);
       clearLines();
     }
 
-    button?.addEventListener("click", () => active ? disable() : enable());
-    document.addEventListener("keydown", (event) => {
+    function onWheel(event: WheelEvent) {
       if (!active) return;
+      event.preventDefault();
+      if (wheelLock || Math.abs(event.deltaY) < 6) return;
+      wheelLock = true;
+      showLine(index + (event.deltaY > 0 ? 1 : -1));
+      wheelTimer = window.setTimeout(() => {
+        wheelLock = false;
+      }, 320);
+    }
+
+    function onKeydown(event: KeyboardEvent) {
+      if (!active) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        optedOut = true;
+        disable();
+        return;
+      }
       if (event.key === "ArrowDown" || event.key === "j") {
         event.preventDefault();
         showLine(index + 1);
@@ -342,11 +393,38 @@ const statusRows = [
         event.preventDefault();
         showLine(index - 1);
       }
+    }
+
+    function syncToViewport() {
+      if (!desktopQuery.matches) {
+        disable();
+        return;
+      }
+      if (!optedOut) enable(false);
+    }
+
+    button?.addEventListener("click", () => {
+      if (active) {
+        optedOut = true;
+        disable();
+        return;
+      }
+      optedOut = false;
+      enable();
     });
-    document.addEventListener("wheel", (event) => {
-      if (!active) return;
-      event.preventDefault();
-      showLine(index + (event.deltaY > 0 ? 1 : -1));
-    }, { passive: false });
+    mapLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (!active) return;
+        const href = link.getAttribute("href") ?? "";
+        const next = lineIndexForHash(href);
+        if (next < 0) return;
+        event.preventDefault();
+        showLine(next);
+        if (href && location.hash !== href) history.replaceState(null, "", href);
+      });
+    });
+    document.addEventListener("keydown", onKeydown);
+    desktopQuery.addEventListener("change", syncToViewport);
+    syncToViewport();
   </script>
 </BaseLayout>

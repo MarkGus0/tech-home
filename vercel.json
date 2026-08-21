@@ -4,7 +4,9 @@
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/events.html", "destination": "/events/", "permanent": true },
     { "source": "/join.html", "destination": "/join/", "permanent": true },
-    { "source": "/partners.html", "destination": "/partners/", "permanent": true }
+    { "source": "/partners.html", "destination": "/partners/", "permanent": true },
+    { "source": "/projects.html", "destination": "/projects/", "permanent": true },
+    { "source": "/unfino.html", "destination": "/unfino/", "permanent": true }
   ],
   "headers": [
     {

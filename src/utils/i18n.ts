@@ -1,9 +1,10 @@
 import { pages, site, type Locale, type PageId } from "@data/site";
 import { translations } from "@data/translations";
 
-export function t(key: string, locale: Locale) {
-  const dictionary = translations as Record<string, Record<Locale, string>>;
-  return dictionary[key]?.[locale] ?? key;
+export type TranslationKey = keyof typeof translations;
+
+export function t(key: TranslationKey, locale: Locale) {
+  return translations[key][locale];
 }
 
 export function pagePath(page: PageId, locale: Locale) {

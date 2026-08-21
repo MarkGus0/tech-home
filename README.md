@@ -24,16 +24,20 @@ Typical visitor jobs:
 src/
   pages/                 Route files. Most of them only pick a locale and render a page component.
   pages/en/              English routes. Same components, locale="en".
+  pages/404.astro        Locale from the URL prefix. noindex.
   pages/go/[slug].astro  Outbound confirmation page (Chinese).
   pages/en/go/           Outbound confirmation page (English).
   components/            Page bodies, header, footer, buttons, lists.
   layouts/BaseLayout.astro
+  layouts/RedirectLayout.astro
   styles/global.css      Tokens, atmosphere, chrome, and the shared list system.
   data/                  Copy, events, projects, partners, outbound targets.
   utils/i18n.ts          t(), pagePath(), locale helpers.
-public/assets/           Logo, OG images, atom-field.svg, fonts.
-middleware.ts            Region language preference on Vercel.
+scripts/check-i18n.mjs   Missing or unused translation keys fail the check.
+public/assets/           Logo, header logo, OG images, atom-field.svg, fonts.
+middleware.ts            Locale 302 on Vercel (geo and ?lang=).
 vercel.json              Security headers, cache, HTML redirects.
+.github/workflows/check.yml
 ```
 
 Page components, not `src/pages/*`, own the real layout. A typical route file is:
@@ -66,13 +70,15 @@ pnpm dev
 Dev server: `http://127.0.0.1:3456/`
 
 ```bash
-pnpm check              # astro check
-pnpm build              # check, then write dist/
+pnpm check              # i18n key audit, then astro check
+pnpm build              # astro check, then write dist/
 pnpm preview            # serve the production build on 127.0.0.1:3456
-pnpm generate:assets    # regenerate OG images and Apple Touch Icon
+pnpm generate:assets    # regenerate OG images, header logo, and Apple Touch Icon
 ```
 
-Local requests usually have no Vercel geo header, so the homepage stays Chinese. Open `/en/` or use the header language control to see English. The language control writes `?lang=en` or `?lang=zh`, and middleware stores `techflows_locale` for a year.
+`pnpm check` runs `scripts/check-i18n.mjs` first. A missing `t()` key or an unused dictionary entry fails the command.
+
+Local requests usually have no Vercel geo header, so the homepage stays Chinese. Open `/en/` or use the header language control to see English. The language control writes `?lang=en` or `?lang=zh`. Only that explicit switch sets `techflows_locale` (HttpOnly, one year). A geographic 302 does not write the cookie.
 
 ## Interface and layout
 
@@ -89,6 +95,7 @@ The visual system is two materials on a quiet page. Do not turn it into a card d
 Glass (`backdrop-filter`, translucent fill, hairline highlight) is only for interactive chrome:
 
 - floating header capsule
+- homepage reading map
 - mobile nav sheet
 - secondary buttons
 - footer
@@ -144,7 +151,7 @@ Shared CSS lives in `src/styles/global.css`. Page-specific exceptions should sta
 
 Component: `src/components/HomePage.astro`
 
-Desktop has a left reading map and an optional line-by-line mode. Line-by-line is opt-in. It does not auto-enable.
+Desktop has a left reading map. Line-by-line reading is on by default on desktop (viewport above 1024px). It stays off on smaller screens and when `prefers-reduced-motion` is set. In this mode, wheel and arrow keys / `j` `k` step to the next line instead of scrolling the page. Map links jump to that section’s first line instead of a native hash scroll (which would land on hidden copy). The toggle still exits to show all; Escape does the same. A skip link to `#main` stays focusable on small screens.
 
 | Section | Anchor | Job |
 | --- | --- | --- |
@@ -206,10 +213,11 @@ Do not split the six roles into six full-width chapters again. The recap list is
 
 ### Outbound confirmation `/go/[slug]/`
 
+Layout: `src/layouts/RedirectLayout.astro`  
 Component: `src/components/RedirectPage.astro`  
 Registry: `src/data/forms.ts`
 
-Every external Feishu form or WeChat article goes through this page. The page is `noindex, nofollow`. Slugs:
+Every external Feishu form or WeChat article goes through this page. The page is `noindex, nofollow`. Chinese and English route files only pass `locale`. Slugs:
 
 | Slug | Kind | Use |
 | --- | --- | --- |
@@ -217,11 +225,13 @@ Every external Feishu form or WeChat article goes through this page. The page is
 | `project` | form | Submit a project or idea |
 | `cobuild` | form | Help build the community |
 | `partner` | form | Start a partnership |
-| `activity-notice` | form | Event notices |
+| `activity-notice` | form | Same join form; button copy is “join to get event updates”, not a separate list |
 | `event-review` | article | A specific recap |
 | `wechat-album` | album | All recaps |
 
-Build links with `goPath(locale, slug, source)`. The optional `source` query is a tracing tag such as `home_entry_project` or `events_upcoming_notice`. Add a slug in `forms.ts` before you link it. Do not point page buttons straight at Feishu.
+`activity-notice` and `join` share the same Feishu URL. Do not add a new form just to make the notice button look like a newsletter.
+
+Build links with `goPath(locale, slug, source)`. The optional `source` query is a tracing tag such as `home_entry_project` or `footer_cobuild`. On confirm, the page copies it onto the outbound URL as `tf_source`. No `source` means the target URL is unchanged. Add a slug in `forms.ts` before you link it. Do not point page buttons straight at Feishu.
 
 ## Content maintenance
 
@@ -236,13 +246,13 @@ Almost all visitor-facing sentences live in data files, not in layout CSS.
 | `src/data/partners.ts` | Partner type titles and descriptions |
 | `src/data/forms.ts` | External URLs, labels, `goPath()` |
 
-`t(key, locale)` returns the key itself if a translation is missing. If you see a raw key on the page, the dictionary entry is absent.
+`t(key, locale)` is typed as `keyof typeof translations`. Dynamic keys (roles, formats, hope rows) use `as const` maps in the page component. Missing or unused keys fail `pnpm check`.
 
 When you add a public page:
 
 1. Add it to `pages` and `navItems` in `src/data/site.ts`.
 2. Add `src/pages/.../index.astro` and `src/pages/en/.../index.astro`.
-3. Add the Chinese path to `englishPagePaths` in `middleware.ts`, or region rewrite will skip it.
+3. Middleware derives English twins from `pages` in `site.ts`. `/go/` still prefixes `/en` automatically.
 4. Add sitemap metadata in `src/pages/sitemap.xml.ts`.
 5. Add an OG image if the page should not reuse another page’s image.
 6. Use `.index-list` for structured blocks.
@@ -251,25 +261,26 @@ When you add a public page:
 
 ## Language
 
-`src/utils/i18n.ts` is the only place page code should ask for a path or a string.
+`src/utils/i18n.ts` is the only place page code should ask for a path or a string. `t()` is typed to dictionary keys.
 
 Middleware (`middleware.ts`) runs on Vercel:
 
-- Cookie `techflows_locale` wins after an explicit `?lang=` switch.
+- Cookie `techflows_locale` wins after an explicit `?lang=` switch. That cookie is HttpOnly.
+- Geographic 302 does **not** set the cookie, so a VPN or trip does not lock the language.
 - `CN` with no English preference stays on Chinese.
-- Other countries rewrite unprefixed page paths to `/en/...`.
-- `/en/...` is never rewritten away.
-- Static files, fonts, `robots.txt`, `sitemap.xml`, and `llms.txt` skip rewrite.
+- Other countries 302 unprefixed page paths to `/en/...`. The address bar matches the language.
+- `/en/...` is never redirected away.
+- Static files, fonts, `robots.txt`, `sitemap.xml`, and `llms.txt` skip locale routing.
 
-`englishPagePaths` must list every Chinese page that has an English twin, including `/unfino/`. `/go/` is handled separately and prefixes `/en` automatically.
+Missing country headers (local preview) keep Chinese, matching production when Vercel does not send `x-vercel-ip-country`.
 
-HTML `lang` is `zh-CN` or `en`. Chinese pages put Smiley Sans first; English pages put Geist Mono first. Both stacks are always available.
+HTML `lang` is `zh-CN` or `en`. Chinese pages preload and put Smiley Sans first; English pages put Geist Mono first. Both stacks are always available.
 
 ## Header, footer, and buttons
 
-`Header.astro` is a floating glass capsule. Desktop shows full nav. Below about 960px it becomes a hamburger and a sheet. The language control points at the same page in the other locale with `?lang=`.
+`Header.astro` is a floating glass capsule. It uses `public/assets/techflows-logo-header.png` (about 132px wide), not the full-width source logo. Desktop shows full nav. Below about 960px it becomes a hamburger and a sheet: opening moves focus into the panel, Tab cycles inside it, Escape or a link close it and return focus to the button. The language control points at the same page in the other locale with `?lang=`.
 
-`Footer.astro` repeats a short nav, contact email, and the brand line.
+`Footer.astro` repeats a short nav, contact email, and the brand line. “社区共建 / Co-build” is a `/go/cobuild/` link (`footer_cobuild`), not the Join page.
 
 `Button.astro` has `primary` (black pill) and `secondary` (glass pill). Set `external` only for mailto or true new-tab links. Form and article jumps still go through `/go/`.
 
@@ -281,18 +292,19 @@ English UI uses Geist Mono (`--font-geist-mono`). Chinese uses the full Smiley S
 public/assets/fonts/SmileySans-Oblique.ttf.woff2
 ```
 
-CSS uses `font-display: swap` and `unicode-range`. Vercel caches `/assets/fonts/*` for one year as immutable. Keep the full font so new Chinese characters on subpages do not go missing. Do not regenerate a site-character subset unless you have a new subsetting pipeline.
+CSS uses `font-display: swap` and `unicode-range`. Chinese pages preload the woff2 file. Vercel caches `/assets/fonts/*` for one year as immutable. Keep the full font so new Chinese characters on subpages do not go missing. Do not regenerate a site-character subset unless you have a new subsetting pipeline.
 
 ## Static assets
 
-- `public/assets/techflows-logo.png` — header and redirect page
+- `public/assets/techflows-logo.png` — redirect page and OG cards
+- `public/assets/techflows-logo-header.png` — header mark at display width ~132px
 - `public/assets/atom-field.svg` — repeating atmosphere tile
-- `public/assets/og-home.png`, `og-events.png`, `og-projects.png`, `og-partners.png`, `og-join.png`
+- `public/assets/og-home.png`, `og-events.png`, `og-projects.png`, `og-partners.png`, `og-join.png`, `og-unfino.png`
 - `public/assets/apple-touch-icon.png`
 - `public/favicon.png`, `public/favicon.ico`
 - `assets/techflows-logo.png` — source logo backup, not served
 
-`pnpm generate:assets` rebuilds OG images and the touch icon from `scripts/generate-assets.mjs`. After changing the logo, run that command and commit the outputs.
+`pnpm generate:assets` rebuilds OG images, the header logo, and the touch icon from `scripts/generate-assets.mjs`. After changing the logo, run that command and commit the outputs.
 
 Cache policy in `vercel.json`:
 
@@ -302,10 +314,13 @@ Cache policy in `vercel.json`:
 
 ## SEO and AI crawlers
 
-- `src/pages/sitemap.xml.ts` emits Chinese and English URLs with `lastmod`, `changefreq`, `priority`, and hreflang.
+- `src/pages/sitemap.xml.ts` emits Chinese and English URLs with `lastmod`, `changefreq`, `priority`, and hreflang. Chinese is `zh-CN`, matching `html lang`.
 - `public/robots.txt` allows search and AI crawlers on public pages and points at the sitemap.
 - `src/pages/llms.txt.ts` is a short map for assistants. It is generated from `pages` in `site.ts`, so new pages appear automatically.
-- `BaseLayout.astro` emits canonical, alternate, Open Graph, Twitter Card, and JSON-LD (`Organization`, `WebSite`, `WebPage`).
+- `BaseLayout.astro` emits canonical, alternate, Open Graph, Twitter Card, and JSON-LD (`Organization`, `WebSite`, `WebPage`). `Organization.description` uses the homepage sentence, not the current page meta.
+- UNFINO uses `/assets/og-unfino.png`. Do not reuse the events OG image for that page.
+- `src/pages/404.astro` is `noindex` and links home, events, and join. Locale follows `/en/` in the path.
+- `vercel.json` permanently redirects `/projects.html` and `/unfino.html` (and the older `.html` aliases) to the trailing-slash routes.
 
 `/go/` and `/en/go/` are `noindex, nofollow` via meta and `X-Robots-Tag`.
 
@@ -323,7 +338,7 @@ Headers are in `vercel.json`:
 - `Cross-Origin-Opener-Policy: same-origin`
 - `X-Permitted-Cross-Domain-Policies: none`
 
-`'unsafe-inline'` exists because a few pages use inline scripts (header, homepage reading mode, UNFINO reveal, console easter egg). Do not add third-party scripts without updating CSP. Outbound `<a>` tags that leave the site should keep `rel="noopener noreferrer"`.
+`'unsafe-inline'` exists because a few pages use inline scripts (header, homepage reading mode, UNFINO reveal, `/go/` `tf_source` attach) and JSON-LD. Do not add third-party scripts without updating CSP. Outbound `<a>` tags that leave the site should keep `rel="noopener noreferrer"`.
 
 Non-GET/HEAD requests to HTML routes receive 405 from middleware.
 
@@ -365,14 +380,16 @@ pnpm check
 pnpm build
 ```
 
-Then confirm `/`, `/en/`, `/unfino/`, `/en/unfino/`, and one `/go/join/` page.
+Then confirm `/`, `/en/`, `/unfino/`, `/en/unfino/`, and one `/go/join/` page. After deploy from a non-CN network, confirm `/events/` 302s to `/en/events/` without setting the language cookie.
+
+GitHub Actions (`.github/workflows/check.yml`) runs `pnpm install --frozen-lockfile`, `pnpm check`, and `pnpm build` on `main` and pull requests.
 
 ## Pre-commit checklist
 
 - Run `pnpm check` and `pnpm build`.
-- New public page: `site.ts`, both locale routes, `middleware.ts` `englishPagePaths`, sitemap.
+- New public page: `site.ts`, both locale routes, sitemap. Middleware picks up Chinese paths from `pages`.
 - New outbound target: slug in `forms.ts`, then `goPath()`, never a raw Feishu URL in a page button.
-- Copy changes need both `zh` and `en`.
+- Copy changes need both `zh` and `en`. Unused translation keys fail `pnpm check`.
 - Layout changes stay on `.index-list`. Do not wrap body copy in glass cards.
 - Update `site.lastUpdated` when public content changes.
 - Do not commit `node_modules/`, `dist/`, `.astro/`, `.claude/`, `scripts/__pycache__/`, or QA screenshots and planning drafts under `docs/`.

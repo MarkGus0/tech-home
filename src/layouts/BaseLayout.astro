@@ -3,7 +3,7 @@ import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import { absoluteUrl } from "@utils/i18n";
+import { absoluteUrl, t } from "@utils/i18n";
 import { pages, site, type Locale, type PageId } from "@data/site";
 import "@styles/global.css";
 
@@ -21,7 +21,8 @@ const alternateZh = absoluteUrl(meta.paths.zh);
 const alternateEn = absoluteUrl(meta.paths.en);
 const image = absoluteUrl(meta.image);
 const htmlLang = locale === "zh" ? "zh-CN" : "en";
-const imageAlt = locale === "zh" ? `${site.name} 页面预览图` : `${site.name} page preview`;
+const imageAlt = t("meta.imageAlt", locale);
+const organizationDescription = pages.home.description[locale];
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -31,7 +32,7 @@ const structuredData = {
       url: site.url,
       name: site.name,
       alternateName: ["TechFlows Community", "TechFlows社区"],
-      description: meta.description[locale],
+      description: organizationDescription,
       foundingDate: "2026",
       areaServed: ["China", "Global"],
       contactPoint: {
@@ -59,7 +60,9 @@ const structuredData = {
       isPartOf: { "@id": `${site.url}/#website` },
       primaryImageOfPage: {
         "@type": "ImageObject",
-        url: image
+        url: image,
+        width: 1200,
+        height: 630
       },
       dateModified: site.lastUpdated
     }
@@ -77,13 +80,22 @@ const structuredData = {
     <title>{meta.title[locale]}</title>
     <meta name="description" content={meta.description[locale]} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="zh" href={alternateZh} />
+    <link rel="alternate" hreflang="zh-CN" href={alternateZh} />
     <link rel="alternate" hreflang="en" href={alternateEn} />
     <link rel="alternate" hreflang="x-default" href={alternateZh} />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    {locale === "zh" && (
+      <link
+        rel="preload"
+        href="/assets/fonts/SmileySans-Oblique.ttf.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin
+      />
+    )}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TechFlows" />
@@ -91,6 +103,8 @@ const structuredData = {
     <meta property="og:description" content={meta.description[locale]} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:locale" content={locale === "zh" ? "zh_CN" : "en_US"} />
     <meta property="og:locale:alternate" content={locale === "zh" ? "en_US" : "zh_CN"} />
@@ -100,7 +114,6 @@ const structuredData = {
     <meta name="twitter:image" content={image} />
     <meta name="twitter:image:alt" content={imageAlt} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-    <script is:inline src="/assets/console-easter-egg.js" defer></script>
   </head>
   <body data-locale={locale} data-page={page}>
     <div class="site-atmosphere" aria-hidden="true">
@@ -108,7 +121,7 @@ const structuredData = {
       <div class="pixel-grid"></div>
       <div class="atom-field"></div>
     </div>
-    <a class="skip-link" href="#main">{locale === "zh" ? "跳到正文" : "Skip to content"}</a>
+    <a class="skip-link" href="#main">{t("skipLink", locale)}</a>
     <Header locale={locale} page={page} />
     <slot />
     <Footer locale={locale} />

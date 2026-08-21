@@ -1,18 +1,13 @@
-import { geolocation, next, rewrite } from "@vercel/functions";
+import { geolocation, next } from "@vercel/functions";
+import { pages } from "./src/data/site";
 
 const MAINLAND_CHINA_COUNTRY = "CN";
 const LANGUAGE_COOKIE = "techflows_locale";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 const SUPPORTED_LOCALES = new Set(["zh", "en"]);
+const VARY_VALUE = "Cookie, x-vercel-ip-country";
 
-const englishPagePaths = new Set([
-  "/",
-  "/events/",
-  "/unfino/",
-  "/join/",
-  "/partners/",
-  "/projects/"
-]);
+const englishPagePaths = new Set(Object.values(pages).map((page) => page.paths.zh));
 
 function withTrailingSlash(pathname: string) {
   if (pathname === "/") {
@@ -64,7 +59,8 @@ function preferenceHeaders(locale: string, url: URL) {
     `${LANGUAGE_COOKIE}=${encodeURIComponent(locale)}`,
     "Path=/",
     `Max-Age=${COOKIE_MAX_AGE}`,
-    "SameSite=Lax"
+    "SameSite=Lax",
+    "HttpOnly"
   ];
 
   if (url.protocol === "https:") {
@@ -72,7 +68,7 @@ function preferenceHeaders(locale: string, url: URL) {
   }
 
   headers.set("Set-Cookie", cookie.join("; "));
-  headers.set("Vary", "Cookie, x-vercel-ip-country");
+  headers.set("Vary", VARY_VALUE);
   return headers;
 }
 
@@ -133,6 +129,22 @@ function redirectWithPreference(url: URL, locale: string) {
   return new Response(null, { status: 302, headers });
 }
 
+function redirectToEnglish(url: URL) {
+  const englishPath = englishPathFor(url.pathname);
+  if (!englishPath) {
+    return next();
+  }
+
+  const destination = new URL(url);
+  destination.pathname = englishPath;
+  const headers = new Headers();
+  headers.set("Location", destination.toString());
+  headers.set("Vary", VARY_VALUE);
+  headers.set("Cache-Control", "private, no-store");
+
+  return new Response(null, { status: 302, headers });
+}
+
 function methodNotAllowed() {
   return new Response("Method Not Allowed", {
     status: 405,
@@ -167,7 +179,7 @@ export default function middleware(request: Request) {
 
   const preferredLocale = preferredLocaleFromCookie(request);
   if (preferredLocale === "zh") {
-    return next({ headers: { Vary: "Cookie, x-vercel-ip-country" } });
+    return next({ headers: { Vary: VARY_VALUE } });
   }
 
   const country = countryCodeFromRequest(request);
@@ -175,11 +187,5 @@ export default function middleware(request: Request) {
     return next();
   }
 
-  const englishPath = englishPathFor(pathname);
-  if (!englishPath) {
-    return next();
-  }
-
-  url.pathname = englishPath;
-  return rewrite(url, { headers: { Vary: "Cookie, x-vercel-ip-country" } });
+  return redirectToEnglish(url);
 }

@@ -36,6 +36,12 @@ const cards = [
     title: "项目记录",
     subtitle: "认真记录那些还没有成熟、但已经开始发生的项目。",
     label: "Projects"
+  },
+  {
+    file: "og-unfino.png",
+    title: "未完场 UNFINO",
+    subtitle: "让项目在颁奖之后继续推进。",
+    label: "UNFINO"
   }
 ];
 
@@ -78,6 +84,11 @@ await sharp(favicon)
   .flatten({ background: "#ffffff" })
   .png({ compressionLevel: 9, adaptiveFiltering: true })
   .toFile(out("apple-touch-icon.png"));
+
+await sharp(resolve("public/assets/techflows-logo.png"))
+  .resize({ width: 264 })
+  .png({ compressionLevel: 9, adaptiveFiltering: true })
+  .toFile(out("techflows-logo-header.png"));
 
 for (const card of cards) {
   await sharp(Buffer.from(ogSvg(card))).png().toFile(out(card.file));

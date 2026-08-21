@@ -1,39 +1,9 @@
 ﻿---
-import Analytics from "@vercel/analytics/astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
-import RedirectPage from "@components/RedirectPage.astro";
-import { goLinks, type GoSlug } from "@data/forms";
-import "@styles/global.css";
+import RedirectLayout from "@layouts/RedirectLayout.astro";
+import { goLinks } from "@data/forms";
 
 export function getStaticPaths() {
   return Object.keys(goLinks).map((slug) => ({ params: { slug } }));
 }
-
-const slug = Astro.params.slug as GoSlug;
-const pageTitleZh = "外部链接确认";
-const enableVercelInsights = import.meta.env.PUBLIC_ENABLE_VERCEL_INSIGHTS === "true";
 ---
-
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>{pageTitleZh} — TechFlows</title>
-    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
-    <script is:inline src="/assets/console-easter-egg.js" defer></script>
-  </head>
-  <body class="redirect-body" data-locale="zh" data-page="redirect">
-    <div class="site-atmosphere" aria-hidden="true">
-      <div class="light-field"></div>
-      <div class="pixel-grid"></div>
-      <div class="atom-field"></div>
-    </div>
-    <RedirectPage slug={slug} locale="zh" />
-    {enableVercelInsights && <Analytics />}
-    {enableVercelInsights && <SpeedInsights />}
-  </body>
-</html>
+<RedirectLayout locale="zh" />

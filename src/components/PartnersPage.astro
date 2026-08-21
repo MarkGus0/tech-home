@@ -9,6 +9,8 @@ import { t } from "@utils/i18n";
 
 type Props = { locale: Locale };
 const { locale } = Astro.props;
+const collabCopy = ["partners.collab.p1", "partners.collab.p2", "partners.collab.p3", "partners.collab.p4"] as const;
+const ctaCopy = ["partners.cta.p1", "partners.cta.p2", "partners.cta.p3"] as const;
 ---
 <BaseLayout locale={locale} page="partners">
   <main id="main" class="subpage-main subpage-main--partners">
@@ -28,8 +30,8 @@ const { locale } = Astro.props;
       <div class="section-shell">
         <div class="chapter-copy">
           <h2>{t("partners.collab.title", locale)}</h2>
-          {[1, 2, 3, 4].map((num) => <p>{t(`partners.collab.p${num}`, locale)}</p>)}
-          <p class="mt-24"><strong>{locale === "zh" ? "联系我们：" : "Contact us: "}<a href={`mailto:${site.partnerEmail}`}>{site.partnerEmail}</a></strong></p>
+          {collabCopy.map((key) => <p>{t(key, locale)}</p>)}
+          <p class="mt-24"><strong>{t("partners.contact.label", locale)}<a href={`mailto:${site.partnerEmail}`}>{site.partnerEmail}</a></strong></p>
         </div>
       </div>
     </section>
@@ -47,11 +49,11 @@ const { locale } = Astro.props;
       <div class="final-shell">
         <h2>{t("partners.cta.title", locale)}</h2>
         <div class="final-copy">
-          {[1, 2, 3].map((num) => <p>{t(`partners.cta.p${num}`, locale)}</p>)}
+          {ctaCopy.map((key) => <p>{t(key, locale)}</p>)}
         </div>
         <div class="final-actions">
           <Button href={goPath(locale, "partner", "partners_final_partner")}>{t("partners.cta.button", locale)}</Button>
-          <Button href={`mailto:${site.partnerEmail}`} variant="secondary" external>{locale === "zh" ? "邮件联系" : "Email us"}</Button>
+          <Button href={`mailto:${site.partnerEmail}`} variant="secondary" external>{t("partners.cta.email", locale)}</Button>
         </div>
       </div>
     </section>

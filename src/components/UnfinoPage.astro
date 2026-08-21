@@ -7,8 +7,17 @@ import { pagePath, t } from "@utils/i18n";
 
 type Props = { locale: Locale };
 const { locale } = Astro.props;
-const formats = ["hackathon", "challenge", "sprint", "showcase"] as const;
-const builderSignals = ["onsite", "commitment", "together"] as const;
+const formats = [
+  { title: "unfinoBrand.formats.hackathon.title", description: "unfinoBrand.formats.hackathon.description", example: true },
+  { title: "unfinoBrand.formats.challenge.title", description: "unfinoBrand.formats.challenge.description", example: false },
+  { title: "unfinoBrand.formats.sprint.title", description: "unfinoBrand.formats.sprint.description", example: false },
+  { title: "unfinoBrand.formats.showcase.title", description: "unfinoBrand.formats.showcase.description", example: false }
+] as const;
+const builderSignals = [
+  { title: "unfinoBrand.builder.onsite.title", description: "unfinoBrand.builder.onsite.description" },
+  { title: "unfinoBrand.builder.commitment.title", description: "unfinoBrand.builder.commitment.description" },
+  { title: "unfinoBrand.builder.together.title", description: "unfinoBrand.builder.together.description" }
+] as const;
 ---
 <BaseLayout locale={locale} page="unfino">
   <main id="main" class="subpage-main subpage-main--unfino">
@@ -40,10 +49,10 @@ const builderSignals = ["onsite", "commitment", "together"] as const;
                 <p class="index-row__index">0{index + 1}</p>
                 <div class="index-row__main">
                   <div class="index-row__heading">
-                    <h3>{t(`unfinoBrand.formats.${format}.title`, locale)}</h3>
-                    {format === "hackathon" && <span class="index-row__tag">{t("unfinoBrand.formats.example", locale)}</span>}
+                    <h3>{t(format.title, locale)}</h3>
+                    {format.example && <span class="index-row__tag">{t("unfinoBrand.formats.example", locale)}</span>}
                   </div>
-                  <p>{t(`unfinoBrand.formats.${format}.description`, locale)}</p>
+                  <p>{t(format.description, locale)}</p>
                 </div>
               </article>
             ))}
@@ -63,8 +72,8 @@ const builderSignals = ["onsite", "commitment", "together"] as const;
               <article class="index-row unfino-reveal" style={`--delay: ${index * 60}ms`}>
                 <p class="index-row__index">0{index + 1}</p>
                 <div class="index-row__main">
-                  <h3>{t(`unfinoBrand.builder.${signal}.title`, locale)}</h3>
-                  <p>{t(`unfinoBrand.builder.${signal}.description`, locale)}</p>
+                  <h3>{t(signal.title, locale)}</h3>
+                  <p>{t(signal.description, locale)}</p>
                 </div>
               </article>
             ))}

@@ -1,0 +1,52 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Button from "@components/Button.astro";
+import type { Locale } from "@data/site";
+import { pagePath, t } from "@utils/i18n";
+import "@styles/global.css";
+
+const locale: Locale = Astro.url.pathname === "/en" || Astro.url.pathname.startsWith("/en/") ? "en" : "zh";
+const htmlLang = locale === "zh" ? "zh-CN" : "en";
+Astro.response.headers.set("X-Robots-Tag", "noindex, nofollow");
+---
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f4f7fb" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{t("notFound.title", locale)}</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  </head>
+  <body data-locale={locale} data-page="not-found">
+    <div class="site-atmosphere" aria-hidden="true">
+      <div class="light-field"></div>
+      <div class="pixel-grid"></div>
+      <div class="atom-field"></div>
+    </div>
+    <a class="skip-link" href="#main">{t("skipLink", locale)}</a>
+    <Header locale={locale} />
+    <main id="main" class="subpage-main">
+      <section class="hero sub-hero">
+        <div class="hero-shell">
+          <div class="hero-copy">
+            <h1>{t("notFound.heading", locale)}</h1>
+            <div class="hero-detail hero-detail--compact">
+              <p>{t("notFound.body", locale)}</p>
+            </div>
+            <div class="final-actions unfino-actions">
+              <Button href={pagePath("home", locale)}>{t("notFound.home", locale)}</Button>
+              <Button href={pagePath("events", locale)} variant="secondary">{t("notFound.events", locale)}</Button>
+              <Button href={pagePath("join", locale)} variant="secondary">{t("notFound.join", locale)}</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer locale={locale} />
+  </body>
+</html>

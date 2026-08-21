@@ -45,7 +45,7 @@ export const goLinks: Record<GoSlug, GoLink> = {
   "activity-notice": {
     slug: "activity-notice",
     target: "https://techflow.feishu.cn/share/base/form/shrcnGk0Lgb9bhwDssiIxqnmTJc",
-    label: { zh: "获取活动通知", en: "Get event updates" },
+    label: { zh: "加入以接收活动通知", en: "Join to get event updates" },
     kind: "form"
   },
   "event-review": {
@@ -66,4 +66,14 @@ export function goPath(locale: Locale, slug: GoSlug, source?: string) {
   const prefix = locale === "en" ? "/en" : "";
   const query = source ? `?source=${encodeURIComponent(source)}` : "";
   return `${prefix}/go/${slug}/${query}`;
+}
+
+export function outboundTarget(target: string, source?: string | null) {
+  if (!source) {
+    return target;
+  }
+
+  const url = new URL(target);
+  url.searchParams.set("tf_source", source);
+  return url.toString();
 }

@@ -1,6 +1,7 @@
 ---
 import { footerLinks, site, type Locale } from "@data/site";
-import { pagePath } from "@utils/i18n";
+import { goPath } from "@data/forms";
+import { pagePath, t } from "@utils/i18n";
 
 type Props = {
   locale: Locale;
@@ -12,14 +13,16 @@ const { locale } = Astro.props;
   <div class="footer-inner">
     <div>
       <a class="footer-brand" href={pagePath("home", locale)}>TechFlows</a>
-      <p>{locale === "zh" ? "关注青年科技创造者与早期项目的开放社区。" : "An open community for young tech creators and early-stage projects."}</p>
+      <p>{t("footer.blurb", locale)}</p>
     </div>
-    <nav class="footer-nav" aria-label={locale === "zh" ? "页脚导航" : "Footer navigation"}>
+    <nav class="footer-nav" aria-label={t("footer.navLabel", locale)}>
       {footerLinks.map((item) => (
-        <a href={pagePath(item.page, locale)}>{item.label[locale]}</a>
+        <a href={item.kind === "page" ? pagePath(item.page, locale) : goPath(locale, item.slug, item.source)}>
+          {item.label[locale]}
+        </a>
       ))}
       <a href={`mailto:${site.email}`}>{site.email}</a>
     </nav>
-    <p class="footer-tagline">{locale === "zh" ? "让想做点什么的人，先找到彼此。" : "Let people who want to build something find each other first."}</p>
+    <p class="footer-tagline">{t("footer.tagline", locale)}</p>
   </div>
 </footer>

@@ -1,6 +1,7 @@
 ﻿---
 import { goLinks, type GoSlug } from "@data/forms";
-import type { Locale } from "@data/site";
+import { site, type Locale } from "@data/site";
+import { pagePath, t } from "@utils/i18n";
 
 type Props = {
   slug: GoSlug;
@@ -9,18 +10,10 @@ type Props = {
 
 const { slug, locale } = Astro.props;
 const link = goLinks[slug];
-const title = locale === "zh" ? "即将前往外部链接" : "Leaving TechFlows";
-const heading = locale === "zh"
-  ? "你将前往以下地址"
-  : "You are about to visit";
-const confirmLabel = locale === "zh" ? "确认并前往" : "Confirm & continue";
-const returnLabel = locale === "zh" ? "返回 TechFlows" : "Back to TechFlows";
-const returnPath = locale === "zh" ? "/" : "/en/";
 ---
-
 <main class="redirect-shell">
   <img
-    src="/assets/techflows-logo.png"
+    src={site.logo}
     alt="TechFlows"
     width="1610"
     height="182"
@@ -29,11 +22,27 @@ const returnPath = locale === "zh" ? "/" : "/en/";
     fetchpriority="high"
     class="redirect-logo"
   />
-  <h1>{title}</h1>
-  <p>{heading}</p>
-  <p class="redirect-link-target">{link.target}</p>
+  <h1>{t("redirect.title", locale)}</h1>
+  <p>{t("redirect.heading", locale)}</p>
+  <p class="redirect-link-target" data-redirect-target>{link.target}</p>
   <div class="redirect-actions">
-    <a class="button button-primary" rel="noopener noreferrer" href={link.target}>{confirmLabel}</a>
-    <a class="button button-secondary" href={returnPath}>{returnLabel}</a>
+    <a class="button button-primary" rel="noopener noreferrer" href={link.target} data-redirect-confirm>{t("redirect.confirm", locale)}</a>
+    <a class="button button-secondary" href={pagePath("home", locale)}>{t("redirect.back", locale)}</a>
   </div>
 </main>
+
+<script>
+  const source = new URLSearchParams(window.location.search).get("source");
+  if (!source) {
+    /* keep the built href */
+  } else {
+    const confirmLink = document.querySelector("[data-redirect-confirm]");
+    const targetLabel = document.querySelector("[data-redirect-target]");
+    if (confirmLink instanceof HTMLAnchorElement) {
+      const next = new URL(confirmLink.href);
+      next.searchParams.set("tf_source", source);
+      confirmLink.href = next.toString();
+      if (targetLabel) targetLabel.textContent = confirmLink.href;
+    }
+  }
+</script>
