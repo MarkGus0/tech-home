@@ -1,236 +1,378 @@
-# TechFlows 官网
+# TechFlows Website
 
-TechFlows 官网是一个基于 Astro 的双语静态站点，中文页面位于根路径，英文页面位于 `/en/`。项目面向 Vercel 部署，已经包含安全响应头、静态资源缓存、SEO、AI 爬虫入口、地区语言偏好和字体加载优化。
+TechFlows is a bilingual public website for a youth tech creator community. The brand line is “让想做点什么的人，先找到彼此” / “For those who want to build something.” The site is an Astro 5 static project. Chinese pages live at the root. English pages live under `/en/`. Production canonical host is `https://www.techflows.app`. Deploy target is Vercel.
 
-## 核心能力
+The site is not a product landing page and not a manifesto. It is an entry surface: explain who TechFlows is, show what is happening now, and send people to one concrete next step (an event, a project form, co-building, or a partnership). UNFINO is the unfinished-field challenge brand inside TechFlows. It is a sibling of Events, not a replacement for the community site.
 
-- 双语内容：中文为主站路径，英文为 `/en/` 路径。
-- 地区语言偏好：Vercel Routing Middleware 根据访问国家判断默认语言，中国大陆显示中文，其他地区显示英文。
-- SEO 与 AI 友好：包含 `sitemap.xml`、`robots.txt`、`llms.txt`、canonical、hreflang、Open Graph、Twitter Card 和结构化数据。
-- 安全响应头：包含 CSP、`X-Content-Type-Options`、`X-Frame-Options`、`Referrer-Policy`、`Permissions-Policy`、`Cross-Origin-Opener-Policy`。
-- 性能优化：Astro 静态输出、长缓存静态资源、字体自托管、中文字体子集化。
-- 外链安全：外部跳转统一走 `/go/...` 与 `/en/go/...` 确认页，并设置 `noindex`。
+This README is the working document for the repo. Use it when you change copy, layout, routes, or outbound links.
 
-## 技术栈
+## What the site is for
 
-- Astro 5
-- TypeScript
-- Vercel Analytics（默认关闭，可通过环境变量启用）
-- Vercel Speed Insights（默认关闭，可通过环境变量启用）
-- Vercel Routing Middleware
-- Geist Mono
-- Smiley Sans / 得意黑完整字体
+TechFlows focuses on young tech creators and early-stage work: AI practice, open source, hackathons, campus projects, and first startup attempts. The public pages should stay honest about early status. Do not invent metrics, dates, case studies, or partner logos to fill empty space. The Projects page is a collection call, not a fake portfolio.
 
-## 本地开发
+Typical visitor jobs:
 
-建议使用 Node.js 20+ 和 pnpm。
+- Understand what TechFlows is in under a minute.
+- Find the next gathering or leave contact details for notices.
+- Submit an unfinished project or idea.
+- Join as a participant, creator, recorder, connector, or builder.
+- Start a partnership from a university, company, community, or venue.
+
+## Repository map
+
+```text
+src/
+  pages/                 Route files. Most of them only pick a locale and render a page component.
+  pages/en/              English routes. Same components, locale="en".
+  pages/go/[slug].astro  Outbound confirmation page (Chinese).
+  pages/en/go/           Outbound confirmation page (English).
+  components/            Page bodies, header, footer, buttons, lists.
+  layouts/BaseLayout.astro
+  styles/global.css      Tokens, atmosphere, chrome, and the shared list system.
+  data/                  Copy, events, projects, partners, outbound targets.
+  utils/i18n.ts          t(), pagePath(), locale helpers.
+public/assets/           Logo, OG images, atom-field.svg, fonts.
+middleware.ts            Region language preference on Vercel.
+vercel.json              Security headers, cache, HTML redirects.
+```
+
+Page components, not `src/pages/*`, own the real layout. A typical route file is:
+
+```astro
+---
+import HomePage from "@components/HomePage.astro";
+---
+<HomePage locale="zh" />
+```
+
+## Stack
+
+- Astro 5, TypeScript, static output
+- pnpm, Node.js 20+
+- Geist Mono via the `geist` package
+- Smiley Sans / 得意黑, self-hosted at `public/assets/fonts/SmileySans-Oblique.ttf.woff2`
+- Vercel Routing Middleware (`@vercel/functions`)
+- Vercel Analytics and Speed Insights, both off unless `PUBLIC_ENABLE_VERCEL_INSIGHTS=true`
+
+Path aliases live in `tsconfig.json`: `@components/*`, `@layouts/*`, `@data/*`, `@utils/*`, `@styles/*`.
+
+## Local development
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-默认本地地址：
-
-```text
-http://127.0.0.1:3456/
-```
-
-## 常用命令
+Dev server: `http://127.0.0.1:3456/`
 
 ```bash
-pnpm check
-pnpm build
-pnpm preview
-pnpm generate:assets
+pnpm check              # astro check
+pnpm build              # check, then write dist/
+pnpm preview            # serve the production build on 127.0.0.1:3456
+pnpm generate:assets    # regenerate OG images and Apple Touch Icon
 ```
 
-命令说明：
+Local requests usually have no Vercel geo header, so the homepage stays Chinese. Open `/en/` or use the header language control to see English. The language control writes `?lang=en` or `?lang=zh`, and middleware stores `techflows_locale` for a year.
 
-- `pnpm dev`：启动本地开发服务器。
-- `pnpm check`：运行 Astro 类型与模板检查。
-- `pnpm build`：先检查，再生成静态站点到 `dist/`。
-- `pnpm preview`：本地预览构建结果。
-- `pnpm generate:assets`：重新生成 OG 图和 Apple Touch Icon。
+## Interface and layout
 
-## 路由结构
+The visual system is two materials on a quiet page. Do not turn it into a card dashboard, and do not turn it into a 1990s terminal.
 
-中文页面：
+### Substrate
 
-- `/`
-- `/events/`
-- `/projects/`
-- `/partners/`
-- `/join/`
-- `/go/[slug]/`
+- Page background is `#f4f7fb`.
+- `BaseLayout` paints a fixed atmosphere layer: a soft cyan/blue light field, a very faint pixel grid, and `public/assets/atom-field.svg`.
+- The atom field is atmosphere. Keep it low-contrast. Do not add scanlines, ASCII HUD labels, side rails, or denser tiles.
 
-英文页面：
+### Glass chrome
 
-- `/en/`
-- `/en/events/`
-- `/en/projects/`
-- `/en/partners/`
-- `/en/join/`
-- `/en/go/[slug]/`
+Glass (`backdrop-filter`, translucent fill, hairline highlight) is only for interactive chrome:
 
-机器可读入口：
+- floating header capsule
+- mobile nav sheet
+- secondary buttons
+- footer
 
-- `/robots.txt`
-- `/sitemap.xml`
-- `/llms.txt`
+Do not glass body copy, principles, role essays, partner lists, or UNFINO format/builder rows. Do not nest glass inside glass. If a block feels weak, drop the frame and use type, spacing, and a hairline. Do not wrap it in another rounded panel.
 
-## 地区语言策略
+### Reading column
 
-项目根目录的 `middleware.ts` 使用 Vercel 提供的地理位置能力读取访问国家。
+- Measure is about 720px (`--container` / `--subpage-max`).
+- One type scale: large page title, section title around 26–34px, list titles around 18–21px, muted body.
+- Kickers are small Geist Mono, blue, uppercase.
 
-当前规则：
+Structured content uses one list language:
 
-- `CN`：访问无 `/en` 前缀页面时保持中文。
-- 非 `CN`：访问无 `/en` 前缀页面时内部重写到对应英文页面。
-- 显式 `/en/...` 路径始终保留为英文入口。
-- 静态资源、字体、图片、`robots.txt`、`sitemap.xml`、`llms.txt` 不参与语言重写。
+```html
+<div class="index-list">
+  <article class="index-row">
+    <p class="index-row__index">01</p>
+    <div class="index-row__main">
+      <p class="index-row__meta">Optional status</p>
+      <h3>Title</h3>
+      <p>One or two sentences.</p>
+      <a class="text-link" href="...">Continue</a>
+    </div>
+  </article>
+</div>
+```
 
-本地开发环境默认没有真实 Vercel 地理位置头，因此本地访问通常保持中文；部署到 Vercel 后按真实访问地区生效。
+Variants:
 
-## 内容维护
+- `index-row--lead`: a featured story, allowed to hold one primary button
+- `index-row--essay`: several paragraphs (Join roles)
+- `index-row--status`: label / state / action, used on the homepage status block
+- `index-list--plain`: numbered `<ul>` (Projects collection prompts)
 
-主要内容数据位于：
+Pill buttons belong in the closing action block of a page, or in one lead story. Mid-page paths use `.text-link`. Peer groups must share one button variant. Do not mix black primary and white secondary in the same three-up or four-up set.
 
-- `src/data/site.ts`：站点信息、页面 meta、导航路径。
-- `src/data/translations.ts`：中英文文案字典。
-- `src/data/events.ts`：活动数据。
-- `src/data/projects.ts`：项目记录数据。
-- `src/data/partners.ts`：合作对象数据。
-- `src/data/forms.ts`：外部表单与跳转链接。
+### What not to rebuild
 
-页面组件位于：
+These already failed in review and should not come back:
 
-- `src/components/HomePage.astro`
-- `src/components/EventsPage.astro`
-- `src/components/ProjectsPage.astro`
-- `src/components/PartnersPage.astro`
-- `src/components/JoinPage.astro`
-- `src/components/RedirectPage.astro`
+- Glass list panels around rows, then glass tiles inside those panels
+- 3-column and 4-column mini-cards competing with hairline lists
+- Atom-circle bullets plus a second `01` index on the same row
+- Pixel-tick ornaments on every card
+- Full-viewport ASCII decoration
 
-页面入口位于：
+Shared CSS lives in `src/styles/global.css`. Page-specific exceptions should stay small. If a new block looks like a list, use `.index-list`.
 
-- `src/pages/**`
+## Pages
 
-## 字体策略
+### Home `/` and `/en/`
 
-英文使用 `geist` 包中的 Geist Mono，并通过 CSS 变量 `--font-geist-mono` 管理。
+Component: `src/components/HomePage.astro`
 
-中文使用自托管的 Smiley Sans / 得意黑完整字体：
+Desktop has a left reading map and an optional line-by-line mode. Line-by-line is opt-in. It does not auto-enable.
+
+| Section | Anchor | Job |
+| --- | --- | --- |
+| Hero | `#home` | Title, three summary lines, one stronger functional line, then three entry rows |
+| Now | `#now` | Three current workstreams: events, project records, connections |
+| Start | `#start` | Four paths: no project yet, already making something, willing to help, has resources |
+| Principles | `#principles` | Maturity, honesty, continuity |
+| Status | `#status` | Four live states as compact rows |
+| Join | `#join` | Closing copy and the only homepage pill-button cluster |
+
+Hero entries, now, start, and principles are all `.index-list` rows. Status rows are clickable `index-row--status` links. The closing cluster is Join (primary), submit a project (secondary), co-build (secondary).
+
+Copy keys live under `hero.*` and `home.*` in `src/data/translations.ts`.
+
+### Events `/events/`
+
+Component: `src/components/EventsPage.astro`  
+Data: `src/data/events.ts`
+
+Flow: opening → upcoming lead row with one primary button → what we hope happens on site (3 rows) → past records (EventCard list plus the WeChat album row) → how to take part (project / co-build / partner) → closing actions.
+
+Upcoming content comes from `upcomingEvent`. Past items come from `pastEvents`. Do not invent a second past event to fill the grid.
+
+### UNFINO `/unfino/`
+
+Component: `src/components/UnfinoPage.astro`  
+Copy keys: `unfinoBrand.*`
+
+UNFINO is a long-running challenge brand under TechFlows. A hackathon is one format, not the whole brand.
+
+Flow: wordmark and lead → formats (hackathon, challenge, sprint, showcase) → Builder community signals → closing actions back to Events or the project form.
+
+Keep the hero visible on first paint. Reveal animation is for list rows, not the whole page.
+
+### Projects `/projects/`
+
+Component: `src/components/ProjectsPage.astro`  
+Data: `src/data/projects.ts`
+
+This page is an empty-state collection call: why we will not fake case studies, four numbered prompts (why it began, how far it has gone, what is stuck, who is still needed), then submit / join actions.
+
+When real projects exist, add them in `src/data/projects.ts` and extend the page. Do not paste placeholder companies.
+
+### Partners `/partners/`
+
+Component: `src/components/PartnersPage.astro`  
+Data: `src/data/partners.ts`  
+List UI: `src/components/RoleList.astro`
+
+Flow: opening → collaboration essay → four partner types as an index list → partner form and `partner@techflows.app`.
+
+### Join `/join/`
+
+Component: `src/components/JoinPage.astro`
+
+Flow: opening → how to apply (one primary form button) → where people fit → six role essays in one numbered column (participant, creator, sharer, recorder, connector, builder) → six one-line recap rows → closing actions.
+
+Do not split the six roles into six full-width chapters again. The recap list is the short version; the essays are the long version.
+
+### Outbound confirmation `/go/[slug]/`
+
+Component: `src/components/RedirectPage.astro`  
+Registry: `src/data/forms.ts`
+
+Every external Feishu form or WeChat article goes through this page. The page is `noindex, nofollow`. Slugs:
+
+| Slug | Kind | Use |
+| --- | --- | --- |
+| `join` | form | Membership / contact |
+| `project` | form | Submit a project or idea |
+| `cobuild` | form | Help build the community |
+| `partner` | form | Start a partnership |
+| `activity-notice` | form | Event notices |
+| `event-review` | article | A specific recap |
+| `wechat-album` | album | All recaps |
+
+Build links with `goPath(locale, slug, source)`. The optional `source` query is a tracing tag such as `home_entry_project` or `events_upcoming_notice`. Add a slug in `forms.ts` before you link it. Do not point page buttons straight at Feishu.
+
+## Content maintenance
+
+Almost all visitor-facing sentences live in data files, not in layout CSS.
+
+| File | What to edit |
+| --- | --- |
+| `src/data/site.ts` | Site name, emails, canonical URL, `lastUpdated`, page titles, descriptions, paths, OG images, nav, footer |
+| `src/data/translations.ts` | Shared UI and long-form copy. Keys are dotted, values are `{ zh, en }` |
+| `src/data/events.ts` | Upcoming event and past event records |
+| `src/data/projects.ts` | Empty-state copy and, later, project entries |
+| `src/data/partners.ts` | Partner type titles and descriptions |
+| `src/data/forms.ts` | External URLs, labels, `goPath()` |
+
+`t(key, locale)` returns the key itself if a translation is missing. If you see a raw key on the page, the dictionary entry is absent.
+
+When you add a public page:
+
+1. Add it to `pages` and `navItems` in `src/data/site.ts`.
+2. Add `src/pages/.../index.astro` and `src/pages/en/.../index.astro`.
+3. Add the Chinese path to `englishPagePaths` in `middleware.ts`, or region rewrite will skip it.
+4. Add sitemap metadata in `src/pages/sitemap.xml.ts`.
+5. Add an OG image if the page should not reuse another page’s image.
+6. Use `.index-list` for structured blocks.
+
+`lastUpdated` in `src/data/site.ts` feeds JSON-LD `dateModified` and `llms.txt`. Change it when public content changes.
+
+## Language
+
+`src/utils/i18n.ts` is the only place page code should ask for a path or a string.
+
+Middleware (`middleware.ts`) runs on Vercel:
+
+- Cookie `techflows_locale` wins after an explicit `?lang=` switch.
+- `CN` with no English preference stays on Chinese.
+- Other countries rewrite unprefixed page paths to `/en/...`.
+- `/en/...` is never rewritten away.
+- Static files, fonts, `robots.txt`, `sitemap.xml`, and `llms.txt` skip rewrite.
+
+`englishPagePaths` must list every Chinese page that has an English twin, including `/unfino/`. `/go/` is handled separately and prefixes `/en` automatically.
+
+HTML `lang` is `zh-CN` or `en`. Chinese pages put Smiley Sans first; English pages put Geist Mono first. Both stacks are always available.
+
+## Header, footer, and buttons
+
+`Header.astro` is a floating glass capsule. Desktop shows full nav. Below about 960px it becomes a hamburger and a sheet. The language control points at the same page in the other locale with `?lang=`.
+
+`Footer.astro` repeats a short nav, contact email, and the brand line.
+
+`Button.astro` has `primary` (black pill) and `secondary` (glass pill). Set `external` only for mailto or true new-tab links. Form and article jumps still go through `/go/`.
+
+## Fonts
+
+English UI uses Geist Mono (`--font-geist-mono`). Chinese uses the full Smiley Sans file (about 943 KB) at:
 
 ```text
 public/assets/fonts/SmileySans-Oblique.ttf.woff2
 ```
 
-该字体约 943 KB。CSS 使用 `font-display: swap` 和 `unicode-range`，避免字体阻塞首屏渲染；Vercel 对 `/assets/fonts/*` 设置一年 immutable 缓存，降低重复访问成本。
+CSS uses `font-display: swap` and `unicode-range`. Vercel caches `/assets/fonts/*` for one year as immutable. Keep the full font so new Chinese characters on subpages do not go missing. Do not regenerate a site-character subset unless you have a new subsetting pipeline.
 
-目前为了避免子页面新增中文字符缺字，保留完整字体文件，不再按站点字符重新生成子集。
+## Static assets
 
-## 静态资源
-
-主要静态资源位于：
-
-- `public/assets/techflows-logo.png`
-- `public/assets/og-home.png`
-- `public/assets/og-events.png`
-- `public/assets/og-projects.png`
-- `public/assets/og-partners.png`
-- `public/assets/og-join.png`
+- `public/assets/techflows-logo.png` — header and redirect page
+- `public/assets/atom-field.svg` — repeating atmosphere tile
+- `public/assets/og-home.png`, `og-events.png`, `og-projects.png`, `og-partners.png`, `og-join.png`
 - `public/assets/apple-touch-icon.png`
-- `public/favicon.png`
-- `public/favicon.ico`
+- `public/favicon.png`, `public/favicon.ico`
+- `assets/techflows-logo.png` — source logo backup, not served
 
-源 Logo 备份位于：
+`pnpm generate:assets` rebuilds OG images and the touch icon from `scripts/generate-assets.mjs`. After changing the logo, run that command and commit the outputs.
 
-- `assets/techflows-logo.png`
+Cache policy in `vercel.json`:
 
-Vercel 配置中对 `_astro` 和字体资源设置了长期缓存，对 OG 图片、favicon、robots、sitemap、llms 设置了适合更新频率的缓存策略。
+- `/_astro/*` and fonts: long immutable cache
+- `/assets/*`: one week, stale-while-revalidate
+- HTML, OG, favicon, robots, sitemap, llms: shorter caches
 
-## SEO 与 AI 爬虫
+## SEO and AI crawlers
 
-项目包含：
+- `src/pages/sitemap.xml.ts` emits Chinese and English URLs with `lastmod`, `changefreq`, `priority`, and hreflang.
+- `public/robots.txt` allows search and AI crawlers on public pages and points at the sitemap.
+- `src/pages/llms.txt.ts` is a short map for assistants. It is generated from `pages` in `site.ts`, so new pages appear automatically.
+- `BaseLayout.astro` emits canonical, alternate, Open Graph, Twitter Card, and JSON-LD (`Organization`, `WebSite`, `WebPage`).
 
-- `src/pages/sitemap.xml.ts`：生成 sitemap，包含中英文 URL、`lastmod`、`changefreq`、`priority` 和 hreflang。
-- `public/robots.txt`：允许搜索引擎和 AI 爬虫访问公开页面，并声明 sitemap。
-- `src/pages/llms.txt.ts`：生成 AI 助手可读的网站内容索引。
-- `src/layouts/BaseLayout.astro`：输出 canonical、alternate、Open Graph、Twitter Card 和 JSON-LD 结构化数据。
+`/go/` and `/en/go/` are `noindex, nofollow` via meta and `X-Robots-Tag`.
 
-外链确认页 `/go/...` 与 `/en/go/...` 通过 `X-Robots-Tag` 和页面 meta 设置为 `noindex, nofollow`。
+Keep `astro.config.mjs`, `site.url`, robots, sitemap, and llms on `https://www.techflows.app`. Do not mix the apex host and `www`.
 
-生产 canonical 主域为 `https://www.techflows.app`。`astro.config.mjs`、`src/data/site.ts`、`robots.txt`、`sitemap.xml` 和 `llms.txt` 应保持一致，避免搜索引擎和 AI 爬虫在裸域名与 `www` 之间重复跳转。
+## Security
 
-## 安全配置
+Headers are in `vercel.json`:
 
-安全响应头集中在 `vercel.json`：
-
-- Content Security Policy
+- CSP: `default-src 'self'`; scripts from `'self'`, `'unsafe-inline'`, and `https://va.vercel-scripts.com`; images from self, data, and https; fonts from self; `form-action` allows `https://techflow.feishu.cn`; frames denied
 - `X-Content-Type-Options: nosniff`
 - `X-Frame-Options: DENY`
 - `Referrer-Policy: strict-origin-when-cross-origin`
-- `Permissions-Policy`
-- `Cross-Origin-Opener-Policy`
-- `X-Permitted-Cross-Domain-Policies`
+- `Permissions-Policy` disables unused device APIs
+- `Cross-Origin-Opener-Policy: same-origin`
+- `X-Permitted-Cross-Domain-Policies: none`
 
-外部链接使用 `rel="noopener noreferrer"`，避免 opener 风险。
+`'unsafe-inline'` exists because a few pages use inline scripts (header, homepage reading mode, UNFINO reveal, console easter egg). Do not add third-party scripts without updating CSP. Outbound `<a>` tags that leave the site should keep `rel="noopener noreferrer"`.
 
-## 性能与观测
+Non-GET/HEAD requests to HTML routes receive 405 from middleware.
 
-Vercel Analytics 和 Vercel Speed Insights 默认不注入页面，减少前端 JavaScript、inline script 和第三方脚本加载。
+## Performance and observability
 
-如需临时开启观测，在 Vercel 环境变量中设置：
+The production path prefers a static HTML page with almost no client JS. Analytics stay off unless:
 
 ```text
 PUBLIC_ENABLE_VERCEL_INSIGHTS=true
 ```
 
-开启后会重新注入 Vercel Analytics / Speed Insights，并带来额外脚本执行和 CSP 放宽成本；默认生产路径以速度和安全为优先。
+Turning that on injects Vercel Analytics and Speed Insights, extra script work, and a looser CSP. Leave it off unless you are measuring a real incident.
 
-## Vercel Firewall / WAF 建议
+Limit simultaneous `backdrop-filter` surfaces. The current set (header, mobile sheet, secondary buttons, footer) is already near the budget. Do not glass long lists.
 
-DDoS 和 HTTP/3 / QUIC 都属于边缘网络能力，不能仅靠静态站代码实现。当前方案保留 Vercel 优先：
+## Vercel Firewall / WAF
 
-- 在 Vercel Firewall 启用 Managed Rules / WAF。
-- 对公开 HTML 页面设置基于 IP 的 Rate Limiting，建议先使用 Challenge 而不是直接 Deny，避免误伤搜索引擎和 AI 爬虫。
-- 排除 `/_astro/*`、`/assets/*`、`/robots.txt`、`/sitemap.xml`、`/llms.txt` 等静态资源和爬虫入口，避免影响资源缓存与正常抓取。
-- 对 `/go/*` 和 `/en/go/*` 可以设置更低频率限制，因为它们只是外链确认页。
-- 保持 `robots.txt` 对公开搜索引擎和 AI crawler 友好，不用 WAF 规则粗暴拦截正常 crawler。
+DDoS protection and HTTP/3 are edge-network features. The static site cannot implement them.
 
-## HTTP/3 与 QUIC
+- Enable Managed Rules / WAF.
+- Rate-limit public HTML by IP. Prefer Challenge over Deny so crawlers are not blocked by mistake.
+- Exclude `/_astro/*`, `/assets/*`, `/robots.txt`, `/sitemap.xml`, and `/llms.txt`.
+- `/go/*` and `/en/go/*` can use a tighter limit.
+- Do not blanket-block normal search or AI crawlers in WAF if `robots.txt` allows them.
 
-HTTP/3 与 QUIC 是否可用取决于 Vercel 边缘网络与当前域名配置，仓库内不伪造无效 header。部署后可用支持 HTTP/3 的客户端或浏览器 DevTools Network Protocol 列验证生产协议；如果未来必须强制可控 HTTP/3 / QUIC，需要评估 Cloudflare 等前置 CDN 或迁移方案。
+HTTP/3 availability depends on Vercel and the domain. This repo does not fake protocol headers. After deploy, check the Network Protocol column in DevTools.
 
-## 部署
+## Deploy
 
-推荐部署到 Vercel。
+Vercel project settings:
 
-构建命令：
+- Build command: `pnpm build`
+- Output directory: `dist`
 
-```bash
-pnpm build
-```
-
-输出目录：
-
-```text
-dist
-```
-
-部署前建议执行：
+Before a production deploy:
 
 ```bash
 pnpm check
 pnpm build
 ```
 
-## 提交前检查清单
+Then confirm `/`, `/en/`, `/unfino/`, `/en/unfino/`, and one `/go/join/` page.
 
-- 运行 `pnpm check`。
-- 运行 `pnpm build`。
-- 确认新增页面已更新 `src/data/site.ts`。
-- 确认 sitemap、llms、robots 仍符合当前公开页面结构。
-- 如果新增中文字符较多，重新生成得意黑字体子集。
-- 不提交 `node_modules/`、`dist/`、`.astro/`、`.claude/`。
+## Pre-commit checklist
+
+- Run `pnpm check` and `pnpm build`.
+- New public page: `site.ts`, both locale routes, `middleware.ts` `englishPagePaths`, sitemap.
+- New outbound target: slug in `forms.ts`, then `goPath()`, never a raw Feishu URL in a page button.
+- Copy changes need both `zh` and `en`.
+- Layout changes stay on `.index-list`. Do not wrap body copy in glass cards.
+- Update `site.lastUpdated` when public content changes.
+- Do not commit `node_modules/`, `dist/`, `.astro/`, `.claude/`, `scripts/__pycache__/`, or QA screenshots and planning drafts under `docs/`.

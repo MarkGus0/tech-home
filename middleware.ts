@@ -8,6 +8,7 @@ const SUPPORTED_LOCALES = new Set(["zh", "en"]);
 const englishPagePaths = new Set([
   "/",
   "/events/",
+  "/unfino/",
   "/join/",
   "/partners/",
   "/projects/"

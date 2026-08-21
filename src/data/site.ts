@@ -11,7 +11,7 @@ export const site = {
   logo: "/assets/techflows-logo.png",
   email: "join@techflows.app",
   partnerEmail: "partner@techflows.app",
-  lastUpdated: "2026-06-18"
+  lastUpdated: "2026-08-21"
 } as const;
 
 export type PageMeta = {
