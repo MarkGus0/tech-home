@@ -10,6 +10,7 @@ type Props = {
 const { locale, page } = Astro.props;
 const otherLocale = oppositeLocale(locale);
 const switchPath = `${pages[page].paths[otherLocale]}?lang=${otherLocale}`;
+const navLabel = locale === "zh" ? "主导航" : "Main navigation";
 ---
 <header class="site-header" data-header>
   <div class="header-inner">
@@ -25,17 +26,41 @@ const switchPath = `${pages[page].paths[otherLocale]}?lang=${otherLocale}`;
       />
     </a>
 
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-label={locale === "zh" ? "打开菜单" : "Open menu"}
-      aria-expanded="false"
-      aria-controls="nav-panel"
-      data-menu-toggle
-    >
-      <span class="menu-toggle__label">{locale === "zh" ? "菜单" : "Menu"}</span>
-      <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
-    </button>
+    <nav class="header-nav" aria-label={navLabel}>
+      {navItems.map((item) => (
+        <a href={pagePath(item.page, locale)} aria-current={item.page === page ? "page" : undefined}>
+          {item.label[locale]}
+        </a>
+      ))}
+    </nav>
+
+    <div class="header-tools">
+      <a
+        class="lang-toggle header-lang"
+        href={switchPath}
+        hreflang={otherLocale === "zh" ? "zh-CN" : "en"}
+        aria-label={locale === "zh" ? "Switch to English" : "切换到中文"}
+      >
+        <svg class="lang-toggle__icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M3 12h18"></path>
+          <path d="M12 3a13 13 0 0 1 0 18"></path>
+          <path d="M12 3a13 13 0 0 0 0 18"></path>
+        </svg>
+        <span>{languageName(locale)}</span>
+      </a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label={locale === "zh" ? "打开菜单" : "Open menu"}
+        aria-expanded="false"
+        aria-controls="nav-panel"
+        data-menu-toggle
+      >
+        <span class="menu-toggle__label">{locale === "zh" ? "菜单" : "Menu"}</span>
+        <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -44,7 +69,7 @@ const switchPath = `${pages[page].paths[otherLocale]}?lang=${otherLocale}`;
     <span>TechFlows</span>
     <small>{locale === "zh" ? "选择一个入口，继续探索" : "Choose a path and keep exploring"}</small>
   </div>
-  <nav class="primary-nav" aria-label={locale === "zh" ? "主导航" : "Main navigation"}>
+  <nav class="primary-nav" aria-label={navLabel}>
     {navItems.map((item) => (
       <a href={pagePath(item.page, locale)} aria-current={item.page === page ? "page" : undefined}>
         {item.label[locale]}
@@ -93,7 +118,10 @@ const switchPath = `${pages[page].paths[otherLocale]}?lang=${otherLocale}`;
     navPanel?.classList.toggle("is-open", open);
     navBackdrop?.classList.toggle("is-visible", open);
     navBackdrop?.setAttribute("aria-hidden", String(!open));
+    if (navPanel instanceof HTMLElement) navPanel.inert = !open;
   }
+
+  menuPanelState(false);
 
   menuToggle?.addEventListener("click", () => {
     const isOpen = header instanceof HTMLElement && header.dataset.open === "true";

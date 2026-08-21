@@ -27,6 +27,11 @@ const enableVercelInsights = import.meta.env.PUBLIC_ENABLE_VERCEL_INSIGHTS === "
     <script is:inline src="/assets/console-easter-egg.js" defer></script>
   </head>
   <body class="redirect-body" data-locale="zh" data-page="redirect">
+    <div class="site-atmosphere" aria-hidden="true">
+      <div class="light-field"></div>
+      <div class="pixel-grid"></div>
+      <div class="atom-field"></div>
+    </div>
     <RedirectPage slug={slug} locale="zh" />
     {enableVercelInsights && <Analytics />}
     {enableVercelInsights && <SpeedInsights />}

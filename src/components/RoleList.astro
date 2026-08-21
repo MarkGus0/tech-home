@@ -9,11 +9,14 @@ type Props = {
 
 const { items, locale } = Astro.props;
 ---
-<div class="work-list">
-  {items.map((item) => (
-    <article class="work-item">
-      <h3>{item.title[locale]}</h3>
-      <p>{item.description[locale]}</p>
+<div class="index-list">
+  {items.map((item, index) => (
+    <article class="index-row">
+      <p class="index-row__index">0{index + 1}</p>
+      <div class="index-row__main">
+        <h3>{item.title[locale]}</h3>
+        <p>{item.description[locale]}</p>
+      </div>
     </article>
   ))}
 </div>

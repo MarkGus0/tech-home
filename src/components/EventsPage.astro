@@ -18,16 +18,9 @@ const { locale } = Astro.props;
           <h1>{t("nav.events", locale)}</h1>
           <div class="hero-detail hero-detail--compact">
             <p>{t("events.hero.p1", locale)}</p>
+            <p>{t("events.intro.p1", locale)}</p>
+            <p>{t("events.intro.p2", locale)}</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="reading-section section-soft">
-      <div class="section-shell">
-        <div class="chapter-copy">
-          <p>{t("events.intro.p1", locale)}</p>
-          <p>{t("events.intro.p2", locale)}</p>
         </div>
       </div>
     </section>
@@ -36,12 +29,15 @@ const { locale } = Astro.props;
       <div class="section-shell">
         <div class="chapter-copy">
           <h2>{t("events.upcoming.title", locale)}</h2>
-          <article class="event-card event-card--featured">
-            <p class="event-card__label">{upcomingEvent.status[locale]}</p>
-            <h3>{upcomingEvent.title[locale]}</h3>
-            <p>{t("events.upcoming.p1", locale)}</p>
-            <p>{upcomingEvent.summary[locale]}</p>
-            <Button href={goPath(locale, upcomingEvent.cta, "events_upcoming_notice")}>{goLinks[upcomingEvent.cta].label[locale]}</Button>
+          <article class="index-row index-row--lead">
+            <p class="index-row__index">01</p>
+            <div class="index-row__main">
+              <p class="index-row__meta">{upcomingEvent.status[locale]}</p>
+              <h3>{upcomingEvent.title[locale]}</h3>
+              <p>{t("events.upcoming.p1", locale)}</p>
+              <p>{upcomingEvent.summary[locale]}</p>
+              <Button href={goPath(locale, upcomingEvent.cta, "events_upcoming_notice")}>{goLinks[upcomingEvent.cta].label[locale]}</Button>
+            </div>
           </article>
         </div>
       </div>
@@ -51,11 +47,14 @@ const { locale } = Astro.props;
       <div class="section-shell">
         <div class="chapter-copy">
           <h2>{t("events.hope.title", locale)}</h2>
-          <div class="work-list">
+          <div class="index-list">
             {[1, 2, 3].map((num) => (
-              <article class="work-item">
-                <h3>{t(`events.hope.h${num}.title`, locale)}</h3>
-                <p>{t(`events.hope.h${num}.desc`, locale)}</p>
+              <article class="index-row">
+                <p class="index-row__index">0{num}</p>
+                <div class="index-row__main">
+                  <h3>{t(`events.hope.h${num}.title`, locale)}</h3>
+                  <p>{t(`events.hope.h${num}.desc`, locale)}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -69,13 +68,16 @@ const { locale } = Astro.props;
           <h2>{t("events.past.title", locale)}</h2>
           <p>{t("events.past.intro", locale)}</p>
         </div>
-        <div class="event-grid">
-          {pastEvents.map((event) => <EventCard event={event} locale={locale} source="events_past_review" />)}
-          <article class="event-card">
-            <p class="event-card__label">{locale === "zh" ? "持续记录" : "Ongoing records"}</p>
-            <h3>{t("events.past.event2.title", locale)}</h3>
-            <p>{t("events.past.event2.desc", locale)}</p>
-            <Button href={goPath(locale, "wechat-album", "events_wechat_album")} variant="secondary">{t("events.past.event2.button", locale)}</Button>
+        <div class="index-list">
+          {pastEvents.map((event, index) => <EventCard event={event} locale={locale} source="events_past_review" index={index + 1} />)}
+          <article class="index-row">
+            <p class="index-row__index">0{pastEvents.length + 1}</p>
+            <div class="index-row__main">
+              <p class="index-row__meta">{locale === "zh" ? "持续记录" : "Ongoing records"}</p>
+              <h3>{t("events.past.event2.title", locale)}</h3>
+              <p>{t("events.past.event2.desc", locale)}</p>
+              <a class="text-link" href={goPath(locale, "wechat-album", "events_wechat_album")}>{t("events.past.event2.button", locale)}</a>
+            </div>
           </article>
         </div>
       </div>
@@ -86,21 +88,30 @@ const { locale } = Astro.props;
         <div class="chapter-copy">
           <h2>{t("events.part.title", locale)}</h2>
           <p>{t("events.part.intro", locale)}</p>
-          <div class="work-list">
-            <article class="work-item">
-              <h3>{t("events.part.h1.title", locale)}</h3>
-              <p>{t("events.part.h1.desc", locale)}</p>
-              <Button href={goPath(locale, "project", "events_part_project")}>{t("events.part.h1.button", locale)}</Button>
+          <div class="index-list">
+            <article class="index-row">
+              <p class="index-row__index">01</p>
+              <div class="index-row__main">
+                <h3>{t("events.part.h1.title", locale)}</h3>
+                <p>{t("events.part.h1.desc", locale)}</p>
+                <a class="text-link" href={goPath(locale, "project", "events_part_project")}>{t("events.part.h1.button", locale)}</a>
+              </div>
             </article>
-            <article class="work-item">
-              <h3>{t("events.part.h2.title", locale)}</h3>
-              <p>{t("events.part.h2.desc", locale)}</p>
-              <Button href={goPath(locale, "cobuild", "events_part_cobuild")} variant="secondary">{t("events.part.h2.button", locale)}</Button>
+            <article class="index-row">
+              <p class="index-row__index">02</p>
+              <div class="index-row__main">
+                <h3>{t("events.part.h2.title", locale)}</h3>
+                <p>{t("events.part.h2.desc", locale)}</p>
+                <a class="text-link" href={goPath(locale, "cobuild", "events_part_cobuild")}>{t("events.part.h2.button", locale)}</a>
+              </div>
             </article>
-            <article class="work-item">
-              <h3>{t("events.part.h3.title", locale)}</h3>
-              <p>{t("events.part.h3.desc", locale)}</p>
-              <Button href={goPath(locale, "partner", "events_part_partner")} variant="secondary">{t("partners.cta.button", locale)}</Button>
+            <article class="index-row">
+              <p class="index-row__index">03</p>
+              <div class="index-row__main">
+                <h3>{t("events.part.h3.title", locale)}</h3>
+                <p>{t("events.part.h3.desc", locale)}</p>
+                <a class="text-link" href={goPath(locale, "partner", "events_part_partner")}>{t("partners.cta.button", locale)}</a>
+              </div>
             </article>
           </div>
         </div>

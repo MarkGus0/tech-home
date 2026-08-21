@@ -26,8 +26,15 @@ const { locale } = Astro.props;
         <div class="chapter-copy">
           <h2>{projectEmptyState.title[locale]}</h2>
           <p>{projectEmptyState.body[locale]}</p>
-          <ul class="plain-list">
-            {projectEmptyState.details.map((item) => <li>{item[locale]}</li>)}
+          <ul class="index-list index-list--plain">
+            {projectEmptyState.details.map((item, index) => (
+              <li class="index-row">
+                <p class="index-row__index">0{index + 1}</p>
+                <div class="index-row__main">
+                  <p>{item[locale]}</p>
+                </div>
+              </li>
+            ))}
           </ul>
           <Button href={goPath(locale, "project", "projects_empty_submit")}>{locale === "zh" ? "提交你的项目" : "Submit your project"}</Button>
         </div>

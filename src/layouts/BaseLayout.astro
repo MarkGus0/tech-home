@@ -71,7 +71,7 @@ const structuredData = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#f8fafb" />
+    <meta name="theme-color" content="#f4f7fb" />
     <meta name="author" content="TechFlows" />
     <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
     <title>{meta.title[locale]}</title>
@@ -103,6 +103,11 @@ const structuredData = {
     <script is:inline src="/assets/console-easter-egg.js" defer></script>
   </head>
   <body data-locale={locale} data-page={page}>
+    <div class="site-atmosphere" aria-hidden="true">
+      <div class="light-field"></div>
+      <div class="pixel-grid"></div>
+      <div class="atom-field"></div>
+    </div>
     <a class="skip-link" href="#main">{locale === "zh" ? "跳到正文" : "Skip to content"}</a>
     <Header locale={locale} page={page} />
     <slot />

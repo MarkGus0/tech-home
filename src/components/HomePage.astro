@@ -22,24 +22,21 @@ const entryCards = [
     title: "hero.entry.events.title",
     description: "hero.entry.events.description",
     cta: "hero.entry.events.cta",
-    href: pagePath("events", locale),
-    variant: "primary"
+    href: pagePath("events", locale)
   },
   {
     status: "hero.entry.project.status",
     title: "hero.entry.project.title",
     description: "hero.entry.project.description",
     cta: "hero.entry.project.cta",
-    href: goPath(locale, "project", "home_entry_project"),
-    variant: "secondary"
+    href: goPath(locale, "project", "home_entry_project")
   },
   {
     status: "hero.entry.cobuild.status",
     title: "hero.entry.cobuild.title",
     description: "hero.entry.cobuild.description",
     cta: "hero.entry.cobuild.cta",
-    href: goPath(locale, "cobuild", "home_entry_cobuild"),
-    variant: "secondary"
+    href: goPath(locale, "cobuild", "home_entry_cobuild")
   }
 ] as const;
 
@@ -69,29 +66,25 @@ const startCards = [
     title: "home.start.curious.title",
     description: "home.start.curious.description",
     cta: "home.start.curious.cta",
-    href: pagePath("events", locale),
-    variant: "secondary"
+    href: pagePath("events", locale)
   },
   {
     title: "home.start.project.title",
     description: "home.start.project.description",
     cta: "home.start.project.cta",
-    href: goPath(locale, "project", "home_start_project"),
-    variant: "primary"
+    href: goPath(locale, "project", "home_start_project")
   },
   {
     title: "home.start.builder.title",
     description: "home.start.builder.description",
     cta: "home.start.builder.cta",
-    href: goPath(locale, "cobuild", "home_start_builder"),
-    variant: "secondary"
+    href: goPath(locale, "cobuild", "home_start_builder")
   },
   {
     title: "home.start.partner.title",
     description: "home.start.partner.description",
     cta: "home.start.partner.cta",
-    href: pagePath("partners", locale),
-    variant: "secondary"
+    href: pagePath("partners", locale)
   }
 ] as const;
 
@@ -156,16 +149,19 @@ const statusRows = [
           </div>
 
           <div class="hero-entry-heading reveal">
-            <p class="hero-entry-kicker">{t("hero.entry.kicker", locale)}</p>
+            <p class="home-section-kicker">{t("hero.entry.kicker", locale)}</p>
             <h2>{t("hero.entry.title", locale)}</h2>
           </div>
-          <div class="hero-entry-grid" aria-label={locale === "zh" ? "现在可以从这里开始" : "Start here"}>
-            {entryCards.map((card) => (
-              <article class="hero-entry-card reveal">
-                <p class="hero-entry-card__status">{t(card.status, locale)}</p>
-                <h3>{t(card.title, locale)}</h3>
-                <p class="hero-entry-card__description">{t(card.description, locale)}</p>
-                <Button href={card.href} variant={card.variant}>{t(card.cta, locale)}</Button>
+          <div class="index-list" aria-label={locale === "zh" ? "现在可以从这里开始" : "Start here"}>
+            {entryCards.map((card, index) => (
+              <article class="index-row reveal">
+                <p class="index-row__index">0{index + 1}</p>
+                <div class="index-row__main">
+                  <p class="index-row__meta">{t(card.status, locale)}</p>
+                  <h3>{t(card.title, locale)}</h3>
+                  <p>{t(card.description, locale)}</p>
+                  <a class="text-link" href={card.href}>{t(card.cta, locale)}</a>
+                </div>
               </article>
             ))}
           </div>
@@ -180,12 +176,15 @@ const statusRows = [
           <h2 id="now-title">{t("home.now.title", locale)}</h2>
           <p>{t("home.now.intro", locale)}</p>
         </div>
-        <div class="home-feature-grid">
-          {workCards.map((card) => (
-            <article class="home-feature-card reveal">
-              <h3>{t(card.title, locale)}</h3>
-              <p>{t(card.description, locale)}</p>
-              <a class="text-link" href={card.href}>{t(card.link, locale)}</a>
+        <div class="index-list">
+          {workCards.map((card, index) => (
+            <article class="index-row reveal">
+              <p class="index-row__index">0{index + 1}</p>
+              <div class="index-row__main">
+                <h3>{t(card.title, locale)}</h3>
+                <p>{t(card.description, locale)}</p>
+                <a class="text-link" href={card.href}>{t(card.link, locale)}</a>
+              </div>
             </article>
           ))}
         </div>
@@ -199,13 +198,15 @@ const statusRows = [
           <h2 id="start-title">{t("home.start.title", locale)}</h2>
           <p>{t("home.start.intro", locale)}</p>
         </div>
-        <div class="home-start-grid">
+        <div class="index-list">
           {startCards.map((card, index) => (
-            <article class="home-start-card reveal">
-              <p class="home-start-card__index">0{index + 1}</p>
-              <h3>{t(card.title, locale)}</h3>
-              <p>{t(card.description, locale)}</p>
-              <Button href={card.href} variant={card.variant}>{t(card.cta, locale)}</Button>
+            <article class="index-row reveal">
+              <p class="index-row__index">0{index + 1}</p>
+              <div class="index-row__main">
+                <h3>{t(card.title, locale)}</h3>
+                <p>{t(card.description, locale)}</p>
+                <a class="text-link" href={card.href}>{t(card.cta, locale)}</a>
+              </div>
             </article>
           ))}
         </div>
@@ -218,12 +219,14 @@ const statusRows = [
           <p class="home-section-kicker">{t("home.principles.kicker", locale)}</p>
           <h2 id="principles-title">{t("home.principles.title", locale)}</h2>
         </div>
-        <div class="home-principle-grid">
+        <div class="index-list">
           {principles.map((principle, index) => (
-            <article class="home-principle-card reveal">
-              <p class="home-principle-card__index">0{index + 1}</p>
-              <h3>{t(`home.principles.${principle}.title`, locale)}</h3>
-              <p>{t(`home.principles.${principle}.description`, locale)}</p>
+            <article class="index-row reveal">
+              <p class="index-row__index">0{index + 1}</p>
+              <div class="index-row__main">
+                <h3>{t(`home.principles.${principle}.title`, locale)}</h3>
+                <p>{t(`home.principles.${principle}.description`, locale)}</p>
+              </div>
             </article>
           ))}
         </div>
@@ -237,12 +240,12 @@ const statusRows = [
           <h2 id="status-title">{t("home.status.title", locale)}</h2>
           <p>{t("home.status.intro", locale)}</p>
         </div>
-        <div class="home-status-list">
+        <div class="index-list">
           {statusRows.map((row) => (
-            <a class="home-status-row reveal" href={row.href}>
-              <span class="home-status-row__label">{t(row.label, locale)}</span>
-              <span class="home-status-row__value">{t(row.value, locale)}</span>
-              <span class="home-status-row__cta">{t(row.cta, locale)}</span>
+            <a class="index-row index-row--status reveal" href={row.href}>
+              <span class="index-row__label">{t(row.label, locale)}</span>
+              <span class="index-row__value">{t(row.value, locale)}</span>
+              <span class="index-row__cta">{t(row.cta, locale)}</span>
             </a>
           ))}
         </div>
@@ -269,7 +272,6 @@ const statusRows = [
 
   <script>
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const desktopReadingMode = window.matchMedia("(min-width: 1025px)").matches;
     const body = document.body;
     const button = document.querySelector("[data-reading-mode-toggle]");
     const label = button?.querySelector(".reading-mode-label");
@@ -346,7 +348,5 @@ const statusRows = [
       event.preventDefault();
       showLine(index + (event.deltaY > 0 ? 1 : -1));
     }, { passive: false });
-
-    if (desktopReadingMode) enable();
   </script>
 </BaseLayout>

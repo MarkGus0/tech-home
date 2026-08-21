@@ -14,7 +14,7 @@ const builderSignals = ["onsite", "commitment", "together"] as const;
   <main id="main" class="subpage-main subpage-main--unfino">
     <section class="hero sub-hero">
       <div class="hero-shell">
-        <div class="hero-copy unfino-reveal">
+        <div class="hero-copy">
           <p class="unfino-wordmark">未完场 / UNFINO</p>
           <h1>{t("unfinoBrand.hero.title", locale)}</h1>
           <div class="hero-detail hero-detail--compact">
@@ -28,21 +28,23 @@ const builderSignals = ["onsite", "commitment", "together"] as const;
       </div>
     </section>
 
-    <section class="reading-section section-soft unfino-reveal" id="formats" aria-labelledby="formats-title">
+    <section class="reading-section" id="formats" aria-labelledby="formats-title">
       <div class="section-shell">
         <div class="chapter-copy">
           <p class="unfino-kicker">{t("unfinoBrand.formats.kicker", locale)}</p>
           <h2 id="formats-title">{t("unfinoBrand.formats.title", locale)}</h2>
           <p>{t("unfinoBrand.formats.intro", locale)}</p>
-          <div class="work-list unfino-format-list">
+          <div class="index-list unfino-format-list">
             {formats.map((format, index) => (
-              <article class="work-item unfino-format-item unfino-reveal" style={`--delay: ${index * 60}ms`}>
-                <div class="unfino-format-item__heading">
-                  <span class="unfino-index">0{index + 1}</span>
-                  <h3>{t(`unfinoBrand.formats.${format}.title`, locale)}</h3>
-                  {format === "hackathon" && <span class="unfino-format-item__tag">{t("unfinoBrand.formats.example", locale)}</span>}
+              <article class="index-row unfino-reveal" style={`--delay: ${index * 60}ms`}>
+                <p class="index-row__index">0{index + 1}</p>
+                <div class="index-row__main">
+                  <div class="index-row__heading">
+                    <h3>{t(`unfinoBrand.formats.${format}.title`, locale)}</h3>
+                    {format === "hackathon" && <span class="index-row__tag">{t("unfinoBrand.formats.example", locale)}</span>}
+                  </div>
+                  <p>{t(`unfinoBrand.formats.${format}.description`, locale)}</p>
                 </div>
-                <p>{t(`unfinoBrand.formats.${format}.description`, locale)}</p>
               </article>
             ))}
           </div>
@@ -50,20 +52,20 @@ const builderSignals = ["onsite", "commitment", "together"] as const;
       </div>
     </section>
 
-    <section class="reading-section unfino-reveal" id="builder" aria-labelledby="builder-title">
+    <section class="reading-section" id="builder" aria-labelledby="builder-title">
       <div class="section-shell">
         <div class="chapter-copy">
           <p class="unfino-kicker">{t("unfinoBrand.builder.kicker", locale)}</p>
           <h2 id="builder-title">{t("unfinoBrand.builder.title", locale)}</h2>
           <p>{t("unfinoBrand.builder.lead", locale)}</p>
-          <div class="work-list unfino-builder-list">
+          <div class="index-list unfino-builder-list">
             {builderSignals.map((signal, index) => (
-              <article class="work-item unfino-builder-item unfino-reveal" style={`--delay: ${index * 60}ms`}>
-                <div class="unfino-builder-item__heading">
-                  <span class="unfino-index">0{index + 1}</span>
+              <article class="index-row unfino-reveal" style={`--delay: ${index * 60}ms`}>
+                <p class="index-row__index">0{index + 1}</p>
+                <div class="index-row__main">
                   <h3>{t(`unfinoBrand.builder.${signal}.title`, locale)}</h3>
+                  <p>{t(`unfinoBrand.builder.${signal}.description`, locale)}</p>
                 </div>
-                <p>{t(`unfinoBrand.builder.${signal}.description`, locale)}</p>
               </article>
             ))}
           </div>
@@ -72,7 +74,7 @@ const builderSignals = ["onsite", "commitment", "together"] as const;
       </div>
     </section>
 
-    <section class="final-cta final-cta--compact unfino-final unfino-reveal" id="next" aria-labelledby="next-title">
+    <section class="final-cta final-cta--compact unfino-final" id="next" aria-labelledby="next-title">
       <div class="final-shell">
         <p class="unfino-kicker">{t("unfinoBrand.next.kicker", locale)}</p>
         <h2 id="next-title">{t("unfinoBrand.next.title", locale)}</h2>

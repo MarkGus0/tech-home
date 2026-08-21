@@ -7,7 +7,7 @@ import { t } from "@utils/i18n";
 
 type Props = { locale: Locale };
 const { locale } = Astro.props;
-const roles = ["participant", "creator", "sharer", "recorder", "connector", "builder"];
+const roles = ["participant", "creator", "sharer", "recorder", "connector", "builder"] as const;
 ---
 <BaseLayout locale={locale} page="join">
   <main id="main" class="subpage-main subpage-main--join">
@@ -22,7 +22,7 @@ const roles = ["participant", "creator", "sharer", "recorder", "connector", "bui
       </div>
     </section>
 
-    <section class="reading-section section-soft">
+    <section class="reading-section">
       <div class="section-shell">
         <div class="chapter-copy">
           <h2>{t("joinPage.method.title", locale)}</h2>
@@ -43,42 +43,45 @@ const roles = ["participant", "creator", "sharer", "recorder", "connector", "bui
       </div>
     </section>
 
-    {roles.map((role, index) => (
-      <section class={`reading-section join-role-section ${index % 2 === 0 ? "section-soft" : ""}`}>
-        <div class="section-shell">
-          <div class="chapter-copy">
-            <h3>{t(`joinPage.${role}.title`, locale)}</h3>
-            {[1, 2, 3, 4].map((num) => {
-              const key = `joinPage.${role}.p${num}`;
-              const value = t(key, locale);
-              return value === key ? null : <p>{value}</p>;
-            })}
-          </div>
-        </div>
-      </section>
-    ))}
-
-    <section class="reading-section section-soft">
+    <section class="reading-section" id="roles">
       <div class="section-shell">
         <div class="chapter-copy">
           <h2>{t("joinPage.roles.title", locale)}</h2>
           <p>{t("joinPage.roles.p1", locale)}</p>
           <p>{t("joinPage.roles.p2", locale)}</p>
-          <p>{t("joinPage.roles.p3", locale)}</p>
         </div>
+        <div class="index-list">
+          {roles.map((role, index) => (
+            <article class="index-row index-row--essay">
+              <p class="index-row__index">0{index + 1}</p>
+              <div class="index-row__main">
+                <h3>{t(`joinPage.${role}.title`, locale)}</h3>
+                {[1, 2, 3, 4].map((num) => {
+                  const key = `joinPage.${role}.p${num}`;
+                  const value = t(key, locale);
+                  return value === key ? null : <p>{value}</p>;
+                })}
+              </div>
+            </article>
+          ))}
+        </div>
+        <p class="text-closing-note">{t("joinPage.roles.p3", locale)}</p>
       </div>
     </section>
 
-    <section class="principles-section">
-      <div class="wide-shell">
-        <div class="section-intro">
+    <section class="reading-section" id="principles">
+      <div class="section-shell">
+        <div class="chapter-copy">
           <h2>{t("joinPage.principles.title", locale)}</h2>
         </div>
-        <div class="principle-list">
-          {roles.map((role) => (
-            <article class="principle">
-              <h3>{t(`joinPage.${role}.title`, locale)}</h3>
-              <p>{t(`joinPage.principles.${role}.desc`, locale)}</p>
+        <div class="index-list">
+          {roles.map((role, index) => (
+            <article class="index-row">
+              <p class="index-row__index">0{index + 1}</p>
+              <div class="index-row__main">
+                <h3>{t(`joinPage.${role}.title`, locale)}</h3>
+                <p>{t(`joinPage.principles.${role}.desc`, locale)}</p>
+              </div>
             </article>
           ))}
         </div>
