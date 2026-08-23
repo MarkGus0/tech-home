@@ -10,7 +10,7 @@ const { locale } = Astro.props;
 
 const readingMap = [
   ["now", "home.nav.now"],
-  ["start", "home.nav.start"],
+  ["tracks", "home.nav.tracks"],
   ["principles", "home.nav.principles"],
   ["status", "home.nav.status"],
   ["join", "home.nav.join"]
@@ -36,7 +36,7 @@ const entryCards = [
     title: "hero.entry.cobuild.title",
     description: "hero.entry.cobuild.description",
     cta: "hero.entry.cobuild.cta",
-    href: goPath(locale, "cobuild", "home_entry_cobuild")
+    href: "#tracks"
   }
 ] as const;
 
@@ -57,34 +57,28 @@ const workCards = [
     title: "home.now.connections.title",
     description: "home.now.connections.description",
     link: "home.now.connections.link",
-    href: goPath(locale, "cobuild", "home_now_connections")
+    href: pagePath("unfino", locale)
   }
 ] as const;
 
-const startCards = [
+const trackCards = [
   {
-    title: "home.start.curious.title",
-    description: "home.start.curious.description",
-    cta: "home.start.curious.cta",
-    href: pagePath("events", locale)
+    title: "home.tracks.job.title",
+    description: "home.tracks.job.description",
+    cta: "home.tracks.job.cta",
+    href: goPath(locale, "job", "home_track_job")
   },
   {
-    title: "home.start.project.title",
-    description: "home.start.project.description",
-    cta: "home.start.project.cta",
-    href: goPath(locale, "project", "home_start_project")
+    title: "home.tracks.school.title",
+    description: "home.tracks.school.description",
+    cta: "home.tracks.school.cta",
+    href: goPath(locale, "school", "home_track_school")
   },
   {
-    title: "home.start.builder.title",
-    description: "home.start.builder.description",
-    cta: "home.start.builder.cta",
-    href: goPath(locale, "cobuild", "home_start_builder")
-  },
-  {
-    title: "home.start.partner.title",
-    description: "home.start.partner.description",
-    cta: "home.start.partner.cta",
-    href: pagePath("partners", locale)
+    title: "home.tracks.city.title",
+    description: "home.tracks.city.description",
+    cta: "home.tracks.city.cta",
+    href: goPath(locale, "city", "home_track_city")
   }
 ] as const;
 
@@ -111,7 +105,7 @@ const statusRows = [
     label: "home.status.cobuild.label",
     value: "home.status.cobuild.value",
     cta: "home.status.cobuild.cta",
-    href: goPath(locale, "cobuild", "home_status_cobuild")
+    href: "#tracks"
   },
   {
     label: "home.status.partners.label",
@@ -159,7 +153,7 @@ const statusRows = [
             <p class="home-section-kicker">{t("hero.entry.kicker", locale)}</p>
             <h2>{t("hero.entry.title", locale)}</h2>
           </div>
-          <div class="index-list" aria-label={t("home.start.listAria", locale)}>
+          <div class="index-list" aria-label={t("hero.entry.listAria", locale)}>
             {entryCards.map((card, index) => (
               <article class="index-row reveal">
                 <p class="index-row__index">0{index + 1}</p>
@@ -198,15 +192,15 @@ const statusRows = [
       </div>
     </section>
 
-    <section class="home-compact-section home-start-section" id="start" aria-labelledby="start-title">
+    <section class="home-compact-section home-tracks-section" id="tracks" aria-labelledby="tracks-title">
       <div class="wide-shell">
         <div class="section-intro reveal">
-          <p class="home-section-kicker">{t("home.start.kicker", locale)}</p>
-          <h2 id="start-title">{t("home.start.title", locale)}</h2>
-          <p>{t("home.start.intro", locale)}</p>
+          <p class="home-section-kicker">{t("home.tracks.kicker", locale)}</p>
+          <h2 id="tracks-title">{t("home.tracks.title", locale)}</h2>
+          <p>{t("home.tracks.intro", locale)}</p>
         </div>
         <div class="index-list">
-          {startCards.map((card, index) => (
+          {trackCards.map((card, index) => (
             <article class="index-row reveal">
               <p class="index-row__index">0{index + 1}</p>
               <div class="index-row__main">
@@ -237,6 +231,7 @@ const statusRows = [
             </article>
           ))}
         </div>
+        <p class="text-closing-note reveal">{t("home.principles.note", locale)}</p>
       </div>
     </section>
 

@@ -12,7 +12,7 @@ export const site = {
   logoHeader: "/assets/techflows-logo-header.png",
   email: "join@techflows.app",
   partnerEmail: "partner@techflows.app",
-  lastUpdated: "2026-08-21"
+  lastUpdated: "2026-08-23"
 } as const;
 
 export type PageMeta = {
@@ -31,8 +31,8 @@ export const pages: Record<PageId, PageMeta> = {
       en: "TechFlows — For Those Who Want to Build Something"
     },
     description: {
-      zh: "TechFlows 是一个关注青年科技创造者与早期项目的开放社区。通过活动、项目记录、机会分享和社区连接，让正在行动的人被看见。",
-      en: "TechFlows is an open community for young tech creators and early-stage projects, helping people in motion find one another through events, stories, opportunities, and community connection."
+      zh: "TechFlows 是一个关注青年科技创造者与早期项目的开放社区。诞生于安徽合肥，日常见面在浙江。通过见面、项目记录、UNFINO 和社区连接，让正在行动的人被看见。",
+      en: "TechFlows is an open community for young tech creators and early-stage projects. Born in Hefei, Anhui. Regular gatherings are in Zhejiang. Through gatherings, project records, UNFINO, and community connections, we help people in motion be seen."
     },
     paths: { zh: "/", en: "/en/" },
     image: "/assets/og-home.png"
@@ -41,8 +41,8 @@ export const pages: Record<PageId, PageMeta> = {
     id: "events",
     title: { zh: "活动 — TechFlows", en: "Events — TechFlows" },
     description: {
-      zh: "TechFlows 发起并联合举办 AI、开源、黑客松与科技创业交流活动，让正在行动的人找到彼此。",
-      en: "TechFlows initiates and co-hosts AI, open-source, hackathon, and tech entrepreneurship gatherings where people in motion find one another."
+      zh: "TechFlows 组织线下见面，让想做点什么的人坐到同一张桌子上。现场互问四问，散场带走一小步。",
+      en: "TechFlows organizes offline gatherings so people who want to build something can sit at the same table. Ask four questions on site, and leave with one small next step."
     },
     paths: { zh: "/events/", en: "/en/events/" },
     image: "/assets/og-events.png"
@@ -51,8 +51,8 @@ export const pages: Record<PageId, PageMeta> = {
     id: "unfino",
     title: { zh: "未完场 UNFINO — TechFlows", en: "UNFINO — TechFlows" },
     description: {
-      zh: "未完场 UNFINO 是 TechFlows 旗下的项目续航型科技赛事，让项目在颁奖之后继续推进。",
-      en: "UNFINO is TechFlows' project-continuation challenge, built to help early projects keep moving after the event ends."
+      zh: "未完场 UNFINO 是 TechFlows 的项目续航场，接颁奖之后还想做下去的人。形式会变。",
+      en: "UNFINO is TechFlows' project-continuation space. It catches people who still want to keep going after the awards. The format can change."
     },
     paths: { zh: "/unfino/", en: "/en/unfino/" },
     image: "/assets/og-unfino.png"
@@ -61,8 +61,8 @@ export const pages: Record<PageId, PageMeta> = {
     id: "join",
     title: { zh: "申请加入 — TechFlows", en: "Join — TechFlows" },
     description: {
-      zh: "加入 TechFlows 开放社区，无论你是学生、开发者、产品人还是创业者，都可以从这里开始。",
-      en: "Join the TechFlows open community. Students, developers, product builders, founders, and volunteers can all start here."
+      zh: "加入 TechFlows。先以成员进来：见面、把想法讲清楚、找项目搭子、会后一小步。想负责再看功能活、一所学校、一座城。",
+      en: "Join TechFlows as a member first: meet, write an idea down, find a project buddy, and take one small step. Read the three briefs only if you want to take responsibility."
     },
     paths: { zh: "/join/", en: "/en/join/" },
     image: "/assets/og-join.png"
@@ -71,8 +71,8 @@ export const pages: Record<PageId, PageMeta> = {
     id: "partners",
     title: { zh: "合作伙伴 — TechFlows", en: "Partners — TechFlows" },
     description: {
-      zh: "TechFlows 与高校、企业、技术社区和开源组织合作，共同推动青年科技创造者生态。",
-      en: "TechFlows works with universities, companies, tech communities, and open-source organizations to support young tech creators."
+      zh: "TechFlows 诞生于安徽合肥，常驻据点在浙江。与高校、企业、技术社区和空间合作，从一件具体的事开始。",
+      en: "TechFlows was born in Hefei, Anhui, and is based in Zhejiang. Partnerships with universities, companies, tech communities, and spaces start from one concrete thing."
     },
     paths: { zh: "/partners/", en: "/en/partners/" },
     image: "/assets/og-partners.png"
@@ -81,8 +81,8 @@ export const pages: Record<PageId, PageMeta> = {
     id: "projects",
     title: { zh: "项目记录 — TechFlows", en: "Projects — TechFlows" },
     description: {
-      zh: "TechFlows 正在征集和记录来自黑客松、校园项目、开源工具、AI 应用和创业尝试的早期项目。",
-      en: "TechFlows is collecting and documenting early projects from hackathons, campus teams, open-source tools, AI applications, and startup experiments."
+      zh: "用四个问题把未完成的项目写清楚：为何开始、做到哪、卡在哪、还缺谁。不收虚构案例。",
+      en: "Write unfinished projects clearly with four questions: why it began, how far it has gone, where it is stuck, and who is still needed. No fictional cases."
     },
     paths: { zh: "/projects/", en: "/en/projects/" },
     image: "/assets/og-projects.png"

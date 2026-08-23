@@ -6,8 +6,8 @@ export const projectEmptyState = {
     en: "Project stories are now being collected"
   },
   body: {
-    zh: "这里不会先放虚构案例。我们正在寻找来自黑客松、校园项目、开源工具、AI 应用和创业尝试的真实早期项目。",
-    en: "We will not fill this space with fictional examples. We are looking for real early-stage projects from hackathons, campus teams, open-source tools, AI applications, and startup experiments."
+    zh: "这里不会先放虚构案例。已经做出一点东西，就按四个问题把它写清楚。",
+    en: "We will not fill this space with fictional examples. If you have already built a little, write it down with four questions."
   },
   details: [
     { zh: "它为什么开始", en: "Why it began" },

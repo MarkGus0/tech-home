@@ -6,7 +6,7 @@ export type EventEntry = {
   summary: Localized<string>;
   label: Localized<string>;
   status: "past" | "preparing";
-  cta: GoSlug;
+  cta?: GoSlug;
 };
 
 export const upcomingEvent = {
@@ -23,6 +23,15 @@ export const upcomingEvent = {
 };
 
 export const pastEvents: EventEntry[] = [
+  {
+    title: { zh: "驾驭 AI 重构生产力｜合肥首场", en: "Harnessing AI to Rebuild Productivity | Hefei" },
+    summary: {
+      zh: "诞生地的第一场线下见面，在合肥蜀山经开区党群服务中心举行。",
+      en: "The first in-person gathering, held in Hefei, where TechFlows began."
+    },
+    label: { zh: "诞生地首场｜合肥", en: "First gathering | Hefei" },
+    status: "past"
+  },
   {
     title: { zh: "AI+X 创造节｜苏州站", en: "AI+X Creation Festival | Suzhou" },
     summary: {

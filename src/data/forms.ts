@@ -8,13 +8,16 @@ export type GoSlug =
   | "partner"
   | "activity-notice"
   | "event-review"
-  | "wechat-album";
+  | "wechat-album"
+  | "job"
+  | "school"
+  | "city";
 
 export type GoLink = {
   slug: GoSlug;
   target: string;
   label: Localized<string>;
-  kind: "form" | "article" | "album";
+  kind: "form" | "article" | "album" | "doc";
 };
 
 export const goLinks: Record<GoSlug, GoLink> = {
@@ -59,6 +62,24 @@ export const goLinks: Record<GoSlug, GoLink> = {
     target: "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzYzMTY1MDM3MQ==&action=getalbum&album_id=4565047015637794816#wechat_redirect",
     label: { zh: "查看全部回顾", en: "View all recaps" },
     kind: "album"
+  },
+  job: {
+    slug: "job",
+    target: "https://techflow.feishu.cn/docx/NYEZdk4DtoeTJhx5pCjcsqQ0nVh",
+    label: { zh: "阅读选活说明", en: "Read the job brief" },
+    kind: "doc"
+  },
+  school: {
+    slug: "school",
+    target: "https://techflow.feishu.cn/docx/TGU1dXlozosF0FxOJrOcIXWCnQ2",
+    label: { zh: "阅读高校招募令", en: "Read the campus brief" },
+    kind: "doc"
+  },
+  city: {
+    slug: "city",
+    target: "https://techflow.feishu.cn/docx/WnIxdfTdZoFUcExAE2ncaqxLncc",
+    label: { zh: "阅读城市共创说明", en: "Read the city brief" },
+    kind: "doc"
   }
 };
 

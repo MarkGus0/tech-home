@@ -59,12 +59,12 @@ export const translations = {
     "en": "They just don't know where to start, who to reach out to, or — after finishing their first project — where to go next."
   },
   "hero.summary.3": {
-    "zh": "TechFlows 是一个关注青年科技创造者与早期项目的开放社区。",
-    "en": "TechFlows is an open community for young tech creators and early-stage projects."
+    "zh": "TechFlows 是一个关注青年科技创造者与早期项目的开放社区。诞生于安徽合肥，日常见面在浙江。",
+    "en": "TechFlows is an open community for young tech creators and early-stage projects. Born in Hefei, Anhui. Regular gatherings are in Zhejiang."
   },
   "hero.summary.4": {
-    "zh": "我们通过活动、项目记录、机会分享和社区连接，让正在行动的人被看见，让还在生长的想法遇见可能的同行者。",
-    "en": "Through events, project documentation, opportunity sharing, and community connections, we help those in motion be seen."
+    "zh": "我们通过见面、项目记录、UNFINO 和社区连接，让正在行动的人被看见，让还在生长的想法遇见可能的同行者。",
+    "en": "Through gatherings, project records, UNFINO, and community connections, we help those in motion be seen."
   },
   "hero.entry.kicker": {
     "zh": "现在可以从这里开始",
@@ -73,6 +73,10 @@ export const translations = {
   "hero.entry.title": {
     "zh": "带着你现在拥有的东西来",
     "en": "Bring what you have right now"
+  },
+  "hero.entry.listAria": {
+    "zh": "现在可以从这里开始",
+    "en": "Start here"
   },
   "hero.entry.events.status": {
     "zh": "近期活动｜筹备中",
@@ -107,28 +111,28 @@ export const translations = {
     "en": "Submit a project or idea"
   },
   "hero.entry.cobuild.status": {
-    "zh": "社区共建｜持续开放",
-    "en": "Co-building｜Always open"
+    "zh": "想负责｜三条入口",
+    "en": "Take responsibility｜Three doors"
   },
   "hero.entry.cobuild.title": {
-    "zh": "一起完成一件具体的事",
-    "en": "Help make one concrete thing happen"
+    "zh": "想负责再选入口",
+    "en": "Pick a door if you want to take responsibility"
   },
   "hero.entry.cobuild.description": {
-    "zh": "如果你愿意做活动、记录、设计、技术或联络，可以从这里开始。",
-    "en": "If you want to help with events, documentation, design, technology, or outreach, start here."
+    "zh": "社区一件功能活、一所学校、或一座城。不是选头衔。普通成员不必先选。",
+    "en": "One functional job, one school, or one city. This is not a title. Ordinary members do not have to pick first."
   },
   "hero.entry.cobuild.cta": {
-    "zh": "参与社区共建",
-    "en": "Help build the community"
+    "zh": "看看三条入口",
+    "en": "See the three doors"
   },
   "home.nav.now": {
     "zh": "正在做什么",
     "en": "What we do"
   },
-  "home.nav.start": {
-    "zh": "从哪里开始",
-    "en": "Start here"
+  "home.nav.tracks": {
+    "zh": "想负责再选",
+    "en": "Take responsibility"
   },
   "home.nav.principles": {
     "zh": "我们守住什么",
@@ -151,108 +155,92 @@ export const translations = {
     "en": "We are doing three things right now"
   },
   "home.now.intro": {
-    "zh": "有人还没有项目，有人已经做出了原型，也有人只是想找一个愿意认真聊聊的人。我们从这三种真实需要开始。",
-    "en": "Some people do not have a project yet, some have already built a prototype, and some are simply looking for someone willing to have a serious conversation. We start with these real needs."
+    "zh": "把人带到同一张桌子上，把未完成的项目写清楚，让一次见面有下一站。",
+    "en": "Bring people to the same table, write unfinished projects clearly, and give a gathering a next stop."
   },
   "home.now.events.title": {
-    "zh": "把人带到同一个现场",
-    "en": "Bring people into the same room"
+    "zh": "把人带到同一张桌子上",
+    "en": "Bring people to the same table"
   },
   "home.now.events.description": {
-    "zh": "围绕 AI、开源、黑客松和科技创新发起交流活动，让原本不会相遇的人先见面。",
-    "en": "We create gatherings around AI, open source, hackathons, and tech innovation so people who might not otherwise meet can start there."
+    "zh": "组织线下见面，让想做点什么的人坐到一起。场地当期确认。目前没有入住任何园区。",
+    "en": "We organize offline gatherings so people who want to build something can sit together. The venue is confirmed for each gathering. We have not moved into any park."
   },
   "home.now.events.link": {
     "zh": "查看活动",
     "en": "See events"
   },
   "home.now.projects.title": {
-    "zh": "让项目被认真介绍",
-    "en": "Explain projects with care"
+    "zh": "把未完成的项目写清楚",
+    "en": "Write unfinished projects clearly"
   },
   "home.now.projects.description": {
-    "zh": "记录黑客松、校园项目、开源工具、AI 应用和创业尝试，让一个还不成熟的项目先被理解。",
-    "en": "We document hackathon, campus, open-source, AI, and early startup projects so an unfinished project can first be understood."
+    "zh": "用四个问题把未完成写清楚。未完成也可以被看见。",
+    "en": "Write unfinished work clearly with four questions. Unfinished work can still be seen."
   },
   "home.now.projects.link": {
     "zh": "查看项目记录",
     "en": "See project stories"
   },
   "home.now.connections.title": {
-    "zh": "让连接继续发生",
-    "en": "Keep the connection moving"
+    "zh": "让一次见面有下一站",
+    "en": "Give a gathering a next stop"
   },
   "home.now.connections.description": {
-    "zh": "活动之后继续寻找反馈、队友、共建者和合作机会，让一次见面有机会继续向前。",
-    "en": "After a gathering, we keep looking for feedback, teammates, co-builders, and partners so one meeting can move further."
+    "zh": "会后每人带走一小步。UNFINO 接颁奖之后还想做下去的人。",
+    "en": "Everyone leaves with one small next step. UNFINO catches the people who still want to keep going after the awards."
   },
   "home.now.connections.link": {
-    "zh": "参与社区共建",
-    "en": "Help build the community"
+    "zh": "了解 UNFINO",
+    "en": "See UNFINO"
   },
-  "home.start.listAria": {
-    "zh": "现在可以从这里开始",
-    "en": "Start here"
+  "home.tracks.kicker": {
+    "zh": "想负责再选入口",
+    "en": "Pick a door if you want to take responsibility"
   },
-  "home.start.kicker": {
-    "zh": "你的入口不止一个",
-    "en": "There is more than one way in"
+  "home.tracks.title": {
+    "zh": "功能活、一所学校、一座城",
+    "en": "One job, one school, one city"
   },
-  "home.start.title": {
-    "zh": "你可以从哪一步开始",
-    "en": "Where can you start?"
+  "home.tracks.intro": {
+    "zh": "三条入口，不要并成一张菜单。普通成员不必先选。先加入，做一件小事，再转正。",
+    "en": "These are three doors, not one menu. Ordinary members do not have to pick first. Join, do one small thing, then become official."
   },
-  "home.start.intro": {
-    "zh": "不需要先准备好，也不需要先给自己贴上一个身份。带着你现在拥有的东西，从最接近的一步开始。",
-    "en": "You do not need to be ready or choose an identity first. Start with the step closest to what you have right now."
+  "home.tracks.job.title": {
+    "zh": "社区一件功能活",
+    "en": "One functional job"
   },
-  "home.start.curious.title": {
-    "zh": "我还没有项目",
-    "en": "I do not have a project yet"
+  "home.tracks.job.description": {
+    "zh": "先选一个活，不是选头衔。不把设计、摄影、外联写成默认活。",
+    "en": "Pick one job, not a title. Do not list design, photography, or outreach as the default work."
   },
-  "home.start.curious.description": {
-    "zh": "先参加活动，认识正在做类似事情的人，或者留下联系方式等待下一次见面。",
-    "en": "Join an event, meet people working on similar things, or leave your contact for the next gathering."
+  "home.tracks.job.cta": {
+    "zh": "阅读选活说明",
+    "en": "Read the job brief"
   },
-  "home.start.curious.cta": {
-    "zh": "从活动开始",
-    "en": "Start with an event"
+  "home.tracks.school.title": {
+    "zh": "一所学校",
+    "en": "One school"
   },
-  "home.start.project.title": {
-    "zh": "我已经做了一些东西",
-    "en": "I have already built something"
+  "home.tracks.school.description": {
+    "zh": "高校共创发起人负责一所具体的学校。现在优先浙江高校。合肥是出身地，同样欢迎。",
+    "en": "A campus initiator is responsible for one specific school. Zhejiang campuses come first right now. Hefei is where we began, and is equally welcome."
   },
-  "home.start.project.description": {
-    "zh": "提交项目、原型或还没有完全想清楚的方向，让它先被认真听见。",
-    "en": "Submit a project, prototype, or direction you are still figuring out, and let it be heard with care."
+  "home.tracks.school.cta": {
+    "zh": "阅读高校招募令",
+    "en": "Read the campus brief"
   },
-  "home.start.project.cta": {
-    "zh": "提交项目",
-    "en": "Submit a project"
+  "home.tracks.city.title": {
+    "zh": "一座城",
+    "en": "One city"
   },
-  "home.start.builder.title": {
-    "zh": "我愿意帮忙做事",
-    "en": "I want to help make things happen"
+  "home.tracks.city.description": {
+    "zh": "城市共创者订当期场地、收住一件真事、让散场的人下场还来。",
+    "en": "A city co-creator books the venue for this gathering, turns one outside relationship into a real thing, and helps people come back next time."
   },
-  "home.start.builder.description": {
-    "zh": "活动执行、记录、设计、摄影、技术和联络，都可以成为第一次参与。",
-    "en": "Event operations, documentation, design, photography, technology, and outreach can all be a first contribution."
-  },
-  "home.start.builder.cta": {
-    "zh": "参与共建",
-    "en": "Help build"
-  },
-  "home.start.partner.title": {
-    "zh": "我有资源可以连接",
-    "en": "I have resources to connect"
-  },
-  "home.start.partner.description": {
-    "zh": "如果你代表高校、企业、技术社区或创新空间，可以从一次具体合作开始。",
-    "en": "If you represent a university, company, tech community, or innovation space, start with one concrete collaboration."
-  },
-  "home.start.partner.cta": {
-    "zh": "了解合作",
-    "en": "Explore partnership"
+  "home.tracks.city.cta": {
+    "zh": "阅读城市共创说明",
+    "en": "Read the city brief"
   },
   "home.principles.kicker": {
     "zh": "我们希望守住的事",
@@ -263,28 +251,32 @@ export const translations = {
     "en": "A community can be open, but action should stay concrete"
   },
   "home.principles.maturity.title": {
-    "zh": "不要求成熟，才值得被看见",
-    "en": "You do not have to be finished to be seen"
+    "zh": "未完成也可以被看见",
+    "en": "Unfinished work can still be seen"
   },
   "home.principles.maturity.description": {
-    "zh": "我们关注结果，也尊重一个人刚刚开始的阶段。",
-    "en": "We care about outcomes while respecting the stage where someone is just beginning."
+    "zh": "带着你现在拥有的东西来。不必先证明自己专业，也不必先交完整方案。",
+    "en": "Bring what you have right now. You do not have to prove you are professional, or submit a complete plan first."
   },
   "home.principles.honesty.title": {
-    "zh": "不用虚假的承诺换取加入",
-    "en": "No joining through false promises"
+    "zh": "不把做不到的事包装成服务",
+    "en": "Do not package what we cannot do as a service"
   },
   "home.principles.honesty.description": {
-    "zh": "无法保证的事情，不提前包装成服务。",
-    "en": "We do not package what we cannot guarantee as a service."
+    "zh": "无法保证的事情，不提前写成承诺。",
+    "en": "If we cannot guarantee it, we do not write it as a promise."
   },
   "home.principles.continuity.title": {
-    "zh": "不把一次活动当成关系的结束",
+    "zh": "活动不是关系的终点",
     "en": "An event is not the end of a relationship"
   },
   "home.principles.continuity.description": {
-    "zh": "一次见面只是开始，后续的交流和行动更重要。",
-    "en": "A gathering is only the beginning; what follows matters more."
+    "zh": "一次见面只是开始。散场时带走一小步，下场只看这一步做了没有。",
+    "en": "A gathering is only the beginning. Leave with one small next step, and the next gathering only asks whether that step was done."
+  },
+  "home.principles.note": {
+    "zh": "不是课程，不是 offer，不是固定工位。目前没有入住任何园区。",
+    "en": "This is not a course, not an offer, and not a fixed desk. We have not moved into any park."
   },
   "home.status.kicker": {
     "zh": "不把未完成写成已完成",
@@ -323,16 +315,16 @@ export const translations = {
     "en": "Submit a project"
   },
   "home.status.cobuild.label": {
-    "zh": "社区共建",
-    "en": "Community co-building"
+    "zh": "想负责",
+    "en": "Take responsibility"
   },
   "home.status.cobuild.value": {
-    "zh": "持续开放",
-    "en": "Always open"
+    "zh": "三条入口开放",
+    "en": "Three doors open"
   },
   "home.status.cobuild.cta": {
-    "zh": "参与共建",
-    "en": "Help build"
+    "zh": "看看入口",
+    "en": "See the doors"
   },
   "home.status.partners.label": {
     "zh": "合作申请",
@@ -391,8 +383,8 @@ export const translations = {
     "en": "Truly valuable collaboration isn't just putting names on the same poster"
   },
   "partners.hero.p2": {
-    "zh": "TechFlows 与高校、企业、技术社区和开源组织建立合作，共同创造活动、项目展示与青年创新机会。",
-    "en": "TechFlows partners with universities, companies, tech communities, and open-source organizations to create events, project showcases, and youth innovation opportunities."
+    "zh": "TechFlows 诞生于安徽合肥，常驻据点在浙江，目前没有入住任何园区或 OPC。与高校、企业、技术社区和空间合作，都从一件具体的事开始。",
+    "en": "TechFlows was born in Hefei, Anhui, and is based in Zhejiang. We have not moved into any park or OPC. Partnerships with universities, companies, tech communities, and spaces all start from one concrete thing."
   },
   "partners.collab.title": {
     "zh": "合作共建",
@@ -407,12 +399,16 @@ export const translations = {
     "en": "It might be making a worthwhile event happen, helping a real project be seen by more people, or helping young people finding their direction meet new technologies, partners, and opportunities."
   },
   "partners.collab.p3": {
-    "zh": "合作可以是一场联合活动、一次项目征集、一项技术或场地支持，也可以是向社区开放的赛事、实习、共创与展示机会。",
-    "en": "Collaboration can be a joint event, a project call, technical or venue support, or competitions, internships, co-creation, and showcase opportunities open to the community."
+    "zh": "合作可以是一场联合活动、一次项目征集、一项技术或场地支持，也可以是对方开放的赛事或实习线索、共创与展示机会。",
+    "en": "Collaboration can be a joint event, a project call, technical or venue support, or competition and internship leads the other side opens, plus co-creation and showcase opportunities."
   },
   "partners.collab.p4": {
     "zh": "我们不追求只停留在品牌露出上的合作。比起出现在同一张海报上，我们更关心这次合作能否真正为参与者带来一些改变。",
     "en": "We don't pursue collaborations that stop at brand visibility. More than appearing on the same poster, we care about whether this collaboration can truly bring change to participants."
+  },
+  "partners.collab.p5": {
+    "zh": "对方在浙江提供场地，是最受欢迎的合作之一。必须有产物，必须有会后下一步。没有书面入住前，双方都不说已入驻。",
+    "en": "A venue in Zhejiang is one of the collaborations we welcome most. There must be an artifact, and a next step after the gathering. Until there is a written agreement, neither side says we have moved in."
   },
   "partners.who.title": {
     "zh": "我们希望与谁同行",
@@ -427,12 +423,12 @@ export const translations = {
     "en": "One event, one project, one open opportunity — any of these could be the starting point for someone to keep moving forward."
   },
   "partners.cta.p2": {
-    "zh": "你可以告诉我们正在关注的问题、能够提供的支持，或者希望与 TechFlows 共同完成的事情。",
-    "en": "Tell us what you're focused on, what support you can offer, or what you'd like to accomplish together with TechFlows."
+    "zh": "来信只写五段：你是谁；想做成的一件具体的事；你能提供什么；希望 TechFlows 提供什么；期望的时间窗口。",
+    "en": "Write five short parts: who you are; the one concrete thing you want to finish; what you can offer; what you want from TechFlows; and the time window."
   },
   "partners.cta.p3": {
-    "zh": "我们会从一个明确的目标开始，寻找最适合双方的合作方式。",
-    "en": "We'll start from a clear goal and find the collaboration approach that works best for both sides."
+    "zh": "我们会从这一件具体的事开始，而不是先谈品牌露出。",
+    "en": "We will start from that one concrete thing, not from brand visibility."
   },
   "partners.cta.button": {
     "zh": "发起合作",
@@ -443,48 +439,48 @@ export const translations = {
     "en": "Bringing together people who otherwise would never meet"
   },
   "events.intro.p1": {
-    "zh": "有人带着一个还没想清楚的问题来。有人已经做出项目，正在寻找反馈；也有人只是对 AI、开源、黑客松或科技创业感到好奇，想知道自己能不能参与其中。",
-    "en": "Some come with an unresolved question. Others have already built a project and are looking for feedback. Some are simply curious about AI, open source, hackathons, or tech entrepreneurship, wondering if they can be part of it."
+    "zh": "有人带着一个还没想清楚的问题来。有人已经做出一点东西，正在找项目搭子。也有人什么都不带，只是想先坐到同一张桌子上。",
+    "en": "Some come with a question they have not figured out. Some have already built a little and are looking for a project partner. Some bring nothing, and just want to sit at the same table first."
   },
   "events.intro.p2": {
-    "zh": "TechFlows 发起并联合举办不同形式的科技交流活动。我们希望每一次见面，都不只是听完一场分享，而是让新的想法被听见，让正在行动的人找到彼此。",
-    "en": "TechFlows initiates and co-hosts various forms of tech exchange events. We hope every gathering goes beyond listening to a talk — new ideas are heard, and people in motion find each other."
+    "zh": "TechFlows 组织线下见面。现场互问四个问题，散场带走一小步。这不是上课，也不是系列赛。",
+    "en": "TechFlows organizes offline gatherings. People ask each other four questions on site, and leave with one small next step. This is not a class, and not a series of contests."
   },
   "events.upcoming.title": {
     "zh": "近期活动",
     "en": "Upcoming Events"
   },
   "events.upcoming.p1": {
-    "zh": "我们围绕 AI、开源、开发者工具、黑客松与青年科技创新，持续发起主题分享、项目交流与社区活动。",
-    "en": "We continuously initiate themed talks, project exchanges, and community events around AI, open source, developer tools, hackathons, and youth tech innovation."
+    "zh": "下场见面的时间和场地当期确认。没有锁定日期和场地，就不写成已经在办。",
+    "en": "The time and venue of the next gathering are confirmed for that gathering. If the date and venue are not locked, we do not write as if it is already happening."
   },
   "events.hope.title": {
     "zh": "我们希望现场发生什么",
     "en": "What we hope happens in person"
   },
   "events.hope.h1.title": {
-    "zh": "听见真实的经历",
-    "en": "Hear real experiences"
+    "zh": "互问四个问题",
+    "en": "Ask four questions"
   },
   "events.hope.h1.desc": {
-    "zh": "不只分享成功结果，也分享一个项目如何开始、遇到了什么，以及哪些事情没有按照预期发生。",
-    "en": "Not just sharing successful outcomes, but also how a project started, what it ran into, and what didn't go as expected."
+    "zh": "为何开始、做到哪、卡在哪、还缺谁。这不是路演评分。",
+    "en": "Why it began, how far it has gone, where it is stuck, and who is still needed. This is not a pitch score."
   },
   "events.hope.h2.title": {
-    "zh": "看见正在行动的人",
-    "en": "See people in motion"
+    "zh": "找到一个项目搭子",
+    "en": "Find a project partner"
   },
   "events.hope.h2.desc": {
-    "zh": "开发者、产品设计者、大学生、项目团队和青年创业者，都可以带着自己的经验与问题来到现场。",
-    "en": "Developers, product designers, students, project teams, and young entrepreneurs can all bring their experiences and questions to the gathering."
+    "zh": "两个人坐下来把想法讲清楚。项目搭子是同行者，不是免费老师或免费劳动力。",
+    "en": "Two people sit down and make an idea clear. A project partner is a fellow traveler, not a free teacher or free labor."
   },
   "events.hope.h3.title": {
-    "zh": "产生一次具体的连接",
-    "en": "Create a concrete connection"
+    "zh": "散场带走一小步",
+    "en": "Leave with one small next step"
   },
   "events.hope.h3.desc": {
-    "zh": "可能是认识一位同行者，发现一个值得加入的项目，或者找到让想法继续向前的下一步。",
-    "en": "It might be meeting a fellow traveler, discovering a project worth joining, or finding the next step to move an idea forward."
+    "zh": "每人只定一个下一步。下场见面只问这一步做了没有。",
+    "en": "Each person names only one next step. The next gathering only asks whether that step was done."
   },
   "events.past.title": {
     "zh": "往期回顾",
@@ -531,8 +527,8 @@ export const translations = {
     "en": "Help build the event"
   },
   "events.part.h2.desc": {
-    "zh": "参与策划、执行、摄影、内容记录、视觉设计与现场支持。",
-    "en": "Join in planning, execution, photography, content documentation, visual design, and on-site support."
+    "zh": "参与现场组织、记录与收尾。",
+    "en": "Join on-site organization, documentation, and wrap-up."
   },
   "events.part.h2.button": {
     "zh": "加入共建",
@@ -563,204 +559,136 @@ export const translations = {
     "en": "Explore UNFINO"
   },
   "joinPage.hero.p1": {
-    "zh": "无论你是刚开始学习的学生，还是已经做出项目的开发者，或者想寻找技术伙伴的产品人——都可以从这里开始。",
-    "en": "Whether you're a student just starting to learn, a developer who has already built something, or a product person looking for technical partners — you can start here."
+    "zh": "带着你现在拥有的东西来。不必先选身份。",
+    "en": "Bring what you have right now. You do not need to pick an identity first."
+  },
+  "joinPage.hero.p2": {
+    "zh": "官网入口说的是怎么加入，不是军衔。",
+    "en": "This page is about how to join, not a rank."
   },
   "joinPage.method.title": {
     "zh": "加入方式",
     "en": "How to join"
   },
   "joinPage.method.p1": {
-    "zh": "填写表单告诉我们你是谁、你在做什么、你希望在这里遇见什么样的人。",
-    "en": "Fill out the form to tell us who you are, what you're working on, and what kind of people you hope to meet here."
+    "zh": "填写表单告诉我们你是谁、你在做什么、你希望在这里遇见什么样的人。我们会通过邮件或社区渠道与你取得联系。",
+    "en": "Fill out the form to tell us who you are, what you are working on, and whom you hope to meet. We will reach you by email or community channels."
   },
   "joinPage.method.p2": {
-    "zh": "我们会通过邮件或社区渠道与你取得联系。",
-    "en": "We'll get in touch with you via email or community channels."
+    "zh": "先加入，再行动。普通成员不必先选三条负责入口。",
+    "en": "Join first, then act. Ordinary members do not need to pick one of the three responsibility doors first."
   },
-  "joinPage.place.title": {
-    "zh": "每个人，都可以在这里找到自己的位置",
-    "en": "Everyone can find their place here"
+  "joinPage.who.title": {
+    "zh": "谁可以来",
+    "en": "Who can come"
   },
-  "joinPage.place.p1": {
-    "zh": "一个社区，从来不只是由发起人或组织者构成。",
-    "en": "A community is never made up of just its founders or organizers."
+  "joinPage.who.intro": {
+    "zh": "你不必先证明自己专业，也不必先交完整方案。学生、开发者、产品人、设计师，都可以先以成员身份进来。",
+    "en": "You do not need to prove expertise or submit a complete plan first. Students, developers, product people, and designers can all come in as members."
   },
-  "joinPage.place.p2": {
-    "zh": "有人因为一次活动来到这里，有人带着尚未完成的项目出现；有人愿意讲述自己的经历，也有人擅长把分散的人与机会连接起来。",
-    "en": "Some come because of an event; others show up with an unfinished project. Some are willing to share their experiences; others are good at connecting scattered people and opportunities."
+  "joinPage.who.curious.title": {
+    "zh": "还没有项目",
+    "en": "No project yet"
   },
-  "joinPage.participant.title": {
-    "zh": "参与者",
-    "en": "Participant"
+  "joinPage.who.curious.description": {
+    "zh": "来见面，找一个项目搭子，会后只做一小步。",
+    "en": "Come to a gathering, find a project buddy, and take only one small step afterward."
   },
-  "joinPage.participant.p1": {
-    "zh": "参与者是每一个第一次走进 TechFlows 的人。",
-    "en": "Participants are everyone who walks into TechFlows for the first time."
+  "joinPage.who.curious.cta": {
+    "zh": "看活动",
+    "en": "See events"
   },
-  "joinPage.participant.p2": {
-    "zh": "你可能刚开始关注 AI、开源、黑客松或科技创业，也可能只是对某个话题感到好奇，还没有明确的项目和方向。",
-    "en": "You might have just started paying attention to AI, open source, hackathons, or tech entrepreneurship — or you might just be curious about a topic without a clear project or direction yet."
+  "joinPage.who.project.title": {
+    "zh": "已经做出一点东西",
+    "en": "Already built something"
   },
-  "joinPage.participant.p3": {
-    "zh": "你可以参加一场活动，认识一些正在行动的人，听见不同的经历，也提出那些还没有答案的问题。",
-    "en": "You can attend an event, meet people in motion, hear different experiences, and ask questions that don't have answers yet."
+  "joinPage.who.project.description": {
+    "zh": "提交项目或想法，让它先被写清楚。",
+    "en": "Submit a project or idea and get it written down first."
   },
-  "joinPage.participant.p4": {
-    "zh": "在这里，参与并不是旁观。很多新的方向，正是从第一次来到现场开始的。",
-    "en": "Here, participating is not just watching. Many new directions begin the first time you show up."
+  "joinPage.who.project.cta": {
+    "zh": "提交项目",
+    "en": "Submit a project"
   },
-  "joinPage.creator.title": {
-    "zh": "创造者",
-    "en": "Creator"
+  "joinPage.who.builder.title": {
+    "zh": "愿意负责",
+    "en": "Ready to take responsibility"
   },
-  "joinPage.creator.p1": {
-    "zh": "创造者是那些已经开始尝试的人。",
-    "en": "Creators are those who have already started trying."
+  "joinPage.who.builder.description": {
+    "zh": "一件功能活走选活；一所学校走高校；一座城走城市。",
+    "en": "One functional job, one school, or one city — three separate doors."
   },
-  "joinPage.creator.p2": {
-    "zh": "你可能正在开发一个工具，参加一场黑客松，推进一个校园项目，维护一项开源作品，或者刚刚开始自己的第一次创业尝试。",
-    "en": "You might be developing a tool, joining a hackathon, pushing forward a campus project, maintaining an open-source work, or just starting your first entrepreneurial attempt."
+  "joinPage.who.builder.cta": {
+    "zh": "看三条入口",
+    "en": "See the three doors"
   },
-  "joinPage.creator.p3": {
-    "zh": "项目不需要足够成熟，也不必已经拥有完整团队和漂亮的数据。",
-    "en": "Projects don't need to be mature enough, or already have a complete team and impressive metrics."
+  "joinPage.who.partner.title": {
+    "zh": "手上有资源",
+    "en": "You have resources"
   },
-  "joinPage.creator.p4": {
-    "zh": "我们更关注的是：你为什么开始，已经走到了哪里，正在解决什么问题，以及还需要怎样的同行者。",
-    "en": "What we care more about: why you started, how far you've come, what problem you're solving, and what kind of fellow travelers you still need."
+  "joinPage.who.partner.description": {
+    "zh": "从一件具体合作开始。",
+    "en": "Start with one concrete collaboration."
   },
-  "joinPage.creator.p5": {
-    "zh": "TechFlows 希望让这些真实的尝试被看见，也让它们拥有继续向前的可能。",
-    "en": "TechFlows wants these real attempts to be seen, and to give them the possibility of moving forward."
+  "joinPage.who.partner.cta": {
+    "zh": "谈合作",
+    "en": "Talk partnership"
   },
-  "joinPage.sharer.title": {
-    "zh": "分享者",
-    "en": "Sharer"
+  "joinPage.offer.title": {
+    "zh": "进来立刻有什么",
+    "en": "What you get right away"
   },
-  "joinPage.sharer.p1": {
-    "zh": "社区中的经验，不应该只属于少数专家。",
-    "en": "Experience in the community shouldn't belong only to a few experts."
+  "joinPage.offer.intro": {
+    "zh": "我们能稳定给到的。",
+    "en": "What we can reliably give."
   },
-  "joinPage.sharer.p2": {
-    "zh": "一次失败的组队、一场没有获奖的比赛、一个反复推翻的产品方向，都可能成为另一个人重要的参考。",
-    "en": "A failed team formation, a competition that didn't win, a product direction overturned again and again — any of these could be an important reference for someone else."
+  "joinPage.offer.meet.title": {
+    "zh": "能来见面",
+    "en": "You can come meet people"
   },
-  "joinPage.sharer.p3": {
-    "zh": "分享者可以是技术从业者、项目发起人、黑客松参与者，也可以是刚刚完成第一次实践的普通成员。",
-    "en": "Sharers can be tech practitioners, project initiators, hackathon participants, or ordinary members who have just completed their first practice."
+  "joinPage.offer.meet.description": {
+    "zh": "日常在浙江，具体场地当期确认。",
+    "en": "Day-to-day gatherings are in Zhejiang; the venue is confirmed for each one."
   },
-  "joinPage.sharer.p4": {
-    "zh": "我们欢迎成熟的方法，也尊重仍在进行中的探索。",
-    "en": "We welcome mature approaches and respect explorations still in progress."
+  "joinPage.offer.meet.cta": {
+    "zh": "看活动",
+    "en": "See events"
   },
-  "joinPage.sharer.p5": {
-    "zh": "因为真正有价值的分享，往往不只是告诉别人“应该怎么做”，而是诚实地讲清楚：自己曾经如何开始，又经历了什么。",
-    "en": "Because truly valuable sharing is often not just telling others \"what to do,\" but honestly explaining: how you started, and what you went through."
+  "joinPage.offer.write.title": {
+    "zh": "能把想法讲清楚",
+    "en": "You can get an idea written down"
   },
-  "joinPage.recorder.title": {
-    "zh": "记录者",
-    "en": "Recorder"
+  "joinPage.offer.write.description": {
+    "zh": "按四个问题写项目或想法。四问全文在项目页。",
+    "en": "Write a project or idea with four questions. The full prompts are on the projects page."
   },
-  "joinPage.recorder.p1": {
-    "zh": "很多项目在比赛结束后停止更新，很多有价值的交流也随着活动散场而消失。记录者关注的，是这些容易被忽略的过程。",
-    "en": "Many projects stop updating after competitions end, and many valuable conversations disappear as events wrap up. Recorders pay attention to these easily overlooked processes."
+  "joinPage.offer.write.cta": {
+    "zh": "看项目页",
+    "en": "See the projects page"
   },
-  "joinPage.recorder.p2": {
-    "zh": "他们通过文字、影像、采访、设计和内容创作，记录一场活动中真正发生的事情，也记录一个人如何产生想法、组建团队、面对问题和继续前进。",
-    "en": "Through writing, imagery, interviews, design, and content creation, they document what really happens at events, and how someone generates ideas, forms teams, faces problems, and keeps moving forward."
+  "joinPage.offer.step.title": {
+    "zh": "能找项目搭子，会后一小步",
+    "en": "Find a project buddy, then one small step"
   },
-  "joinPage.recorder.p3": {
-    "zh": "记录不是简单的宣传。它是在为社区保存共同的经历，也是在让那些尚未被看见的人和项目，拥有被理解的机会。",
-    "en": "Recording is not simply promotion. It's about preserving shared experiences for the community, and giving those not yet seen a chance to be understood."
+  "joinPage.offer.step.description": {
+    "zh": "见面后两个人互问四问，散场前只定一个下一步。",
+    "en": "After you meet, two people ask each other the four questions and leave with one next step."
   },
-  "joinPage.connector.title": {
-    "zh": "连接者",
-    "en": "Connector"
+  "joinPage.offer.limit": {
+    "zh": "不提供系统课程、保送、融资承诺、固定园区工位。",
+    "en": "We do not offer a curriculum, guaranteed placement, fundraising promises, or a fixed campus desk."
   },
-  "joinPage.connector.p1": {
-    "zh": "有人有一个想法，却缺少技术伙伴。有人具备开发能力，却还没有找到愿意长期投入的项目。也有人掌握场地、赛事、导师或产业资源，正在寻找真正适合的团队。",
-    "en": "Someone has an idea but lacks a technical partner. Someone has development skills but hasn't found a project worth committing to long-term. Someone else has venues, competitions, mentors, or industry resources, and is looking for the right team."
+  "joinPage.tracks.title": {
+    "zh": "想负责再看三份说明",
+    "en": "Read the three briefs if you want to take responsibility"
   },
-  "joinPage.connector.p2": {
-    "zh": "连接者所做的，不是简单交换联系方式，而是先理解一个人的能力、项目和真实需求，再帮助一次有意义的相遇发生。",
-    "en": "What a connector does isn't simply exchanging contact info. It's first understanding a person's abilities, project, and real needs, then helping a meaningful encounter happen."
-  },
-  "joinPage.connector.p3": {
-    "zh": "TechFlows 无法保证每一次连接都会产生结果。但我们相信，很多事情开始之前，只差遇见一个合适的人。",
-    "en": "TechFlows can't guarantee every connection will produce results. But we believe that before many things begin, it's just one right person you haven't met yet."
-  },
-  "joinPage.builder.title": {
-    "zh": "共建者",
-    "en": "Co-builder"
-  },
-  "joinPage.builder.p1": {
-    "zh": "共建者是那些愿意从参与者走向行动者的人。",
-    "en": "Co-builders are those willing to move from participant to contributor."
-  },
-  "joinPage.builder.p2": {
-    "zh": "他们可能参与一场活动的策划与执行，记录一个项目的故事，维护社区的技术产品，连接高校与合作伙伴，或者在自己的城市发起一次新的交流。",
-    "en": "They might help plan and execute an event, document a project's story, maintain the community's technical products, connect universities and partners, or start a new exchange in their own city."
-  },
-  "joinPage.builder.p3": {
-    "zh": "成为共建者，不意味着获得一个头衔。它意味着愿意对一件具体的事情负责，并和其他成员一起把它完成。",
-    "en": "Becoming a co-builder doesn't mean getting a title. It means being willing to take responsibility for one concrete thing, and to complete it together with others."
-  },
-  "joinPage.builder.p4": {
-    "zh": "TechFlows 仍然是一个年轻的社区。未来的活动、项目和城市网络，不会只由少数核心成员决定，而会由一位位愿意参与的人共同塑造。",
-    "en": "TechFlows is still a young community. Future events, projects, and city networks won't be decided by just a few core members — they'll be shaped together by each person willing to participate."
-  },
-  "joinPage.roles.title": {
-    "zh": "角色不是等级，而是一种参与方式",
-    "en": "Roles are not ranks, but ways to participate"
-  },
-  "joinPage.roles.p1": {
-    "zh": "在 TechFlows，没有从普通成员到核心成员的固定晋升路线。",
-    "en": "At TechFlows, there is no fixed promotion path from ordinary member to core member."
-  },
-  "joinPage.roles.p2": {
-    "zh": "一个人可以同时是创造者和分享者，也可以先作为参与者来到现场，再成为记录者、连接者或共建者。",
-    "en": "One person can be both a creator and a sharer, or first come as a participant, then become a recorder, connector, or co-builder."
-  },
-  "joinPage.roles.p3": {
-    "zh": "我们更在意的，不是你拥有什么身份，而是你愿意以怎样的方式参与其中。",
-    "en": "What we care more about is not what identity you hold, but how you're willing to participate."
-  },
-  "joinPage.principles.title": {
-    "zh": "每个人的参与方式不同，但都在让新的事情发生",
-    "en": "Everyone participates differently, but all are making new things happen"
-  },
-  "joinPage.principles.participant.desc": {
-    "zh": "让现场开始有了意义。",
-    "en": "Give the gathering its meaning."
-  },
-  "joinPage.principles.creator.desc": {
-    "zh": "让想法逐渐成为现实。",
-    "en": "Turn ideas into reality, step by step."
-  },
-  "joinPage.principles.sharer.desc": {
-    "zh": "让经验能够继续流动。",
-    "en": "Keep experiences flowing."
-  },
-  "joinPage.principles.recorder.desc": {
-    "zh": "让真实发生过的过程不会消失。",
-    "en": "Keep real processes from disappearing."
-  },
-  "joinPage.principles.connector.desc": {
-    "zh": "让原本分散的人与机会开始相遇。",
-    "en": "Let scattered people and opportunities begin to meet."
-  },
-  "joinPage.principles.builder.desc": {
-    "zh": "让社区拥有继续生长的力量。",
-    "en": "Give the community the strength to keep growing."
-  },
-  "joinPage.principles.closing": {
-    "zh": "在 TechFlows，每个人都不只是加入一个社区。也在参与它下一段故事的形成。",
-    "en": "At TechFlows, everyone isn't just joining a community. They're also participating in shaping its next chapter."
+  "joinPage.tracks.intro": {
+    "zh": "想负责一件事，再走候选 → 做一件小事 → 正式。功能活、一所学校、一座城是三条入口，不要并成一张菜单。普通成员不必走这条。详情在飞书。",
+    "en": "If you want to own one thing, go candidate → one small task → formal. One job, one school, and one city are three doors, not one menu. Ordinary members do not need this path. Details live on Feishu."
   },
   "joinPage.cta.title": {
-    "zh": "带着你现在拥有的东西来",
-    "en": "Bring what you have right now"
+    "zh": "从填写申请开始",
+    "en": "Start with the form"
   },
   "joinPage.cta.button1": {
     "zh": "填写申请",
@@ -775,15 +703,15 @@ export const translations = {
     "en": "Before many things begin, it's just one person you haven't met yet."
   },
   "unfinoBrand.hero.title": {
-    "zh": "一个独立的赛事品牌，给项目一个下一步。",
-    "en": "An independent event brand for the next step of a project."
+    "zh": "属于 TechFlows 的项目续航场。形式会变，给项目一个下一步。",
+    "en": "TechFlows' project-continuation space. The format can change; it gives a project a next step."
   },
   "unfinoBrand.hero.lead": {
-    "zh": "UNFINO 属于 TechFlows，但不等同于一次活动。它可以是一场短时黑客松、主题挑战、共创冲刺或项目展示场；形式可以变化，目标始终是让项目在现场发生，并在赛后继续。",
-    "en": "UNFINO belongs to TechFlows, but it is more than one event. It can be a short hackathon, a themed challenge, a build sprint, or a project showcase. The format changes; the goal stays the same: make something happen on site, then keep it moving."
+    "zh": "UNFINO 接颁奖之后还想做下去的人。它属于 TechFlows，不是融资路演，也不是报名即会员。形式可以是展示、冲刺、主题挑战或短黑客松。",
+    "en": "UNFINO catches people who still want to keep going after the awards. It belongs to TechFlows. It is not a fundraising pitch, and not a club you join by signing up. The format can be a showcase, a sprint, a themed challenge, or a short hackathon."
   },
   "unfinoBrand.hero.button1": {
-    "zh": "查看赛事形式",
+    "zh": "查看活动形式",
     "en": "Explore the formats"
   },
   "unfinoBrand.hero.button2": {
@@ -799,8 +727,8 @@ export const translations = {
     "en": "A hackathon is only one format"
   },
   "unfinoBrand.formats.intro": {
-    "zh": "UNFINO 是一套长期赛事品牌。我们根据问题、参与者和现场条件，选择最适合让项目发生的活动形式。",
-    "en": "UNFINO is a long-term event brand. We choose the format that best helps a project happen, based on the problem, the people, and the setting."
+    "zh": "UNFINO 是 TechFlows 的项目续航场，形式会变。我们根据问题、参与者和现场条件，选择最适合让项目发生的活动形式。",
+    "en": "UNFINO is TechFlows' project-continuation space, and the format can change. We choose the format that best helps a project happen, based on the problem, the people, and the setting."
   },
   "unfinoBrand.formats.example": {
     "zh": "示例形式",
@@ -839,44 +767,44 @@ export const translations = {
     "en": "Help early projects be seen, receive feedback, and find people willing to continue with them."
   },
   "unfinoBrand.builder.kicker": {
-    "zh": "赛后长期机制",
-    "en": "The long-term layer"
+    "zh": "现场宣布，不提前内定",
+    "en": "Announced on site, not reserved in advance"
   },
   "unfinoBrand.builder.title": {
-    "zh": "每次活动之后，愿意继续的人可以进入 Builder 社区。",
-    "en": "After each event, the people who want to continue can enter the Builder community."
+    "zh": "资格在现场宣布，不售卖、不提前内定。",
+    "en": "Qualification is announced on site. It is not sold, and not reserved in advance."
   },
   "unfinoBrand.builder.lead": {
-    "zh": "Builder 不是普通活动群，也不是一次性会员。它是 UNFINO 留给下一段同行关系的空间：继续做项目、继续贡献能力，也继续参加新的现场。",
-    "en": "Builder is not another event chat or a one-time membership. It is UNFINO's space for the next part of the journey: keep building, keep contributing, and keep showing up."
+    "zh": "Builder 看重的是愿意把项目推下一步，不是到场本身。它不是报名即会员的俱乐部。",
+    "en": "Builder looks at whether someone will push a project one step further, not at attendance itself. It is not a club you join by signing up."
   },
   "unfinoBrand.builder.onsite.title": {
-    "zh": "资格在现场公布",
+    "zh": "资格在现场宣布",
     "en": "Qualification is announced on site"
   },
   "unfinoBrand.builder.onsite.description": {
-    "zh": "每次赛后，现场公布本次 Builder 社区的资格与参与方式。",
-    "en": "After each event, the qualification and participation details are announced on site."
+    "zh": "不售卖，不提前内定。本场规则就是当场留下名单，并在下一次见面出现。",
+    "en": "It is not sold, and not reserved in advance. The rule for this gathering is to leave a name, and to show up at the next one."
   },
   "unfinoBrand.builder.commitment.title": {
-    "zh": "愿意继续，比参加过更重要",
-    "en": "Willingness to continue matters more than attendance"
+    "zh": "看重下一步，不是到场本身",
+    "en": "The next step matters more than attendance"
   },
   "unfinoBrand.builder.commitment.description": {
-    "zh": "愿意推进项目、贡献能力，或认真参与下一步的人，才是 Builder 想留下的人。",
-    "en": "Builder is for people willing to move a project forward, contribute a skill, or take the next step seriously."
+    "zh": "愿意把项目推下一步的人，才是 Builder 想留下的人。",
+    "en": "Builder is for people willing to push a project one step further."
   },
   "unfinoBrand.builder.together.title": {
-    "zh": "下一次现场继续并肩",
-    "en": "Keep building together"
+    "zh": "规则当场公布",
+    "en": "The rules are announced on site"
   },
   "unfinoBrand.builder.together.description": {
-    "zh": "从一个项目到下一场活动，Builder 让一次相遇有机会变成长期同行。",
-    "en": "From one project to the next event, Builder gives one encounter a chance to become a longer journey."
+    "zh": "具体规则每场公布。本场规则就是：留下名单，并在下一次见面出现。",
+    "en": "The exact rules are announced at each gathering. The rule for this one is: leave a name, and show up next time."
   },
   "unfinoBrand.builder.note": {
-    "zh": "具体资格规则以每场活动现场公布为准。",
-    "en": "The exact qualification rules are announced at each event."
+    "zh": "具体资格规则以每场活动现场公布为准。不要写成会员等级或保证导师。",
+    "en": "The exact qualification rules are announced at each gathering. Do not write this as membership tiers or guaranteed mentors."
   },
   "unfinoBrand.next.kicker": {
     "zh": "下一场，现场见",
@@ -951,8 +879,8 @@ export const translations = {
     "en": "Projects"
   },
   "projects.hero.lead": {
-    "zh": "认真记录那些还没有成熟、但已经开始发生的项目。",
-    "en": "Documenting projects that are not mature yet, but have already begun."
+    "zh": "把未完成的项目写清楚。不收虚构案例。",
+    "en": "Write unfinished projects clearly. We do not collect fictional cases."
   },
   "projects.empty.submit": {
     "zh": "提交你的项目",

@@ -4,8 +4,8 @@ export const partnerTypes: Array<{ title: Localized<string>; description: Locali
   {
     title: { zh: "高校与学生组织", en: "Universities and student organizations" },
     description: {
-      zh: "让技术交流、黑客松和项目展示进入校园，为学生创造接触新技术、认识同行者和展示真实项目的机会。",
-      en: "Bring technical exchange, hackathons, and project showcases onto campus, creating chances for students to meet new technologies, peers, and real project feedback."
+      zh: "从一所具体的学校开始。本校场使用学校空间。不从已覆盖多少所高校讲起，也不保证学分或官方立项。",
+      en: "Start with one specific school. Campus gatherings use campus space. We do not begin with how many schools we cover, and we do not guarantee credits or official programs."
     }
   },
   {
@@ -25,8 +25,8 @@ export const partnerTypes: Array<{ title: Localized<string>; description: Locali
   {
     title: { zh: "园区与创新空间", en: "Innovation spaces and local hubs" },
     description: {
-      zh: "通过活动场地、项目展示、创业交流与本地资源连接，让一次短暂的见面有机会形成更长期的关系。",
-      en: "Use venues, showcases, founder conversations, and local resources to turn a brief meeting into a longer-term relationship."
+      zh: "对方提供当期场地，是最受欢迎的合作之一。没有书面入住前，双方都不说已入驻。",
+      en: "A venue for this gathering is one of the collaborations we welcome most. Until there is a written agreement, neither side says we have moved in."
     }
   }
 ];

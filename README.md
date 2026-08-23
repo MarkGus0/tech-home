@@ -15,7 +15,7 @@ Typical visitor jobs:
 - Understand what TechFlows is in under a minute.
 - Find the next gathering or leave contact details for notices.
 - Submit an unfinished project or idea.
-- Join as a participant, creator, recorder, connector, or builder.
+- Join as a member first; take responsibility later if you want.
 - Start a partnership from a university, company, community, or venue.
 
 ## Repository map
@@ -155,14 +155,14 @@ Desktop has a left reading map. Line-by-line reading is on by default on desktop
 
 | Section | Anchor | Job |
 | --- | --- | --- |
-| Hero | `#home` | Title, three summary lines, one stronger functional line, then three entry rows |
-| Now | `#now` | Three current workstreams: events, project records, connections |
-| Start | `#start` | Four paths: no project yet, already making something, willing to help, has resources |
-| Principles | `#principles` | Maturity, honesty, continuity |
+| Hero | `#home` | Title, origin + work line, then three entry rows. The third row jumps to `#tracks` |
+| Now | `#now` | Same table / write it clearly / next stop. The third row goes to UNFINO |
+| Tracks | `#tracks` | Three responsibility doors: one job, one school, one city. Do not merge them into one menu |
+| Principles | `#principles` | Unfinished can be seen; do not package what we cannot do; an event is not the end |
 | Status | `#status` | Four live states as compact rows |
 | Join | `#join` | Closing copy and the only homepage pill-button cluster |
 
-Hero entries, now, start, and principles are all `.index-list` rows. Status rows are clickable `index-row--status` links. The closing cluster is Join (primary), submit a project (secondary), co-build (secondary).
+Hero entries, now, tracks, and principles are all `.index-list` rows. Status rows are clickable `index-row--status` links. The closing cluster is Join (primary), submit a project (secondary), co-build (secondary). Track row CTAs go through `/go/job|school|city/` to the Feishu briefs. Do not put raw Feishu URLs on homepage buttons. The four who-can-come rows live only on `/join/`.
 
 Copy keys live under `hero.*` and `home.*` in `src/data/translations.ts`.
 
@@ -173,14 +173,14 @@ Data: `src/data/events.ts`
 
 Flow: opening → upcoming lead row with one primary button → what we hope happens on site (3 rows) → past records (EventCard list plus the WeChat album row) → how to take part (project / co-build / partner) → closing actions.
 
-Upcoming content comes from `upcomingEvent`. Past items come from `pastEvents`. Do not invent a second past event to fill the grid.
+Upcoming content comes from `upcomingEvent`. Past items come from `pastEvents`. Only list the two gatherings already public on Feishu: Hefei first gathering, then Suzhou. Do not invent a third. A past row may omit `cta` if there is no recap link.
 
 ### UNFINO `/unfino/`
 
 Component: `src/components/UnfinoPage.astro`  
 Copy keys: `unfinoBrand.*`
 
-UNFINO is a long-running challenge brand under TechFlows. A hackathon is one format, not the whole brand.
+UNFINO is TechFlows' project-continuation space, not an independent event brand. A hackathon is one format, not the whole brand.
 
 Flow: wordmark and lead → formats (hackathon, challenge, sprint, showcase) → Builder community signals → closing actions back to Events or the project form.
 
@@ -207,9 +207,9 @@ Flow: opening → collaboration essay → four partner types as an index list �
 
 Component: `src/components/JoinPage.astro`
 
-Flow: opening → how to apply (one primary form button) → where people fit → six role essays in one numbered column (participant, creator, sharer, recorder, connector, builder) → six one-line recap rows → closing actions.
+Flow: hero (come with what you have; this page is how to join, not a rank) → how to apply (one primary form button; members need not pick a responsibility door first) → four who-can-come rows (no project → `/events/`, already building → `/go/project/`, want to take responsibility → `#tracks`, have resources → `/partners/`) → what members get right away (meet, write it down on the projects page, find a buddy and take one small step, plus the red line) → three title links to the Feishu briefs (`job` / `school` / `city`) → closing form + `join@techflows.app`.
 
-Do not split the six roles into six full-width chapters again. The recap list is the short version; the essays are the long version.
+Do not restore the six-role essays. Do not copy the four questions or the six functional jobs onto this page. Details for the three tracks live on Feishu.
 
 ### Outbound confirmation `/go/[slug]/`
 
@@ -217,7 +217,7 @@ Layout: `src/layouts/RedirectLayout.astro`
 Component: `src/components/RedirectPage.astro`  
 Registry: `src/data/forms.ts`
 
-Every external Feishu form or WeChat article goes through this page. The page is `noindex, nofollow`. Chinese and English route files only pass `locale`. Slugs:
+Every external Feishu form, Feishu doc, or WeChat article goes through this page. The page is `noindex, nofollow`. Chinese and English route files only pass `locale`. Slugs:
 
 | Slug | Kind | Use |
 | --- | --- | --- |
@@ -228,6 +228,9 @@ Every external Feishu form or WeChat article goes through this page. The page is
 | `activity-notice` | form | Same join form; button copy is “join to get event updates”, not a separate list |
 | `event-review` | article | A specific recap |
 | `wechat-album` | album | All recaps |
+| `job` | doc | 进来先选一个活 |
+| `school` | doc | 高校共创发起人招募令 |
+| `city` | doc | 城市共创者招募令 |
 
 `activity-notice` and `join` share the same Feishu URL. Do not add a new form just to make the notice button look like a newsletter.
 
