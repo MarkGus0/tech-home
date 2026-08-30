@@ -50,6 +50,10 @@ export const translations = {
     "zh": "让想做点什么的人，<br />先找到彼此",
     "en": "For those who want to build something,<br />find each other first"
   },
+  "hero.cover": {
+    "zh": "未完成也可以被看见，别只一个人做项目。",
+    "en": "Unfinished work can still be seen. Do not build a project alone."
+  },
   "hero.summary.1": {
     "zh": "在技术变化越来越快的今天，很多年轻人并不是没有兴趣，也不是没有想法。",
     "en": "In an era of accelerating technological change, many young people are neither uninterested nor lacking in ideas."
@@ -79,8 +83,8 @@ export const translations = {
     "en": "Start here"
   },
   "hero.entry.events.status": {
-    "zh": "近期活动｜筹备中",
-    "en": "Upcoming｜In preparation"
+    "zh": "近期活动｜待发布",
+    "en": "Upcoming｜Not published"
   },
   "hero.entry.events.title": {
     "zh": "先来一次见面",
@@ -95,8 +99,8 @@ export const translations = {
     "en": "See upcoming events"
   },
   "hero.entry.project.status": {
-    "zh": "项目记录｜正在征集",
-    "en": "Project stories｜Now collecting"
+    "zh": "项目记录｜未上线",
+    "en": "Project records｜Not live"
   },
   "hero.entry.project.title": {
     "zh": "让想法先被听见",
@@ -203,8 +207,8 @@ export const translations = {
     "en": "One job, one school, one city"
   },
   "home.tracks.intro": {
-    "zh": "我们还在早期，没有预算雇主办。三扇门不是菜单。普通成员先加入，做一件小事，再转正。想负责，就领走一件能做完的事。",
-    "en": "We are still early, with no budget for a hired host team. The three doors are not a menu. Ordinary members join first, do one small thing, then become official. If you want to take responsibility, take one piece you can finish."
+    "zh": "我们还在早期。核心团队现在是 1–3 人，没有预算雇主办。三扇门不是菜单。普通成员先加入，做一件小事，再转正。想负责，就领走一件能做完的事。",
+    "en": "We are still early. The core team is 1–3 people, with no budget for a hired host team. The three doors are not a menu. Ordinary members join first, do one small thing, then become official. If you want to take responsibility, take one piece you can finish."
   },
   "home.tracks.job.title": {
     "zh": "社区一件功能活",
@@ -287,16 +291,16 @@ export const translations = {
     "en": "TechFlows right now"
   },
   "home.status.intro": {
-    "zh": "我们还在早期。下面这些是正在发生的事，不是已经做完的规模。",
-    "en": "We are still early. What follows is happening now, not a finished scale."
+    "zh": "我们还在早期。核心团队现在是 1–3 人。下面这些是正在发生的状态，不是已经做完的规模。没有高校名单，也没有成员作品墙。",
+    "en": "We are still early. The core team is 1–3 people. What follows is live status, not a finished scale. There is no campus list and no member-work wall yet."
   },
   "home.status.events.label": {
-    "zh": "下一场活动",
-    "en": "Next gathering"
+    "zh": "近期活动",
+    "en": "Upcoming events"
   },
   "home.status.events.value": {
-    "zh": "正在筹备",
-    "en": "In preparation"
+    "zh": "待发布",
+    "en": "Not published"
   },
   "home.status.events.cta": {
     "zh": "加入 TechFlows",
@@ -307,36 +311,36 @@ export const translations = {
     "en": "Project stories"
   },
   "home.status.projects.value": {
-    "zh": "正在征集",
-    "en": "Now collecting"
+    "zh": "未上线",
+    "en": "Not live"
   },
   "home.status.projects.cta": {
     "zh": "提交项目",
     "en": "Submit a project"
   },
-  "home.status.cobuild.label": {
-    "zh": "领走一件事",
-    "en": "Take one piece"
+  "home.status.works.label": {
+    "zh": "成员作品",
+    "en": "Member work"
   },
-  "home.status.cobuild.value": {
-    "zh": "三扇门开着",
-    "en": "Three doors are open"
+  "home.status.works.value": {
+    "zh": "待发布",
+    "en": "Not published"
   },
-  "home.status.cobuild.cta": {
-    "zh": "看三扇门",
-    "en": "See the three doors"
+  "home.status.works.cta": {
+    "zh": "提交项目",
+    "en": "Submit a project"
   },
-  "home.status.partners.label": {
-    "zh": "合作申请",
-    "en": "Partnerships"
+  "home.status.campus.label": {
+    "zh": "据点高校名单",
+    "en": "Campus list"
   },
-  "home.status.partners.value": {
-    "zh": "欢迎联系",
-    "en": "Open to conversations"
+  "home.status.campus.value": {
+    "zh": "建设中",
+    "en": "Being built"
   },
-  "home.status.partners.cta": {
-    "zh": "了解合作",
-    "en": "Explore partnership"
+  "home.status.campus.cta": {
+    "zh": "阅读「一所学校」",
+    "en": "Read the school brief"
   },
   "home.join.kicker": {
     "zh": "从你现在拥有的东西开始",

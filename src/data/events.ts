@@ -15,10 +15,10 @@ export const upcomingEvent = {
     en: "The next gathering begins with a real question"
   },
   summary: {
-    zh: "新的活动正在筹备中。加入 TechFlows，第一时间收到活动通知。",
-    en: "New gatherings are being prepared. Join TechFlows to receive updates first."
+    zh: "新的活动待发布。加入 TechFlows，等下一次真实的见面发生。",
+    en: "The next gathering is not published yet. Join TechFlows and wait until the next real gathering happens."
   },
-  status: { zh: "筹备中", en: "In preparation" },
+  status: { zh: "待发布", en: "Not published" },
   cta: "activity-notice" as const
 };
 

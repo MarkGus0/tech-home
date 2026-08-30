@@ -159,7 +159,7 @@ Desktop has a left reading map. Line-by-line reading is on by default on desktop
 | Now | `#now` | Same table / write it clearly / next stop. The third row goes to UNFINO |
 | Tracks | `#tracks` | Three responsibility doors: one job, one school, one city. Do not merge them into one menu |
 | Principles | `#principles` | Unfinished can be seen; do not package what we cannot do; an event is not the end |
-| Status | `#status` | Four live states as compact rows |
+| Status | `#status` | Honest Feishu tags: upcoming not published, project records not live, member work not published, campus list being built. Core team is 1–3 people. Do not add a fake university list or works wall. |
 | Join | `#join` | Closing copy and the only homepage pill-button cluster |
 
 Hero entries, now, tracks, and principles are all `.index-list` rows. Status rows are clickable `index-row--status` links. The closing cluster is Join (primary), submit a project (secondary), co-build (secondary). Track row CTAs go through `/go/job|school|city/` to the Feishu briefs. Do not put raw Feishu URLs on homepage buttons. The four who-can-come rows live only on `/join/`.

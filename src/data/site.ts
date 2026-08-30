@@ -31,8 +31,8 @@ export const pages: Record<PageId, PageMeta> = {
       en: "TechFlows — For Those Who Want to Build Something"
     },
     description: {
-      zh: "TechFlows 是一个关注青年科技创造者与早期项目的开放社区。诞生于安徽合肥。见面在线下，场地当期确认。通过见面、四个问题、会后一小步、项目记录和 UNFINO，让正在行动的人被看见。",
-      en: "TechFlows is an open community for young tech creators and early-stage projects. Born in Hefei, Anhui. Gatherings are in person; venue confirmed per event. Through gatherings, four questions, one small next step afterward, project records, and UNFINO, we help people in motion be seen."
+      zh: "TechFlows 是一个关注青年科技创造者与早期项目的开放社区。未完成也可以被看见，别只一个人做项目。诞生于安徽合肥。见面在线下，场地当期确认。",
+      en: "TechFlows is an open community for young tech creators and early-stage projects. Unfinished work can still be seen. Do not build a project alone. Born in Hefei, Anhui. Gatherings are in person; venue confirmed per event."
     },
     paths: { zh: "/", en: "/en/" },
     image: "/assets/og-home.png"

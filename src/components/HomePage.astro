@@ -102,16 +102,16 @@ const statusRows = [
     href: pagePath("projects", locale)
   },
   {
-    label: "home.status.cobuild.label",
-    value: "home.status.cobuild.value",
-    cta: "home.status.cobuild.cta",
-    href: "#tracks"
+    label: "home.status.works.label",
+    value: "home.status.works.value",
+    cta: "home.status.works.cta",
+    href: goPath(locale, "project", "home_status_works")
   },
   {
-    label: "home.status.partners.label",
-    value: "home.status.partners.value",
-    cta: "home.status.partners.cta",
-    href: pagePath("partners", locale)
+    label: "home.status.campus.label",
+    value: "home.status.campus.value",
+    cta: "home.status.campus.cta",
+    href: goPath(locale, "school", "home_status_campus")
   }
 ] as const;
 ---
@@ -140,6 +140,7 @@ const statusRows = [
       <div class="hero-shell">
         <div class="hero-copy">
           <h1 id="hero-title" class="reveal" set:html={t("hero.title", locale)} />
+          <p class="hero-cover reveal">{t("hero.cover", locale)}</p>
           <div class="hero-detail">
             <div class="hero-summary">
               <p class="reveal">{t("hero.summary.1", locale)}</p>

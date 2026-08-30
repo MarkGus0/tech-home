@@ -2,8 +2,8 @@ import type { Localized } from "./translations";
 
 export const projectEmptyState = {
   title: {
-    zh: "项目记录正在征集中",
-    en: "Project stories are now being collected"
+    zh: "项目记录尚未上线",
+    en: "Project records are not live yet"
   },
   body: {
     zh: "这里不会先放虚构案例。已经做出一点东西，就按四个问题把它写清楚。",
