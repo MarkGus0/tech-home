@@ -488,6 +488,14 @@ body:not(.is-reading-mode) .reveal {
 .hero-shell { width: 100%; max-width: var(--container); margin: 0 auto; flex: 0 1 var(--container); }
 .hero-copy { display: flex; flex-direction: column; width: 100%; }
 .hero h1 { margin: 0; font-size: clamp(40px, 4.8vw, 64px); line-height: 1.08; font-weight: 780; letter-spacing: -0.02em; }
+.hero-cover {
+  max-width: 640px;
+  margin: 18px 0 0;
+  color: var(--text);
+  font-size: clamp(18px, 1.7vw, 22px);
+  line-height: 1.5;
+  font-weight: 650;
+}
 .hero-detail { margin-top: clamp(24px, 3.5vw, 36px); }
 .hero-summary p { margin-bottom: 14px; color: var(--muted); font-size: var(--body-size); line-height: var(--body-line); }
 .hero-summary p:last-child { margin-bottom: 0; }

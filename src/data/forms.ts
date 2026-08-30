@@ -48,7 +48,7 @@ export const goLinks: Record<GoSlug, GoLink> = {
   "activity-notice": {
     slug: "activity-notice",
     target: "https://techflow.feishu.cn/share/base/form/shrcnGk0Lgb9bhwDssiIxqnmTJc",
-    label: { zh: "加入以接收活动通知", en: "Join to get event updates" },
+    label: { zh: "加入 TechFlows", en: "Join TechFlows" },
     kind: "form"
   },
   "event-review": {
@@ -72,13 +72,13 @@ export const goLinks: Record<GoSlug, GoLink> = {
   school: {
     slug: "school",
     target: "https://techflow.feishu.cn/docx/TGU1dXlozosF0FxOJrOcIXWCnQ2",
-    label: { zh: "阅读高校招募令", en: "Read the campus brief" },
+    label: { zh: "阅读「一所学校」", en: "Read the school brief" },
     kind: "doc"
   },
   city: {
     slug: "city",
     target: "https://techflow.feishu.cn/docx/WnIxdfTdZoFUcExAE2ncaqxLncc",
-    label: { zh: "阅读城市共创说明", en: "Read the city brief" },
+    label: { zh: "阅读「一座城」", en: "Read the city brief" },
     kind: "doc"
   }
 };

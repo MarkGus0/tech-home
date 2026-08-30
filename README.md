@@ -35,7 +35,7 @@ src/
   utils/i18n.ts          t(), pagePath(), locale helpers.
 scripts/check-i18n.mjs   Missing or unused translation keys fail the check.
 public/assets/           Logo, header logo, OG images, atom-field.svg, fonts.
-middleware.ts            Locale 302 on Vercel (geo and ?lang=).
+middleware.ts            Locale cookie from `?lang=`. Chinese routes stay Chinese.
 vercel.json              Security headers, cache, HTML redirects.
 .github/workflows/check.yml
 ```
@@ -78,7 +78,7 @@ pnpm generate:assets    # regenerate OG images, header logo, and Apple Touch Ico
 
 `pnpm check` runs `scripts/check-i18n.mjs` first. A missing `t()` key or an unused dictionary entry fails the command.
 
-Local requests usually have no Vercel geo header, so the homepage stays Chinese. Open `/en/` or use the header language control to see English. The language control writes `?lang=en` or `?lang=zh`. Only that explicit switch sets `techflows_locale` (HttpOnly, one year). A geographic 302 does not write the cookie.
+Local requests keep Chinese at `/`. Open `/en/` or use the header language control to see English. The language control writes `?lang=en` or `?lang=zh`. Only that explicit switch sets `techflows_locale` (HttpOnly, one year). There is no geographic 302 from Chinese routes to `/en/`.
 
 ## Interface and layout
 
@@ -159,7 +159,7 @@ Desktop has a left reading map. Line-by-line reading is on by default on desktop
 | Now | `#now` | Same table / write it clearly / next stop. The third row goes to UNFINO |
 | Tracks | `#tracks` | Three responsibility doors: one job, one school, one city. Do not merge them into one menu |
 | Principles | `#principles` | Unfinished can be seen; do not package what we cannot do; an event is not the end |
-| Status | `#status` | Four live states as compact rows |
+| Status | `#status` | Honest Feishu tags: upcoming not published, project records not live, member work not published, campus list being built. Core team is 1–3 people. Do not add a fake university list or works wall. |
 | Join | `#join` | Closing copy and the only homepage pill-button cluster |
 
 Hero entries, now, tracks, and principles are all `.index-list` rows. Status rows are clickable `index-row--status` links. The closing cluster is Join (primary), submit a project (secondary), co-build (secondary). Track row CTAs go through `/go/job|school|city/` to the Feishu briefs. Do not put raw Feishu URLs on homepage buttons. The four who-can-come rows live only on `/join/`.
@@ -180,9 +180,9 @@ Upcoming content comes from `upcomingEvent`. Past items come from `pastEvents`. 
 Component: `src/components/UnfinoPage.astro`  
 Copy keys: `unfinoBrand.*`
 
-UNFINO is TechFlows' project-continuation space, not an independent event brand. A hackathon is one format, not the whole brand.
+UNFINO is TechFlows' project-continuation space. The first edition is not scheduled. A hackathon is not listed as a live product until a gathering is locked.
 
-Flow: wordmark and lead → formats (hackathon, challenge, sprint, showcase) → Builder community signals → closing actions back to Events or the project form.
+Flow: wordmark and lead → two notes (format not set; rules announced on site) → closing actions back to Events or the project form.
 
 Keep the hero visible on first paint. Reveal animation is for list rows, not the whole page.
 
@@ -225,12 +225,12 @@ Every external Feishu form, Feishu doc, or WeChat article goes through this page
 | `project` | form | Submit a project or idea |
 | `cobuild` | form | Help build the community |
 | `partner` | form | Start a partnership |
-| `activity-notice` | form | Same join form; button copy is “join to get event updates”, not a separate list |
+| `activity-notice` | form | Same join form; button copy is “Join TechFlows”, not a separate list |
 | `event-review` | article | A specific recap |
 | `wechat-album` | album | All recaps |
 | `job` | doc | 进来先选一个活 |
-| `school` | doc | 高校共创发起人招募令 |
-| `city` | doc | 城市共创者招募令 |
+| `school` | doc | 阅读「一所学校」 |
+| `city` | doc | 阅读「一座城」 |
 
 `activity-notice` and `join` share the same Feishu URL. Do not add a new form just to make the notice button look like a newsletter.
 
@@ -269,13 +269,12 @@ When you add a public page:
 Middleware (`middleware.ts`) runs on Vercel:
 
 - Cookie `techflows_locale` wins after an explicit `?lang=` switch. That cookie is HttpOnly.
-- Geographic 302 does **not** set the cookie, so a VPN or trip does not lock the language.
-- `CN` with no English preference stays on Chinese.
-- Other countries 302 unprefixed page paths to `/en/...`. The address bar matches the language.
+- `/` and other Chinese routes stay Chinese. There is no geographic 302 to `/en/`.
+- If the cookie is `en`, Chinese page paths 302 to their `/en/...` twins so the address bar matches the language. That 302 does not rewrite the cookie.
 - `/en/...` is never redirected away.
 - Static files, fonts, `robots.txt`, `sitemap.xml`, and `llms.txt` skip locale routing.
 
-Missing country headers (local preview) keep Chinese, matching production when Vercel does not send `x-vercel-ip-country`.
+Missing cookies (local preview and first visit) keep Chinese.
 
 HTML `lang` is `zh-CN` or `en`. Chinese pages preload and put Smiley Sans first; English pages put Geist Mono first. Both stacks are always available.
 
@@ -383,7 +382,7 @@ pnpm check
 pnpm build
 ```
 
-Then confirm `/`, `/en/`, `/unfino/`, `/en/unfino/`, and one `/go/join/` page. After deploy from a non-CN network, confirm `/events/` 302s to `/en/events/` without setting the language cookie.
+Then confirm `/`, `/en/`, `/unfino/`, `/en/unfino/`, and one `/go/join/` page. After deploy from a non-CN network, confirm `/events/` stays Chinese and does not set the language cookie. English remains at `/en/events/`.
 
 GitHub Actions (`.github/workflows/check.yml`) runs `pnpm install --frozen-lockfile`, `pnpm check`, and `pnpm build` on `main` and pull requests.
 

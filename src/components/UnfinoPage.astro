@@ -7,16 +7,18 @@ import { pagePath, t } from "@utils/i18n";
 
 type Props = { locale: Locale };
 const { locale } = Astro.props;
-const formats = [
-  { title: "unfinoBrand.formats.hackathon.title", description: "unfinoBrand.formats.hackathon.description", example: true },
-  { title: "unfinoBrand.formats.challenge.title", description: "unfinoBrand.formats.challenge.description", example: false },
-  { title: "unfinoBrand.formats.sprint.title", description: "unfinoBrand.formats.sprint.description", example: false },
-  { title: "unfinoBrand.formats.showcase.title", description: "unfinoBrand.formats.showcase.description", example: false }
-] as const;
-const builderSignals = [
-  { title: "unfinoBrand.builder.onsite.title", description: "unfinoBrand.builder.onsite.description" },
-  { title: "unfinoBrand.builder.commitment.title", description: "unfinoBrand.builder.commitment.description" },
-  { title: "unfinoBrand.builder.together.title", description: "unfinoBrand.builder.together.description" }
+
+const notes = [
+  {
+    kicker: "unfinoBrand.pending.kicker",
+    title: "unfinoBrand.pending.title",
+    description: "unfinoBrand.pending.description"
+  },
+  {
+    kicker: "unfinoBrand.rules.kicker",
+    title: "unfinoBrand.rules.title",
+    description: "unfinoBrand.rules.description"
+  }
 ] as const;
 ---
 <BaseLayout locale={locale} page="unfino">
@@ -24,61 +26,33 @@ const builderSignals = [
     <section class="hero sub-hero">
       <div class="hero-shell">
         <div class="hero-copy">
-          <p class="unfino-wordmark">未完场 / UNFINO</p>
-          <h1>{t("unfinoBrand.hero.title", locale)}</h1>
+          <h1 class="unfino-wordmark">{t("unfinoBrand.hero.title", locale)}</h1>
           <div class="hero-detail hero-detail--compact">
             <p>{t("unfinoBrand.hero.lead", locale)}</p>
           </div>
           <div class="final-actions unfino-actions">
-            <Button href="#formats">{t("unfinoBrand.hero.button1", locale)}</Button>
-            <Button href={pagePath("events", locale)} variant="secondary">{t("unfinoBrand.hero.button2", locale)}</Button>
+            <Button href={pagePath("events", locale)}>{t("unfinoBrand.hero.button1", locale)}</Button>
+            <Button href={goPath(locale, "project", "unfino_hero_project")} variant="secondary">{t("unfinoBrand.hero.button2", locale)}</Button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="reading-section" id="formats" aria-labelledby="formats-title">
+    <section class="reading-section" id="notes">
       <div class="section-shell">
         <div class="chapter-copy">
-          <p class="unfino-kicker">{t("unfinoBrand.formats.kicker", locale)}</p>
-          <h2 id="formats-title">{t("unfinoBrand.formats.title", locale)}</h2>
-          <p>{t("unfinoBrand.formats.intro", locale)}</p>
           <div class="index-list unfino-format-list">
-            {formats.map((format, index) => (
+            {notes.map((note, index) => (
               <article class="index-row unfino-reveal" style={`--delay: ${index * 60}ms`}>
                 <p class="index-row__index">0{index + 1}</p>
                 <div class="index-row__main">
-                  <div class="index-row__heading">
-                    <h3>{t(format.title, locale)}</h3>
-                    {format.example && <span class="index-row__tag">{t("unfinoBrand.formats.example", locale)}</span>}
-                  </div>
-                  <p>{t(format.description, locale)}</p>
+                  <p class="index-row__meta">{t(note.kicker, locale)}</p>
+                  <h3>{t(note.title, locale)}</h3>
+                  <p>{t(note.description, locale)}</p>
                 </div>
               </article>
             ))}
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="reading-section" id="builder" aria-labelledby="builder-title">
-      <div class="section-shell">
-        <div class="chapter-copy">
-          <p class="unfino-kicker">{t("unfinoBrand.builder.kicker", locale)}</p>
-          <h2 id="builder-title">{t("unfinoBrand.builder.title", locale)}</h2>
-          <p>{t("unfinoBrand.builder.lead", locale)}</p>
-          <div class="index-list unfino-builder-list">
-            {builderSignals.map((signal, index) => (
-              <article class="index-row unfino-reveal" style={`--delay: ${index * 60}ms`}>
-                <p class="index-row__index">0{index + 1}</p>
-                <div class="index-row__main">
-                  <h3>{t(signal.title, locale)}</h3>
-                  <p>{t(signal.description, locale)}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p class="unfino-builder-note">{t("unfinoBrand.builder.note", locale)}</p>
         </div>
       </div>
     </section>

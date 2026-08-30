@@ -22,7 +22,7 @@ export function GET() {
   const text = [
     "# TechFlows",
     "",
-    "> TechFlows is a bilingual public website for a young tech creator community, early-stage projects, events, partnerships, and participation opportunities.",
+    "> TechFlows is a bilingual public website for one youth tech creator community. Chinese lives at `/`. English lives under `/en/`. Feishu is the working desk. Gatherings are in person; venue confirmed per event. Do not treat `/go/` confirmation pages as primary content.",
     "",
     "This file gives AI search agents and assistants a concise map of the public, indexable content on https://www.techflows.app. Redirect confirmation pages under `/go/` and `/en/go/` are intentionally marked noindex and should not be treated as primary content.",
     "",

@@ -25,8 +25,8 @@ export const partnerTypes: Array<{ title: Localized<string>; description: Locali
   {
     title: { zh: "园区与创新空间", en: "Innovation spaces and local hubs" },
     description: {
-      zh: "对方提供当期场地，是最受欢迎的合作之一。没有书面入住前，双方都不说已入驻。",
-      en: "A venue for this gathering is one of the collaborations we welcome most. Until there is a written agreement, neither side says we have moved in."
+      zh: "对方提供当期线下场地，是最受欢迎的合作之一。必须有产物，必须有会后下一步。没有书面约定前，双方都不说已入驻。",
+      en: "Providing the in-person venue for a gathering is one of the collaborations we welcome most. There must be an artifact, and a next step after the gathering. Until there is a written agreement, neither side says we have moved in."
     }
   }
 ];
