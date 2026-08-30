@@ -1,11 +1,10 @@
-import { geolocation, next } from "@vercel/functions";
+import { next } from "@vercel/functions";
 import { pages } from "./src/data/site";
 
-const MAINLAND_CHINA_COUNTRY = "CN";
 const LANGUAGE_COOKIE = "techflows_locale";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 const SUPPORTED_LOCALES = new Set(["zh", "en"]);
-const VARY_VALUE = "Cookie, x-vercel-ip-country";
+const VARY_VALUE = "Cookie";
 
 const englishPagePaths = new Set(Object.values(pages).map((page) => page.paths.zh));
 
@@ -30,11 +29,6 @@ function isStaticOrSystemPath(pathname: string) {
     pathname === "/llms.txt" ||
     /\.[a-z0-9]+$/i.test(pathname)
   );
-}
-
-function countryCodeFromRequest(request: Request) {
-  const country = geolocation(request).country ?? request.headers.get("x-vercel-ip-country");
-  return country?.trim().toUpperCase() ?? "";
 }
 
 function localeFromValue(value: string | null) {
@@ -178,14 +172,9 @@ export default function middleware(request: Request) {
   }
 
   const preferredLocale = preferredLocaleFromCookie(request);
-  if (preferredLocale === "zh") {
-    return next({ headers: { Vary: VARY_VALUE } });
+  if (preferredLocale === "en") {
+    return redirectToEnglish(url);
   }
 
-  const country = countryCodeFromRequest(request);
-  if (preferredLocale !== "en" && (!country || country === MAINLAND_CHINA_COUNTRY)) {
-    return next();
-  }
-
-  return redirectToEnglish(url);
+  return next({ headers: { Vary: VARY_VALUE } });
 }

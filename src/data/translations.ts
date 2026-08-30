@@ -59,12 +59,12 @@ export const translations = {
     "en": "They just don't know where to start, who to reach out to, or — after finishing their first project — where to go next."
   },
   "hero.summary.3": {
-    "zh": "TechFlows 是一个关注青年科技创造者与早期项目的开放社区。诞生于安徽合肥，日常见面在浙江。",
-    "en": "TechFlows is an open community for young tech creators and early-stage projects. Born in Hefei, Anhui. Regular gatherings are in Zhejiang."
+    "zh": "TechFlows 是一个关注青年科技创造者与早期项目的开放社区。诞生于安徽合肥。见面在线下，场地当期确认。",
+    "en": "TechFlows is an open community for young tech creators and early-stage projects. Born in Hefei, Anhui. Gatherings are in person; venue confirmed per event."
   },
   "hero.summary.4": {
-    "zh": "我们通过见面、项目记录、UNFINO 和社区连接，让正在行动的人被看见，让还在生长的想法遇见可能的同行者。",
-    "en": "Through gatherings, project records, UNFINO, and community connections, we help those in motion be seen."
+    "zh": "我们通过见面、四个问题、会后一小步、项目记录和 UNFINO，让正在行动的人被看见。这个社区自己也还没做完，所以下场靠有人领走一件事。",
+    "en": "Through gatherings, four questions, one small next step afterward, project records, and UNFINO, we help people in motion be seen. This community is unfinished too, so the next gathering happens because someone takes one piece."
   },
   "hero.entry.kicker": {
     "zh": "现在可以从这里开始",
@@ -87,8 +87,8 @@ export const translations = {
     "en": "Start with a gathering"
   },
   "hero.entry.events.description": {
-    "zh": "参加活动，或先留下联系方式，等下一次真实的见面发生。",
-    "en": "Join an event, or leave your contact so you can hear when the next real gathering takes shape."
+    "zh": "参加线下见面，或先加入，等下一次真实的见面发生。",
+    "en": "Come to an in-person gathering, or join first and wait until the next real gathering happens."
   },
   "hero.entry.events.cta": {
     "zh": "看看近期活动",
@@ -111,19 +111,19 @@ export const translations = {
     "en": "Submit a project or idea"
   },
   "hero.entry.cobuild.status": {
-    "zh": "想负责｜三条入口",
-    "en": "Take responsibility｜Three doors"
+    "zh": "领走一件事｜三扇门",
+    "en": "Take one piece｜Three doors"
   },
   "hero.entry.cobuild.title": {
-    "zh": "想负责再选入口",
-    "en": "Pick a door if you want to take responsibility"
+    "zh": "下场要发生，靠有人领走一件事",
+    "en": "The next gathering happens because someone takes one piece"
   },
   "hero.entry.cobuild.description": {
-    "zh": "社区一件功能活、一所学校、或一座城。不是选头衔。普通成员不必先选。",
-    "en": "One functional job, one school, or one city. This is not a title. Ordinary members do not have to pick first."
+    "zh": "一件功能活、一所学校、或一座城。不是选头衔。普通成员先加入，不必先选。",
+    "en": "One functional job, one school, or one city. Not a title. Ordinary members join first and do not have to pick."
   },
   "hero.entry.cobuild.cta": {
-    "zh": "看看三条入口",
+    "zh": "看三扇门",
     "en": "See the three doors"
   },
   "home.nav.now": {
@@ -131,8 +131,8 @@ export const translations = {
     "en": "What we do"
   },
   "home.nav.tracks": {
-    "zh": "想负责再选",
-    "en": "Take responsibility"
+    "zh": "领走一件事",
+    "en": "Take one piece"
   },
   "home.nav.principles": {
     "zh": "我们守住什么",
@@ -163,8 +163,8 @@ export const translations = {
     "en": "Bring people to the same table"
   },
   "home.now.events.description": {
-    "zh": "组织线下见面，让想做点什么的人坐到一起。场地当期确认。目前没有入住任何园区。",
-    "en": "We organize offline gatherings so people who want to build something can sit together. The venue is confirmed for each gathering. We have not moved into any park."
+    "zh": "组织线下见面，让想做点什么的人坐到一起。场地当期确认。",
+    "en": "We organize in-person gatherings so people who want to build something can sit together. Venue confirmed per event."
   },
   "home.now.events.link": {
     "zh": "查看活动",
@@ -187,32 +187,32 @@ export const translations = {
     "en": "Give a gathering a next stop"
   },
   "home.now.connections.description": {
-    "zh": "会后每人带走一小步。UNFINO 接颁奖之后还想做下去的人。",
-    "en": "Everyone leaves with one small next step. UNFINO catches the people who still want to keep going after the awards."
+    "zh": "会后每人带走一小步。UNFINO 给还想做下去的项目一个下一站。第一场尚未确定。",
+    "en": "Everyone leaves with one small next step. UNFINO gives projects that still want to continue a next stop. The first edition is not scheduled."
   },
   "home.now.connections.link": {
     "zh": "了解 UNFINO",
     "en": "See UNFINO"
   },
   "home.tracks.kicker": {
-    "zh": "想负责再选入口",
-    "en": "Pick a door if you want to take responsibility"
+    "zh": "领走一件事",
+    "en": "Take one piece"
   },
   "home.tracks.title": {
     "zh": "功能活、一所学校、一座城",
     "en": "One job, one school, one city"
   },
   "home.tracks.intro": {
-    "zh": "三条入口，不要并成一张菜单。普通成员不必先选。先加入，做一件小事，再转正。",
-    "en": "These are three doors, not one menu. Ordinary members do not have to pick first. Join, do one small thing, then become official."
+    "zh": "我们还在早期，没有预算雇主办。三扇门不是菜单。普通成员先加入，做一件小事，再转正。想负责，就领走一件能做完的事。",
+    "en": "We are still early, with no budget for a hired host team. The three doors are not a menu. Ordinary members join first, do one small thing, then become official. If you want to take responsibility, take one piece you can finish."
   },
   "home.tracks.job.title": {
     "zh": "社区一件功能活",
     "en": "One functional job"
   },
   "home.tracks.job.description": {
-    "zh": "先选一个活，不是选头衔。不把设计、摄影、外联写成默认活。",
-    "en": "Pick one job, not a title. Do not list design, photography, or outreach as the default work."
+    "zh": "先选一个能做完的活，不是选头衔。",
+    "en": "Pick one job you can finish, not a title."
   },
   "home.tracks.job.cta": {
     "zh": "阅读选活说明",
@@ -223,23 +223,23 @@ export const translations = {
     "en": "One school"
   },
   "home.tracks.school.description": {
-    "zh": "高校共创发起人负责一所具体的学校。现在优先浙江高校。合肥是出身地，同样欢迎。",
-    "en": "A campus initiator is responsible for one specific school. Zhejiang campuses come first right now. Hefei is where we began, and is equally welcome."
+    "zh": "高校共创发起人负责一所具体的学校。先从你能持续出现的那一所开始。合肥是出身地，同样欢迎。",
+    "en": "A campus initiator is responsible for one specific school. Start with the one you can keep showing up at. Hefei is where we began, and is equally welcome."
   },
   "home.tracks.school.cta": {
-    "zh": "阅读高校招募令",
-    "en": "Read the campus brief"
+    "zh": "阅读「一所学校」",
+    "en": "Read the school brief"
   },
   "home.tracks.city.title": {
     "zh": "一座城",
     "en": "One city"
   },
   "home.tracks.city.description": {
-    "zh": "城市共创者订当期场地、收住一件真事、让散场的人下场还来。",
-    "en": "A city co-creator books the venue for this gathering, turns one outside relationship into a real thing, and helps people come back next time."
+    "zh": "城市共创者订当期线下场地、收住一件真事、让散场的人下场还来。",
+    "en": "A city co-creator books the in-person venue for this gathering, holds onto one real thing, and helps people come back next time."
   },
   "home.tracks.city.cta": {
-    "zh": "阅读城市共创说明",
+    "zh": "阅读「一座城」",
     "en": "Read the city brief"
   },
   "home.principles.kicker": {
@@ -275,20 +275,20 @@ export const translations = {
     "en": "A gathering is only the beginning. Leave with one small next step, and the next gathering only asks whether that step was done."
   },
   "home.principles.note": {
-    "zh": "不是课程，不是 offer，不是固定工位。目前没有入住任何园区。",
-    "en": "This is not a course, not an offer, and not a fixed desk. We have not moved into any park."
+    "zh": "不是课程，不是 offer，不是固定工位。",
+    "en": "This is not a course, not an offer, and not a fixed desk."
   },
   "home.status.kicker": {
-    "zh": "不把未完成写成已完成",
-    "en": "Do not call unfinished work finished"
+    "zh": "现在就能看见的",
+    "en": "What you can see now"
   },
   "home.status.title": {
     "zh": "现在的 TechFlows",
     "en": "TechFlows right now"
   },
   "home.status.intro": {
-    "zh": "我们还在早期。下面这些事情正在发生，也欢迎你从其中一个入口加入。",
-    "en": "We are still early. These are the things currently taking shape, and you are welcome to enter through any one of them."
+    "zh": "我们还在早期。下面这些是正在发生的事，不是已经做完的规模。",
+    "en": "We are still early. What follows is happening now, not a finished scale."
   },
   "home.status.events.label": {
     "zh": "下一场活动",
@@ -299,8 +299,8 @@ export const translations = {
     "en": "In preparation"
   },
   "home.status.events.cta": {
-    "zh": "获取通知",
-    "en": "Get updates"
+    "zh": "加入 TechFlows",
+    "en": "Join TechFlows"
   },
   "home.status.projects.label": {
     "zh": "项目记录",
@@ -315,16 +315,16 @@ export const translations = {
     "en": "Submit a project"
   },
   "home.status.cobuild.label": {
-    "zh": "想负责",
-    "en": "Take responsibility"
+    "zh": "领走一件事",
+    "en": "Take one piece"
   },
   "home.status.cobuild.value": {
-    "zh": "三条入口开放",
-    "en": "Three doors open"
+    "zh": "三扇门开着",
+    "en": "Three doors are open"
   },
   "home.status.cobuild.cta": {
-    "zh": "看看入口",
-    "en": "See the doors"
+    "zh": "看三扇门",
+    "en": "See the three doors"
   },
   "home.status.partners.label": {
     "zh": "合作申请",
@@ -376,15 +376,15 @@ export const translations = {
   },
   "footer.tagline": {
     "zh": "让想做点什么的人，先找到彼此。",
-    "en": "Let people who want to build something find each other first."
+    "en": "For those who want to build something, find each other first."
   },
   "partners.hero.p1": {
     "zh": "真正有价值的合作，不只是把名字放在同一张海报上",
     "en": "Truly valuable collaboration isn't just putting names on the same poster"
   },
   "partners.hero.p2": {
-    "zh": "TechFlows 诞生于安徽合肥，常驻据点在浙江，目前没有入住任何园区或 OPC。与高校、企业、技术社区和空间合作，都从一件具体的事开始。",
-    "en": "TechFlows was born in Hefei, Anhui, and is based in Zhejiang. We have not moved into any park or OPC. Partnerships with universities, companies, tech communities, and spaces all start from one concrete thing."
+    "zh": "TechFlows 诞生于安徽合肥。与高校、企业、技术社区和空间合作，都从一件具体的事开始。",
+    "en": "TechFlows was born in Hefei, Anhui. Partnerships with universities, companies, tech communities, and spaces all start from one concrete thing."
   },
   "partners.collab.title": {
     "zh": "合作共建",
@@ -407,8 +407,8 @@ export const translations = {
     "en": "We don't pursue collaborations that stop at brand visibility. More than appearing on the same poster, we care about whether this collaboration can truly bring change to participants."
   },
   "partners.collab.p5": {
-    "zh": "对方在浙江提供场地，是最受欢迎的合作之一。必须有产物，必须有会后下一步。没有书面入住前，双方都不说已入驻。",
-    "en": "A venue in Zhejiang is one of the collaborations we welcome most. There must be an artifact, and a next step after the gathering. Until there is a written agreement, neither side says we have moved in."
+    "zh": "对方提供当期线下场地，是最受欢迎的合作之一。必须有产物，必须有会后下一步。没有书面约定前，双方都不说已入驻。",
+    "en": "Providing the in-person venue for a gathering is one of the collaborations we welcome most. There must be an artifact, and a next step after the gathering. Until there is a written agreement, neither side says we have moved in."
   },
   "partners.who.title": {
     "zh": "我们希望与谁同行",
@@ -563,16 +563,16 @@ export const translations = {
     "en": "Bring what you have right now. You do not need to pick an identity first."
   },
   "joinPage.hero.p2": {
-    "zh": "官网入口说的是怎么加入，不是军衔。",
-    "en": "This page is about how to join, not a rank."
+    "zh": "这一页说的是怎么进来，不是选头衔。",
+    "en": "This page is about how to come in, not how to pick a title."
   },
   "joinPage.method.title": {
     "zh": "加入方式",
     "en": "How to join"
   },
   "joinPage.method.p1": {
-    "zh": "填写表单告诉我们你是谁、你在做什么、你希望在这里遇见什么样的人。我们会通过邮件或社区渠道与你取得联系。",
-    "en": "Fill out the form to tell us who you are, what you are working on, and whom you hope to meet. We will reach you by email or community channels."
+    "zh": "填写飞书表单，告诉我们你是谁、你在做什么、你希望在这里遇见什么样的人。之后我们会通过邮件或社区渠道与你取得联系。飞书是 TechFlows 的工作台。",
+    "en": "Fill out the Feishu form to tell us who you are, what you are working on, and whom you hope to meet. After that we reach you by email or a community channel. Feishu is TechFlows' working desk."
   },
   "joinPage.method.p2": {
     "zh": "先加入，再行动。普通成员不必先选三条负责入口。",
@@ -619,7 +619,7 @@ export const translations = {
     "en": "One functional job, one school, or one city — three separate doors."
   },
   "joinPage.who.builder.cta": {
-    "zh": "看三条入口",
+    "zh": "看三扇门",
     "en": "See the three doors"
   },
   "joinPage.who.partner.title": {
@@ -647,8 +647,8 @@ export const translations = {
     "en": "You can come meet people"
   },
   "joinPage.offer.meet.description": {
-    "zh": "日常在浙江，具体场地当期确认。",
-    "en": "Day-to-day gatherings are in Zhejiang; the venue is confirmed for each one."
+    "zh": "线下见面，场地当期确认。",
+    "en": "In-person gatherings; venue confirmed per event."
   },
   "joinPage.offer.meet.cta": {
     "zh": "看活动",
@@ -683,8 +683,8 @@ export const translations = {
     "en": "Read the three briefs if you want to take responsibility"
   },
   "joinPage.tracks.intro": {
-    "zh": "想负责一件事，再走候选 → 做一件小事 → 正式。功能活、一所学校、一座城是三条入口，不要并成一张菜单。普通成员不必走这条。详情在飞书。",
-    "en": "If you want to own one thing, go candidate → one small task → formal. One job, one school, and one city are three doors, not one menu. Ordinary members do not need this path. Details live on Feishu."
+    "zh": "想负责一件事，再走候选 → 做一件小事 → 正式。功能活、一所学校、一座城是三扇门，不是一张菜单。普通成员不必走这条。说明在飞书，和这站是同一个社区。",
+    "en": "If you want to own one thing, go candidate → one small task → formal. One job, one school, and one city are three doors, not a menu. Ordinary members do not need this path. The briefs live on Feishu; they are the same community as this site."
   },
   "joinPage.cta.title": {
     "zh": "从填写申请开始",
@@ -703,108 +703,44 @@ export const translations = {
     "en": "Before many things begin, it's just one person you haven't met yet."
   },
   "unfinoBrand.hero.title": {
-    "zh": "属于 TechFlows 的项目续航场。形式会变，给项目一个下一步。",
-    "en": "TechFlows' project-continuation space. The format can change; it gives a project a next step."
+    "zh": "未完场 UNFINO",
+    "en": "UNFINO"
   },
   "unfinoBrand.hero.lead": {
-    "zh": "UNFINO 接颁奖之后还想做下去的人。它属于 TechFlows，不是融资路演，也不是报名即会员。形式可以是展示、冲刺、主题挑战或短黑客松。",
-    "en": "UNFINO catches people who still want to keep going after the awards. It belongs to TechFlows. It is not a fundraising pitch, and not a club you join by signing up. The format can be a showcase, a sprint, a themed challenge, or a short hackathon."
+    "zh": "TechFlows 的项目续航场。给还想做下去的项目一个下一步。第一场尚未确定。不是融资路演，不是报名即会员。",
+    "en": "TechFlows' project-continuation space. It gives projects that still want to continue a next step. The first edition is not scheduled. It is not a fundraising pitch, and not a club you join by signing up."
   },
   "unfinoBrand.hero.button1": {
-    "zh": "查看活动形式",
-    "en": "Explore the formats"
+    "zh": "查看活动",
+    "en": "See events"
   },
   "unfinoBrand.hero.button2": {
-    "zh": "查看近期活动",
-    "en": "See upcoming events"
+    "zh": "提交项目",
+    "en": "Submit a project"
   },
-  "unfinoBrand.formats.kicker": {
-    "zh": "形式可以变化，目标不变",
-    "en": "Different formats, one direction"
+  "unfinoBrand.pending.kicker": {
+    "zh": "第一场尚未确定",
+    "en": "The first edition is not scheduled"
   },
-  "unfinoBrand.formats.title": {
-    "zh": "黑客松只是一个例子",
-    "en": "A hackathon is only one format"
+  "unfinoBrand.pending.title": {
+    "zh": "形式未定",
+    "en": "The format is not set"
   },
-  "unfinoBrand.formats.intro": {
-    "zh": "UNFINO 是 TechFlows 的项目续航场，形式会变。我们根据问题、参与者和现场条件，选择最适合让项目发生的活动形式。",
-    "en": "UNFINO is TechFlows' project-continuation space, and the format can change. We choose the format that best helps a project happen, based on the problem, the people, and the setting."
+  "unfinoBrand.pending.description": {
+    "zh": "第一场锁定前，不把黑客松、挑战赛、冲刺或展示写成正在举办的产品。",
+    "en": "Until the first edition is locked, we do not list hackathons, challenges, sprints, or showcases as live products."
   },
-  "unfinoBrand.formats.example": {
-    "zh": "示例形式",
-    "en": "Example format"
+  "unfinoBrand.rules.kicker": {
+    "zh": "现场公布",
+    "en": "Announced on site"
   },
-  "unfinoBrand.formats.hackathon.title": {
-    "zh": "短时黑客松",
-    "en": "Short hackathon"
+  "unfinoBrand.rules.title": {
+    "zh": "规则现场公布",
+    "en": "Rules are announced on site"
   },
-  "unfinoBrand.formats.hackathon.description": {
-    "zh": "在有限时间内组队、制作和展示一个可以继续验证的原型。",
-    "en": "Team up, build, and show a prototype that can be tested beyond the event."
-  },
-  "unfinoBrand.formats.challenge.title": {
-    "zh": "主题挑战赛",
-    "en": "Themed challenge"
-  },
-  "unfinoBrand.formats.challenge.description": {
-    "zh": "围绕一个真实问题展开挑战，让不同背景的人带着方案来到同一个现场。",
-    "en": "Bring different perspectives together around one real problem and a focused challenge."
-  },
-  "unfinoBrand.formats.sprint.title": {
-    "zh": "共创冲刺",
-    "en": "Build sprint"
-  },
-  "unfinoBrand.formats.sprint.description": {
-    "zh": "用半天、一天或几天完成一次集中共创，把一个方向推到更清楚的下一步。",
-    "en": "Use a half-day, a day, or several days of focused collaboration to clarify the next step."
-  },
-  "unfinoBrand.formats.showcase.title": {
-    "zh": "项目展示场",
-    "en": "Project showcase"
-  },
-  "unfinoBrand.formats.showcase.description": {
-    "zh": "让早期项目被看见、被反馈，并找到愿意一起继续的人。",
-    "en": "Help early projects be seen, receive feedback, and find people willing to continue with them."
-  },
-  "unfinoBrand.builder.kicker": {
-    "zh": "现场宣布，不提前内定",
-    "en": "Announced on site, not reserved in advance"
-  },
-  "unfinoBrand.builder.title": {
-    "zh": "资格在现场宣布，不售卖、不提前内定。",
-    "en": "Qualification is announced on site. It is not sold, and not reserved in advance."
-  },
-  "unfinoBrand.builder.lead": {
-    "zh": "Builder 看重的是愿意把项目推下一步，不是到场本身。它不是报名即会员的俱乐部。",
-    "en": "Builder looks at whether someone will push a project one step further, not at attendance itself. It is not a club you join by signing up."
-  },
-  "unfinoBrand.builder.onsite.title": {
-    "zh": "资格在现场宣布",
-    "en": "Qualification is announced on site"
-  },
-  "unfinoBrand.builder.onsite.description": {
-    "zh": "不售卖，不提前内定。本场规则就是当场留下名单，并在下一次见面出现。",
-    "en": "It is not sold, and not reserved in advance. The rule for this gathering is to leave a name, and to show up at the next one."
-  },
-  "unfinoBrand.builder.commitment.title": {
-    "zh": "看重下一步，不是到场本身",
-    "en": "The next step matters more than attendance"
-  },
-  "unfinoBrand.builder.commitment.description": {
-    "zh": "愿意把项目推下一步的人，才是 Builder 想留下的人。",
-    "en": "Builder is for people willing to push a project one step further."
-  },
-  "unfinoBrand.builder.together.title": {
-    "zh": "规则当场公布",
-    "en": "The rules are announced on site"
-  },
-  "unfinoBrand.builder.together.description": {
-    "zh": "具体规则每场公布。本场规则就是：留下名单，并在下一次见面出现。",
-    "en": "The exact rules are announced at each gathering. The rule for this one is: leave a name, and show up next time."
-  },
-  "unfinoBrand.builder.note": {
-    "zh": "具体资格规则以每场活动现场公布为准。不要写成会员等级或保证导师。",
-    "en": "The exact qualification rules are announced at each gathering. Do not write this as membership tiers or guaranteed mentors."
+  "unfinoBrand.rules.description": {
+    "zh": "不售卖、不提前内定。具体规则以当场公布为准。",
+    "en": "Nothing is sold, and nothing is reserved in advance. The exact rules are announced on site."
   },
   "unfinoBrand.next.kicker": {
     "zh": "下一场，现场见",
@@ -843,24 +779,24 @@ export const translations = {
     "en": "Close"
   },
   "footer.blurb": {
-    "zh": "关注青年科技创造者与早期项目的开放社区。",
-    "en": "An open community for young tech creators and early-stage projects."
+    "zh": "青年科技创造者社区。线下见面，把未完成写清楚，领走一件事让下场发生。",
+    "en": "A community for young tech creators. Meet in person, write the unfinished clearly, and take one piece so the next gathering can happen."
   },
   "footer.navLabel": {
     "zh": "页脚导航",
     "en": "Footer navigation"
   },
   "redirect.title": {
-    "zh": "即将前往外部链接",
-    "en": "Leaving TechFlows"
+    "zh": "接下来去飞书",
+    "en": "Continue on Feishu"
   },
   "redirect.heading": {
-    "zh": "你将前往以下地址",
-    "en": "You are about to visit"
+    "zh": "飞书是 TechFlows 的工作台。你将前往：",
+    "en": "Feishu is TechFlows' working desk. You are about to visit:"
   },
   "redirect.confirm": {
-    "zh": "确认并前往",
-    "en": "Confirm & continue"
+    "zh": "前往飞书",
+    "en": "Continue to Feishu"
   },
   "redirect.back": {
     "zh": "返回 TechFlows",

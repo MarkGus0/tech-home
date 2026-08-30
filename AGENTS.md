@@ -11,7 +11,7 @@ Read `README.md` before changing layout or copy.
 - Keep the `index-list` layout. Do not wrap body copy in glass cards.
 - Do not invent events, partners, metrics, or a second past event.
 - Do not subset the Smiley Sans font without a subsetting pipeline. Preload is allowed.
-- Geographic language routing is a 302 to `/en/...` and does not set the locale cookie. Only `?lang=` persists a preference.
+- Chinese routes stay Chinese. English lives under `/en/`. Only `?lang=` persists a preference (`techflows_locale`). There is no geographic 302 from `/` to `/en/`.
 - `pnpm check` runs `scripts/check-i18n.mjs` before `astro check`.
 
 ## Checks

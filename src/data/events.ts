@@ -26,8 +26,8 @@ export const pastEvents: EventEntry[] = [
   {
     title: { zh: "驾驭 AI 重构生产力｜合肥首场", en: "Harnessing AI to Rebuild Productivity | Hefei" },
     summary: {
-      zh: "诞生地的第一场线下见面，在合肥蜀山经开区党群服务中心举行。",
-      en: "The first in-person gathering, held in Hefei, where TechFlows began."
+      zh: "诞生地第一场线下见面，在合肥蜀山经开区党群服务中心举行。主题是驾驭 AI 重构生产力。",
+      en: "The first in-person gathering where TechFlows began, held at the Shushan Economic Development Zone Party-Mass Service Center in Hefei. The theme was harnessing AI to rebuild productivity."
     },
     label: { zh: "诞生地首场｜合肥", en: "First gathering | Hefei" },
     status: "past"
