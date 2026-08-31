@@ -51,8 +51,8 @@ export const pages: Record<PageId, PageMeta> = {
     id: "unfino",
     title: { zh: "未完场 UNFINO — TechFlows", en: "UNFINO — TechFlows" },
     description: {
-      zh: "未完场 UNFINO 是 TechFlows 的项目续航场，给还想做下去的项目一个下一步。第一场尚未确定。不是融资路演，不是报名即会员。",
-      en: "UNFINO is TechFlows' project-continuation space. It gives projects that still want to continue a next step. The first edition is not scheduled. It is not a fundraising pitch, and not a club you join by signing up."
+      zh: "未完场 UNFINO 是 TechFlows 的续航场，不是产品模块。第一场尚未排期。不是融资路演，不是报名即会员。",
+      en: "UNFINO is TechFlows' continuation gathering, not a product module. The first edition is not scheduled. It is not a fundraising pitch, and not a club you join by signing up."
     },
     paths: { zh: "/unfino/", en: "/en/unfino/" },
     image: "/assets/og-unfino.png"

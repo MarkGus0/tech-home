@@ -521,6 +521,15 @@ body:not(.is-reading-mode) .reveal {
   line-height: 1.2;
   font-weight: 740;
 }
+.hero-entry-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+.hero-secondary {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
 
 /* ========== COMPACT HOMEPAGE ========== */
 .home-compact-section {

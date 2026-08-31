@@ -24,7 +24,7 @@ export function GET() {
     "",
     "> TechFlows is a bilingual public website for one youth tech creator community. Chinese lives at `/`. English lives under `/en/`. Feishu is the working desk. Gatherings are in person; venue confirmed per event. Do not treat `/go/` confirmation pages as primary content.",
     "",
-    "This file gives AI search agents and assistants a concise map of the public, indexable content on https://www.techflows.app. Redirect confirmation pages under `/go/` and `/en/go/` are intentionally marked noindex and should not be treated as primary content.",
+    "This file maps public, indexable content on https://www.techflows.app. Do not invent unpublished gatherings, campus lists, or partner packages. The next gathering is published when someone claims it. UNFINO's first edition is not scheduled. Redirect confirmation pages under `/go/` and `/en/go/` are noindex and are not primary content.",
     "",
     "## Core Pages",
     pageLinks,

@@ -155,14 +155,14 @@ Desktop has a left reading map. Line-by-line reading is on by default on desktop
 
 | Section | Anchor | Job |
 | --- | --- | --- |
-| Hero | `#home` | Title, origin + work line, then three entry rows. The third row jumps to `#tracks` |
-| Now | `#now` | Same table / write it clearly / next stop. The third row goes to UNFINO |
-| Tracks | `#tracks` | Three responsibility doors: one job, one school, one city. Do not merge them into one menu |
+| Hero | `#home` | Title, origin + work line, then one primary Join button. Events and project submit are quiet text links, not a three-up start menu. |
+| Now | `#now` | Same table / write it clearly / next stop. The third row goes to UNFINO as a continuation gathering (first edition not scheduled). |
 | Principles | `#principles` | Unfinished can be seen; do not package what we cannot do; an event is not the end |
-| Status | `#status` | Honest Feishu tags: upcoming not published, project records not live, member work not published, campus list being built. Do not add a fake university list or works wall. |
-| Join | `#join` | Closing copy and the only homepage pill-button cluster |
+| Status | `#status` | Honest tags: upcoming not published, project records not live, member work not published. No campus/hub list marked “being built”. |
+| Join | `#join` | The unique primary CTA on home. Submit and “take one piece” are text links. |
+| Tracks | `#tracks` | After Join. Three doors as 「领走一件事」, not the home menu. Door pages stay. |
 
-Hero entries, now, tracks, and principles are all `.index-list` rows. Status rows are clickable `index-row--status` links. The closing cluster is Join (primary), submit a project (secondary), co-build (secondary). Track row CTAs go through `/go/job|school|city/` to the Feishu briefs. Do not put raw Feishu URLs on homepage buttons. The four who-can-come rows live only on `/join/`.
+Now, tracks, and principles are `.index-list` rows. Status rows are clickable `index-row--status` links. Hero and Join each have one primary pill. Track row CTAs go through `/go/job|school|city/` to the Feishu briefs. Do not put raw Feishu URLs on homepage buttons. The four who-can-come rows live only on `/join/`.
 
 Copy keys live under `hero.*` and `home.*` in `src/data/translations.ts`.
 
@@ -180,7 +180,7 @@ Upcoming content comes from `upcomingEvent`. Past items come from `pastEvents`. 
 Component: `src/components/UnfinoPage.astro`  
 Copy keys: `unfinoBrand.*`
 
-UNFINO is TechFlows' project-continuation space. The first edition is not scheduled. A hackathon is not listed as a live product until a gathering is locked.
+UNFINO is TechFlows' continuation gathering. The first edition is not scheduled. It is not a product module. A hackathon is not listed as a live product until a gathering is locked.
 
 Flow: wordmark and lead → two notes (format not set; rules announced on site) → closing actions back to Events or the project form.
 

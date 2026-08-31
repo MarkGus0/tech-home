@@ -75,60 +75,24 @@ export const translations = {
     "en": "Start here"
   },
   "hero.entry.title": {
-    "zh": "带着你现在拥有的东西来",
-    "en": "Bring what you have right now"
+    "zh": "先加入，再领走一件事",
+    "en": "Join first. Take one piece later."
+  },
+  "hero.entry.lead": {
+    "zh": "唯一入口是加入。三扇门不是首页菜单；想负责时再往下看「领走一件事」。",
+    "en": "The one entry is Join. The three doors are not the home menu; read “Take one piece” only if you want to take responsibility."
   },
   "hero.entry.listAria": {
-    "zh": "现在可以从这里开始",
-    "en": "Start here"
+    "zh": "加入 TechFlows",
+    "en": "Join TechFlows"
   },
-  "hero.entry.events.status": {
-    "zh": "近期活动｜待发布",
-    "en": "Upcoming｜Not published"
+  "hero.entry.secondary.events": {
+    "zh": "近期活动尚未发布",
+    "en": "Upcoming events are not published"
   },
-  "hero.entry.events.title": {
-    "zh": "先来一次见面",
-    "en": "Start with a gathering"
-  },
-  "hero.entry.events.description": {
-    "zh": "参加线下见面，或先加入，等下一次真实的见面发生。",
-    "en": "Come to an in-person gathering, or join first and wait until the next real gathering happens."
-  },
-  "hero.entry.events.cta": {
-    "zh": "看看近期活动",
-    "en": "See upcoming events"
-  },
-  "hero.entry.project.status": {
-    "zh": "项目记录｜未上线",
-    "en": "Project records｜Not live"
-  },
-  "hero.entry.project.title": {
-    "zh": "让想法先被听见",
-    "en": "Let an idea be heard first"
-  },
-  "hero.entry.project.description": {
-    "zh": "提交正在做的项目、原型，或者还没有完全想清楚的方向。",
-    "en": "Submit a project, a prototype, or a direction you are still figuring out."
-  },
-  "hero.entry.project.cta": {
+  "hero.entry.secondary.project": {
     "zh": "提交项目或想法",
     "en": "Submit a project or idea"
-  },
-  "hero.entry.cobuild.status": {
-    "zh": "领走一件事｜三扇门",
-    "en": "Take one piece｜Three doors"
-  },
-  "hero.entry.cobuild.title": {
-    "zh": "下场要发生，靠有人领走一件事",
-    "en": "The next gathering happens because someone takes one piece"
-  },
-  "hero.entry.cobuild.description": {
-    "zh": "一件功能活、一所学校、或一座城。不是选头衔。普通成员先加入，不必先选。",
-    "en": "One functional job, one school, or one city. Not a title. Ordinary members join first and do not have to pick."
-  },
-  "hero.entry.cobuild.cta": {
-    "zh": "看三扇门",
-    "en": "See the three doors"
   },
   "home.nav.now": {
     "zh": "正在做什么",
@@ -330,18 +294,6 @@ export const translations = {
     "zh": "提交项目",
     "en": "Submit a project"
   },
-  "home.status.campus.label": {
-    "zh": "据点高校名单",
-    "en": "Campus list"
-  },
-  "home.status.campus.value": {
-    "zh": "建设中",
-    "en": "Being built"
-  },
-  "home.status.campus.cta": {
-    "zh": "阅读「一所学校」",
-    "en": "Read the school brief"
-  },
   "home.join.kicker": {
     "zh": "从你现在拥有的东西开始",
     "en": "Start with what you have"
@@ -373,10 +325,6 @@ export const translations = {
   "join.action.submit": {
     "zh": "提交项目或想法",
     "en": "Submit a project or idea"
-  },
-  "join.action.coBuild": {
-    "zh": "参与社区共建",
-    "en": "Help build the community"
   },
   "footer.tagline": {
     "zh": "让想做点什么的人，先找到彼此。",
@@ -455,8 +403,8 @@ export const translations = {
     "en": "Upcoming Events"
   },
   "events.upcoming.p1": {
-    "zh": "下场见面的时间和场地当期确认。没有锁定日期和场地，就不写成已经在办。",
-    "en": "The time and venue of the next gathering are confirmed for that gathering. If the date and venue are not locked, we do not write as if it is already happening."
+    "zh": "下场见面，有人领走才发布。时间和场地当期确认。没有锁定日期和场地，就不写成已经在办。",
+    "en": "The next gathering is published when someone claims it. Time and venue are confirmed for that gathering. If the date and venue are not locked, we do not write as if it is already happening."
   },
   "events.hope.title": {
     "zh": "我们希望现场发生什么",
@@ -547,8 +495,8 @@ export const translations = {
     "en": "Universities, companies, innovation parks, tech communities, and open-source organizations can co-launch an event with TechFlows."
   },
   "events.cta.title": {
-    "zh": "下一场活动，等你来",
-    "en": "The next event is waiting for you"
+    "zh": "下场见面，有人领走才发布",
+    "en": "The next gathering is published when someone claims it"
   },
   "events.cta.p1": {
     "zh": "你不需要已经拥有成熟的项目，也不必先证明自己足够专业。可以带着一个问题来，一段经历来，或者只是先坐下来，听听其他人正在做什么。",
@@ -711,8 +659,8 @@ export const translations = {
     "en": "UNFINO"
   },
   "unfinoBrand.hero.lead": {
-    "zh": "TechFlows 的项目续航场。给还想做下去的项目一个下一步。第一场尚未确定。不是融资路演，不是报名即会员。",
-    "en": "TechFlows' project-continuation space. It gives projects that still want to continue a next step. The first edition is not scheduled. It is not a fundraising pitch, and not a club you join by signing up."
+    "zh": "TechFlows 的续航场，不是产品模块。给还想做下去的项目一个下一步。第一场尚未排期。不是融资路演，不是报名即会员。",
+    "en": "TechFlows' continuation gathering, not a product module. It gives projects that still want to continue a next step. The first edition is not scheduled. It is not a fundraising pitch, and not a club you join by signing up."
   },
   "unfinoBrand.hero.button1": {
     "zh": "查看活动",
@@ -747,16 +695,16 @@ export const translations = {
     "en": "Nothing is sold, and nothing is reserved in advance. The exact rules are announced on site."
   },
   "unfinoBrand.next.kicker": {
-    "zh": "下一场，现场见",
-    "en": "See you at the next one"
+    "zh": "第一场尚未排期",
+    "en": "The first edition is not scheduled"
   },
   "unfinoBrand.next.title": {
-    "zh": "先进入一场活动，再决定要走多远。",
-    "en": "Enter one event first. Decide how far to go next."
+    "zh": "先加入，再决定要走多远。",
+    "en": "Join first. Decide how far to go next."
   },
   "unfinoBrand.next.copy": {
-    "zh": "你可以带着一个问题、一个项目，或一项愿意贡献的能力来到 UNFINO。",
-    "en": "Come to UNFINO with a question, a project, or a skill you are willing to contribute."
+    "zh": "UNFINO 是续航场，不是产品模块。第一场尚未排期。先加入，或把还想做下去的项目写清楚。",
+    "en": "UNFINO is a continuation gathering, not a product module. The first edition is not scheduled. Join first, or write down a project that still wants to continue."
   },
   "unfinoBrand.next.button1": {
     "zh": "查看活动",

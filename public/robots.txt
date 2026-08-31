@@ -1,6 +1,9 @@
 # Search engines and AI crawlers may access public pages.
+# Only published facts belong in the index. /go/ confirmation pages are noindex.
 User-agent: *
 Allow: /
+Disallow: /go/
+Disallow: /en/go/
 
 # Explicit OpenAI crawler access for ChatGPT search and user-requested browsing.
 User-agent: OAI-SearchBot
