@@ -33,6 +33,7 @@ const { locale } = Astro.props;
             </li>
           ))}
         </ul>
+        <a class="text-link" href={goPath(locale, "project", "projects_empty_submit")}>{t("projects.empty.submit", locale)}</a>
       </div>
     </PageSection>
 
