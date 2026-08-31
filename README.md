@@ -2,7 +2,7 @@
 
 TechFlows is a bilingual public website for a youth tech creator community. The brand line is “让想做点什么的人，先找到彼此” / “For those who want to build something.” The site is an Astro 5 static project. Chinese pages live at the root. English pages live under `/en/`. Production canonical host is `https://www.techflows.app`. Deploy target is Vercel.
 
-The site is not a product landing page and not a manifesto. It is an entry surface: explain who TechFlows is, show what is happening now, and send people to one concrete next step (an event, a project form, co-building, or a partnership). UNFINO is the unfinished-field challenge brand inside TechFlows. It is a sibling of Events, not a replacement for the community site.
+The site is not a product landing page and not a manifesto. It is an entry surface: explain who TechFlows is, show what is happening now, and send people to one concrete next step (an event, a project form, co-building, or a partnership). UNFINO is the continuation venue inside TechFlows. The first event is not yet set. It is a sibling of Events, not a product or a replacement for the community site.
 
 This README is the working document for the repo. Use it when you change copy, layout, routes, or outbound links.
 
@@ -13,10 +13,10 @@ TechFlows focuses on young tech creators and early-stage work: AI practice, open
 Typical visitor jobs:
 
 - Understand what TechFlows is in under a minute.
-- Find the next gathering or leave contact details for notices.
-- Submit an unfinished project or idea.
 - Join as a member first; take responsibility later if you want.
-- Start a partnership from a university, company, community, or venue.
+- Find the next gathering or leave contact details for notices. Unpublished stays 待发布.
+- Submit an unfinished project or idea.
+- Leave partnership intent. There is no package table.
 
 ## Repository map
 
@@ -155,14 +155,13 @@ Desktop has a left reading map. Line-by-line reading is on by default on desktop
 
 | Section | Anchor | Job |
 | --- | --- | --- |
-| Hero | `#home` | Title, origin + work line, then three entry rows. The third row jumps to `#tracks` |
-| Now | `#now` | Same table / write it clearly / next stop. The third row goes to UNFINO |
-| Tracks | `#tracks` | Three responsibility doors: one job, one school, one city. Do not merge them into one menu |
+| Hero | `#home` | Title, origin + work line, then one Join CTA. Doors are not on this path. |
+| Now | `#now` | Same table / write it clearly / continuation venue. The third row goes to UNFINO |
 | Principles | `#principles` | Unfinished can be seen; do not package what we cannot do; an event is not the end |
-| Status | `#status` | Honest Feishu tags: upcoming not published, project records not live, member work not published, campus list being built. Do not add a fake university list or works wall. |
-| Join | `#join` | Closing copy and the only homepage pill-button cluster |
+| Status | `#status` | Honest tags: upcoming 待发布, project records not live, member work 待发布. No campus/hub list. Do not add a fake university list or works wall. |
+| Join | `#join` | Closing copy and the only homepage pill button: Join |
 
-Hero entries, now, tracks, and principles are all `.index-list` rows. Status rows are clickable `index-row--status` links. The closing cluster is Join (primary), submit a project (secondary), co-build (secondary). Track row CTAs go through `/go/job|school|city/` to the Feishu briefs. Do not put raw Feishu URLs on homepage buttons. The four who-can-come rows live only on `/join/`.
+Now and principles are `.index-list` rows. Status rows are clickable `index-row--status` links. The three doors live on `/join/#tracks` as 「领走一件事」. Track row CTAs go through `/go/job|school|city/` to the Feishu briefs. Do not put raw Feishu URLs on homepage buttons. The four who-can-come rows live only on `/join/`.
 
 Copy keys live under `hero.*` and `home.*` in `src/data/translations.ts`.
 
@@ -180,9 +179,9 @@ Upcoming content comes from `upcomingEvent`. Past items come from `pastEvents`. 
 Component: `src/components/UnfinoPage.astro`  
 Copy keys: `unfinoBrand.*`
 
-UNFINO is TechFlows' project-continuation space. The first edition is not scheduled. A hackathon is not listed as a live product until a gathering is locked.
+UNFINO is TechFlows' continuation venue. The first event is not yet set. Do not write a dated coming soon. A hackathon is not listed as a live event until a gathering is locked. Do not present UNFINO as a product or service.
 
-Flow: wordmark and lead → two notes (format not set; rules announced on site) → closing actions back to Events or the project form.
+Flow: wordmark and lead → two notes (format not set; rules announced on site) → closing actions to Join or the project form.
 
 Keep the hero visible on first paint. Reveal animation is for list rows, not the whole page.
 
@@ -201,13 +200,13 @@ Component: `src/components/PartnersPage.astro`
 Data: `src/data/partners.ts`  
 List UI: `src/components/RoleList.astro`
 
-Flow: opening → collaboration essay → four partner types as an index list → partner form and `partner@techflows.app`.
+Flow: short intent-only placeholder → partner form and `partner@techflows.app`. No package/benefits table, no sponsor deck, no invented event dates. The four partner-type rows in `partners.ts` are not shown on this page.
 
 ### Join `/join/`
 
 Component: `src/components/JoinPage.astro`
 
-Flow: hero (come with what you have; this page is how to join, not a rank) → how to apply (one primary form button; members need not pick a responsibility door first) → four who-can-come rows (no project → `/events/`, already building → `/go/project/`, want to take responsibility → `#tracks`, have resources → `/partners/`) → what members get right away (meet, write it down on the projects page, find a buddy and take one small step, plus the red line) → three title links to the Feishu briefs (`job` / `school` / `city`) → closing form + `join@techflows.app`.
+Flow: hero (come with what you have; this page is how to join, not a rank) → how to apply (one primary form button; members need not pick a responsibility door first) → four who-can-come rows (no project → `/events/`, already building → `/go/project/`, want to take responsibility → `#tracks`, have resources → `/partners/`) → what members get right away (meet, write it down on the projects page, find a buddy and take one small step, plus the red line) → 「领走一件事」 with the three Feishu briefs (`job` / `school` / `city`) → closing form + `join@techflows.app`.
 
 Do not restore the six-role essays. Do not copy the four questions or the six functional jobs onto this page. Details for the three tracks live on Feishu.
 

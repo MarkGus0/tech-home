@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Button from "@components/Button.astro";
-import { goLinks, goPath } from "@data/forms";
+import { goPath } from "@data/forms";
 import { site, type Locale } from "@data/site";
 import { pagePath, t } from "@utils/i18n";
 
@@ -54,11 +54,29 @@ const offerItems = [
   }
 ] as const;
 
-const trackLinks = [
-  { slug: "job" as const, source: "join_track_job" },
-  { slug: "school" as const, source: "join_track_school" },
-  { slug: "city" as const, source: "join_track_city" }
-];
+const trackCards = [
+  {
+    title: "home.tracks.job.title",
+    description: "home.tracks.job.description",
+    cta: "home.tracks.job.cta",
+    slug: "job" as const,
+    source: "join_track_job"
+  },
+  {
+    title: "home.tracks.school.title",
+    description: "home.tracks.school.description",
+    cta: "home.tracks.school.cta",
+    slug: "school" as const,
+    source: "join_track_school"
+  },
+  {
+    title: "home.tracks.city.title",
+    description: "home.tracks.city.description",
+    cta: "home.tracks.city.cta",
+    slug: "city" as const,
+    source: "join_track_city"
+  }
+] as const;
 ---
 <BaseLayout locale={locale} page="join">
   <main id="main" class="subpage-main subpage-main--join">
@@ -131,14 +149,18 @@ const trackLinks = [
     <section class="reading-section" id="tracks">
       <div class="section-shell">
         <div class="chapter-copy">
-          <h2>{t("joinPage.tracks.title", locale)}</h2>
+          <p class="home-section-kicker">{t("home.tracks.kicker", locale)}</p>
+          <h2>{t("home.tracks.title", locale)}</h2>
+          <p>{t("home.tracks.intro", locale)}</p>
           <p>{t("joinPage.tracks.intro", locale)}</p>
           <div class="index-list">
-            {trackLinks.map((link, index) => (
+            {trackCards.map((card, index) => (
               <article class="index-row">
                 <p class="index-row__index">0{index + 1}</p>
                 <div class="index-row__main">
-                  <a class="text-link" href={goPath(locale, link.slug, link.source)}>{goLinks[link.slug].label[locale]}</a>
+                  <h3>{t(card.title, locale)}</h3>
+                  <p>{t(card.description, locale)}</p>
+                  <a class="text-link" href={goPath(locale, card.slug, card.source)}>{t(card.cta, locale)}</a>
                 </div>
               </article>
             ))}
