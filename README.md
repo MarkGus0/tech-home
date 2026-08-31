@@ -97,14 +97,15 @@ Glass (`backdrop-filter`, translucent fill, hairline highlight) is only for inte
 - floating header capsule
 - homepage reading map
 - mobile nav sheet
-- secondary buttons
 - footer
+
+Secondary actions are quiet text-like controls, not a second pill competing with the primary CTA. One primary pill per closing cluster.
 
 Do not glass body copy, principles, role essays, partner lists, or UNFINO format/builder rows. Do not nest glass inside glass. If a block feels weak, drop the frame and use type, spacing, and a hairline. Do not wrap it in another rounded panel.
 
 ### Reading column
 
-- Measure is about 720px (`--container` / `--subpage-max`).
+- Measure is about 720px (`--container` / `--subpage-max`). Vertical rhythm uses `--page-pad-y` so home, subpages, 404, header, and footer share one spacing scale.
 - One type scale: large page title, section title around 26–34px, list titles around 18–21px, muted body.
 - Kickers are small Geist Mono, blue, uppercase.
 

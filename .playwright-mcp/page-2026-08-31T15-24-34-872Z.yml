@@ -1,0 +1,198 @@
+- generic [active] [ref=f4e1]:
+  - link "Skip to content" [ref=f4e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner:
+    - generic [ref=f4e3]:
+      - link "TechFlows home" [ref=f4e4] [cursor=pointer]:
+        - /url: /en/
+        - img "TechFlows" [ref=f4e5]
+      - navigation "Main navigation" [ref=f4e6]:
+        - link "Home" [ref=f4e7] [cursor=pointer]:
+          - /url: /en/
+        - link "Events" [ref=f4e8] [cursor=pointer]:
+          - /url: /en/events/
+        - link "UNFINO" [ref=f4e9] [cursor=pointer]:
+          - /url: /en/unfino/
+        - link "Projects" [ref=f4e10] [cursor=pointer]:
+          - /url: /en/projects/
+        - link "Partners" [ref=f4e11] [cursor=pointer]:
+          - /url: /en/partners/
+        - link "Join" [ref=f4e12] [cursor=pointer]:
+          - /url: /en/join/
+      - link "切换到中文" [ref=f4e14] [cursor=pointer]:
+        - /url: /?lang=zh
+        - generic [ref=f4e19]: 中文
+  - complementary "Reading chapters" [ref=f4e20]:
+    - button "Show All" [pressed] [ref=f4e22] [cursor=pointer]
+    - navigation [ref=f4e25]:
+      - link "What we do" [ref=f4e26] [cursor=pointer]:
+        - /url: "#now"
+      - link "What we protect" [ref=f4e27] [cursor=pointer]:
+        - /url: "#principles"
+      - link "Current status" [ref=f4e28] [cursor=pointer]:
+        - /url: "#status"
+      - link "Join" [ref=f4e29] [cursor=pointer]:
+        - /url: "#join"
+      - link "Take one piece" [ref=f4e30] [cursor=pointer]:
+        - /url: "#tracks"
+  - main [ref=f4e31]:
+    - region [ref=f4e32]:
+      - generic [ref=f4e34]:
+        - heading "For those who want to build something, find each other first" [level=1] [ref=f4e35]: For those who want to build something,find each other first
+        - paragraph: Unfinished work can still be seen. Do not build a project alone.
+        - generic [ref=f4e36]:
+          - generic [ref=f4e37]:
+            - paragraph: In an era of accelerating technological change, many young people are neither uninterested nor lacking in ideas.
+            - paragraph: They just don't know where to start, who to reach out to, or — after finishing their first project — where to go next.
+            - paragraph: TechFlows is an open community for young tech creators and early-stage projects. Born in Hefei, Anhui. Gatherings are in person; venue confirmed per event.
+          - paragraph: Through gatherings, four questions, one small next step afterward, project records, and UNFINO, we help people in motion be seen. This community is unfinished too, so the next gathering happens because someone takes one piece.
+        - generic:
+          - paragraph: Start here
+          - heading "Join first. Take one piece later." [level=2]
+          - paragraph: The one entry is Join. The three doors are not the home menu; read “Take one piece” only if you want to take responsibility.
+        - generic "Join TechFlows":
+          - link "Join TechFlows":
+            - /url: /en/go/join/?source=home_hero_join
+        - paragraph:
+          - link "Upcoming events are not published":
+            - /url: /en/events/
+          - text: ·
+          - link "Submit a project or idea":
+            - /url: /en/go/project/?source=home_entry_project
+    - region "We are doing three things right now" [ref=f4e38]:
+      - generic [ref=f4e39]:
+        - generic:
+          - paragraph: The work of TechFlows
+          - heading "We are doing three things right now" [level=2]
+          - paragraph: Bring people to the same table, write unfinished projects clearly, and give a gathering a next stop.
+        - generic [ref=f4e40]:
+          - article:
+            - paragraph: "01"
+            - generic:
+              - heading "Bring people to the same table" [level=3]
+              - paragraph: We organize in-person gatherings so people who want to build something can sit together. Venue confirmed per event.
+              - link "See events":
+                - /url: /en/events/
+          - article:
+            - paragraph: "02"
+            - generic:
+              - heading "Write unfinished projects clearly" [level=3]
+              - paragraph: Write unfinished work clearly with four questions. Unfinished work can still be seen.
+              - link "See project stories":
+                - /url: /en/projects/
+          - article:
+            - paragraph: "03"
+            - generic:
+              - heading "Give a gathering a next stop" [level=3]
+              - paragraph: Everyone leaves with one small next step. UNFINO gives projects that still want to continue a next stop. The first edition is not scheduled.
+              - link "See UNFINO":
+                - /url: /en/unfino/
+    - region "A community can be open, but action should stay concrete" [ref=f4e41]:
+      - generic [ref=f4e42]:
+        - generic:
+          - paragraph: What we want to protect
+          - heading "A community can be open, but action should stay concrete" [level=2]
+        - generic [ref=f4e43]:
+          - article:
+            - paragraph: "01"
+            - generic:
+              - heading "Unfinished work can still be seen" [level=3]
+              - paragraph: Bring what you have right now. You do not have to prove you are professional, or submit a complete plan first.
+          - article:
+            - paragraph: "02"
+            - generic:
+              - heading "Do not package what we cannot do as a service" [level=3]
+              - paragraph: If we cannot guarantee it, we do not write it as a promise.
+          - article:
+            - paragraph: "03"
+            - generic:
+              - heading "An event is not the end of a relationship" [level=3]
+              - paragraph: A gathering is only the beginning. Leave with one small next step, and the next gathering only asks whether that step was done.
+        - paragraph: This is not a course, not an offer, and not a fixed desk.
+    - region "TechFlows right now" [ref=f4e44]:
+      - generic [ref=f4e45]:
+        - generic:
+          - paragraph: What you can see now
+          - heading "TechFlows right now" [level=2]
+          - paragraph: What follows is live status, not a finished scale. There is no campus list and no member-work wall yet.
+        - generic [ref=f4e46]:
+          - link "Upcoming events Not published Join TechFlows →":
+            - /url: /en/events/
+            - generic: Upcoming events
+            - generic: Not published
+            - generic: Join TechFlows →
+          - link "Project stories Not live Submit a project →":
+            - /url: /en/projects/
+            - generic: Project stories
+            - generic: Not live
+            - generic: Submit a project →
+          - link "Member work Not published Submit a project →":
+            - /url: /en/go/project/?source=home_status_works
+            - generic: Member work
+            - generic: Not published
+            - generic: Submit a project →
+    - region "Maybe you do not have a complete project yet" [ref=f4e47]:
+      - generic [ref=f4e48]:
+        - paragraph: Start with what you have
+        - heading "Maybe you do not have a complete project yet" [level=2]
+        - generic [ref=f4e49]:
+          - paragraph: Maybe it is only a few lines in your notes, or maybe you have built something but do not know who to show it to. That is okay.
+          - paragraph: Bring what you have right now.
+        - generic "Ways to join TechFlows":
+          - link "Join TechFlows":
+            - /url: /en/go/join/?source=home_final_join
+        - paragraph:
+          - link "Submit a project or idea":
+            - /url: /en/go/project/?source=home_final_project
+          - text: ·
+          - link "Take one piece":
+            - /url: "#tracks"
+        - paragraph: Before many things begin, it is just one person you have not met yet.
+    - region "One job, one school, one city" [ref=f4e50]:
+      - generic [ref=f4e51]:
+        - generic:
+          - paragraph: Take one piece
+          - heading "One job, one school, one city" [level=2]
+          - paragraph: The three doors are not a menu. Ordinary members join first, do one small thing, then become official. If you want to take responsibility, take one piece you can finish. The next gathering is published when someone claims it.
+        - generic [ref=f4e52]:
+          - article:
+            - paragraph: "01"
+            - generic:
+              - heading "One functional job" [level=3]
+              - paragraph: Pick one job you can finish, not a title.
+              - link "Read the job brief":
+                - /url: /en/go/job/?source=home_track_job
+          - article:
+            - paragraph: "02"
+            - generic:
+              - heading "One school" [level=3]
+              - paragraph: A campus initiator is responsible for one specific school. Start with the one you can keep showing up at. Hefei is where we began, and is equally welcome.
+              - link "Read the school brief":
+                - /url: /en/go/school/?source=home_track_school
+          - article:
+            - paragraph: "03"
+            - generic:
+              - heading "One city" [level=3]
+              - paragraph: A city co-creator books the in-person venue for this gathering, holds onto one real thing, and helps people come back next time.
+              - link "Read the city brief":
+                - /url: /en/go/city/?source=home_track_city
+  - contentinfo [ref=f4e53]:
+    - generic [ref=f4e54]:
+      - generic [ref=f4e55]:
+        - link "TechFlows" [ref=f4e56] [cursor=pointer]:
+          - /url: /en/
+        - paragraph [ref=f4e57]: A community for young tech creators. Meet in person, write the unfinished clearly, and take one piece so the next gathering can happen.
+      - navigation "Footer navigation" [ref=f4e58]:
+        - link "Events" [ref=f4e59] [cursor=pointer]:
+          - /url: /en/events/
+        - link "UNFINO" [ref=f4e60] [cursor=pointer]:
+          - /url: /en/unfino/
+        - link "Projects" [ref=f4e61] [cursor=pointer]:
+          - /url: /en/projects/
+        - link "Co-build" [ref=f4e62] [cursor=pointer]:
+          - /url: /en/go/cobuild/?source=footer_cobuild
+        - link "Partners" [ref=f4e63] [cursor=pointer]:
+          - /url: /en/partners/
+        - link "join@techflows.app" [ref=f4e64] [cursor=pointer]:
+          - /url: mailto:join@techflows.app
+      - paragraph [ref=f4e65]: For those who want to build something, find each other first.
