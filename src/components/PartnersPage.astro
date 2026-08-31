@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Button from "@components/Button.astro";
+import PageCta from "@components/PageCta.astro";
+import PageHero from "@components/PageHero.astro";
+import PageMain from "@components/PageMain.astro";
 import { goPath } from "@data/forms";
 import { site, type Locale } from "@data/site";
 import { t } from "@utils/i18n";
@@ -9,31 +12,19 @@ type Props = { locale: Locale };
 const { locale } = Astro.props;
 ---
 <BaseLayout locale={locale} page="partners">
-  <main id="main" class="subpage-main subpage-main--partners">
-    <section class="hero sub-hero">
-      <div class="hero-shell">
-        <div class="hero-copy">
-          <h1>{t("nav.partners", locale)}</h1>
-          <div class="hero-detail hero-detail--compact">
-            <p>{t("partners.hero.p1", locale)}</p>
-            <p>{t("partners.hero.p2", locale)}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <PageMain class="page--partners">
+    <PageHero title={t("nav.partners", locale)}>
+      <p>{t("partners.hero.p1", locale)}</p>
+      <p>{t("partners.hero.p2", locale)}</p>
+    </PageHero>
 
-    <section class="final-cta final-cta--compact">
-      <div class="final-shell">
-        <h2>{t("partners.cta.title", locale)}</h2>
-        <div class="final-copy">
-          <p>{t("partners.cta.p1", locale)}</p>
-        </div>
-        <div class="final-actions">
-          <Button href={goPath(locale, "partner", "partners_final_partner")}>{t("partners.cta.button", locale)}</Button>
-          <Button href={`mailto:${site.partnerEmail}`} variant="secondary" external>{t("partners.cta.email", locale)}</Button>
-        </div>
-        <p class="closing-line">{t("partners.contact.label", locale)}<a href={`mailto:${site.partnerEmail}`}>{site.partnerEmail}</a></p>
-      </div>
-    </section>
-  </main>
+    <PageCta title={t("partners.cta.title", locale)}>
+      <p>{t("partners.cta.p1", locale)}</p>
+      <Fragment slot="actions">
+        <Button href={goPath(locale, "partner", "partners_final_partner")}>{t("partners.cta.button", locale)}</Button>
+        <Button href={`mailto:${site.partnerEmail}`} variant="secondary" external>{t("partners.cta.email", locale)}</Button>
+      </Fragment>
+      <p class="page-closing" slot="closing">{t("partners.contact.label", locale)}<a href={`mailto:${site.partnerEmail}`}>{site.partnerEmail}</a></p>
+    </PageCta>
+  </PageMain>
 </BaseLayout>

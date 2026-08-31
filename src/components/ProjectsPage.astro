@@ -1,6 +1,10 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Button from "@components/Button.astro";
+import PageCta from "@components/PageCta.astro";
+import PageHero from "@components/PageHero.astro";
+import PageMain from "@components/PageMain.astro";
+import PageSection from "@components/PageSection.astro";
 import { goPath } from "@data/forms";
 import { projectEmptyState } from "@data/projects";
 import type { Locale } from "@data/site";
@@ -10,46 +14,34 @@ type Props = { locale: Locale };
 const { locale } = Astro.props;
 ---
 <BaseLayout locale={locale} page="projects">
-  <main id="main" class="subpage-main subpage-main--projects">
-    <section class="hero sub-hero">
-      <div class="hero-shell">
-        <div class="hero-copy">
-          <h1>{t("projects.hero.title", locale)}</h1>
-          <div class="hero-detail hero-detail--compact">
-            <p>{t("projects.hero.lead", locale)}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <PageMain class="page--projects">
+    <PageHero title={t("projects.hero.title", locale)}>
+      <p>{t("projects.hero.lead", locale)}</p>
+    </PageHero>
 
-    <section class="reading-section section-soft">
-      <div class="section-shell">
-        <div class="chapter-copy">
-          <h2>{projectEmptyState.title[locale]}</h2>
-          <p>{projectEmptyState.body[locale]}</p>
-          <ul class="index-list index-list--plain">
-            {projectEmptyState.details.map((item, index) => (
-              <li class="index-row">
-                <p class="index-row__index">0{index + 1}</p>
-                <div class="index-row__main">
-                  <p>{item[locale]}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <Button href={goPath(locale, "project", "projects_empty_submit")}>{t("projects.empty.submit", locale)}</Button>
-        </div>
+    <PageSection>
+      <div class="chapter-copy">
+        <h2>{projectEmptyState.title[locale]}</h2>
+        <p>{projectEmptyState.body[locale]}</p>
+        <ul class="index-list index-list--plain">
+          {projectEmptyState.details.map((item, index) => (
+            <li class="index-row">
+              <p class="index-row__index">0{index + 1}</p>
+              <div class="index-row__main">
+                <p>{item[locale]}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <a class="text-link" href={goPath(locale, "project", "projects_empty_submit")}>{t("projects.empty.submit", locale)}</a>
       </div>
-    </section>
+    </PageSection>
 
-    <section class="final-cta final-cta--compact">
-      <div class="final-shell">
-        <h2>{t("projects.final.title", locale)}</h2>
-        <div class="final-actions">
-          <Button href={goPath(locale, "project", "projects_final_project")}>{t("projects.final.submit", locale)}</Button>
-          <Button href={goPath(locale, "join", "projects_final_join")} variant="secondary">{t("projects.final.join", locale)}</Button>
-        </div>
-      </div>
-    </section>
-  </main>
+    <PageCta title={t("projects.final.title", locale)}>
+      <Fragment slot="actions">
+        <Button href={goPath(locale, "project", "projects_final_project")}>{t("projects.final.submit", locale)}</Button>
+        <Button href={goPath(locale, "join", "projects_final_join")} variant="secondary">{t("projects.final.join", locale)}</Button>
+      </Fragment>
+    </PageCta>
+  </PageMain>
 </BaseLayout>

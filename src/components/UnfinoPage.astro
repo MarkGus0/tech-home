@@ -1,6 +1,10 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Button from "@components/Button.astro";
+import PageCta from "@components/PageCta.astro";
+import PageHero from "@components/PageHero.astro";
+import PageMain from "@components/PageMain.astro";
+import PageSection from "@components/PageSection.astro";
 import { goPath } from "@data/forms";
 import { type Locale } from "@data/site";
 import { pagePath, t } from "@utils/i18n";
@@ -22,55 +26,38 @@ const notes = [
 ] as const;
 ---
 <BaseLayout locale={locale} page="unfino">
-  <main id="main" class="subpage-main subpage-main--unfino">
-    <section class="hero sub-hero">
-      <div class="hero-shell">
-        <div class="hero-copy">
-          <h1 class="unfino-wordmark">{t("unfinoBrand.hero.title", locale)}</h1>
-          <div class="hero-detail hero-detail--compact">
-            <p>{t("unfinoBrand.hero.lead", locale)}</p>
-          </div>
-          <div class="final-actions unfino-actions">
-            <Button href={pagePath("join", locale)}>{t("unfinoBrand.hero.button1", locale)}</Button>
-            <Button href={goPath(locale, "project", "unfino_hero_project")} variant="secondary">{t("unfinoBrand.hero.button2", locale)}</Button>
-          </div>
-        </div>
+  <PageMain class="page--unfino">
+    <PageHero title={t("unfinoBrand.hero.title", locale)}>
+      <p>{t("unfinoBrand.hero.lead", locale)}</p>
+      <div class="page-actions" slot="actions">
+        <Button href={pagePath("join", locale)}>{t("unfinoBrand.hero.button1", locale)}</Button>
+        <Button href={goPath(locale, "project", "unfino_hero_project")} variant="secondary">{t("unfinoBrand.hero.button2", locale)}</Button>
       </div>
-    </section>
+    </PageHero>
 
-    <section class="reading-section" id="notes">
-      <div class="section-shell">
-        <div class="chapter-copy">
-          <div class="index-list unfino-format-list">
-            {notes.map((note, index) => (
-              <article class="index-row unfino-reveal" style={`--delay: ${index * 60}ms`}>
-                <p class="index-row__index">0{index + 1}</p>
-                <div class="index-row__main">
-                  <p class="index-row__meta">{t(note.kicker, locale)}</p>
-                  <h3>{t(note.title, locale)}</h3>
-                  <p>{t(note.description, locale)}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+    <PageSection id="notes">
+      <div class="index-list unfino-format-list">
+        {notes.map((note, index) => (
+          <article class="index-row unfino-reveal" style={`--delay: ${index * 60}ms`}>
+            <p class="index-row__index">0{index + 1}</p>
+            <div class="index-row__main">
+              <p class="index-row__meta">{t(note.kicker, locale)}</p>
+              <h3>{t(note.title, locale)}</h3>
+              <p>{t(note.description, locale)}</p>
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
+    </PageSection>
 
-    <section class="final-cta final-cta--compact unfino-final" id="next" aria-labelledby="next-title">
-      <div class="final-shell">
-        <p class="unfino-kicker">{t("unfinoBrand.next.kicker", locale)}</p>
-        <h2 id="next-title">{t("unfinoBrand.next.title", locale)}</h2>
-        <div class="final-copy">
-          <p>{t("unfinoBrand.next.copy", locale)}</p>
-        </div>
-        <div class="final-actions">
-          <Button href={pagePath("join", locale)}>{t("unfinoBrand.next.button1", locale)}</Button>
-          <Button href={goPath(locale, "project", "unfino_next_project")} variant="secondary">{t("unfinoBrand.next.button2", locale)}</Button>
-        </div>
-      </div>
-    </section>
-  </main>
+    <PageCta title={t("unfinoBrand.next.title", locale)} kicker={t("unfinoBrand.next.kicker", locale)} labelledby="next-title">
+      <p>{t("unfinoBrand.next.copy", locale)}</p>
+      <Fragment slot="actions">
+        <Button href={pagePath("join", locale)}>{t("unfinoBrand.next.button1", locale)}</Button>
+        <Button href={goPath(locale, "project", "unfino_next_project")} variant="secondary">{t("unfinoBrand.next.button2", locale)}</Button>
+      </Fragment>
+    </PageCta>
+  </PageMain>
 
   <script>
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

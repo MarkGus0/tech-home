@@ -104,9 +104,12 @@ Do not glass body copy, principles, role essays, partner lists, or UNFINO format
 
 ### Reading column
 
-- Measure is about 720px (`--container` / `--subpage-max`).
-- One type scale: large page title, section title around 26–34px, list titles around 18–21px, muted body.
-- Kickers are small Geist Mono, blue, uppercase.
+- Measure is about 720px (`--measure` / `--container`).
+- Shared page frame: `.page`, `.page-hero`, `.page-section`, `.page-cta`, `.page-kicker`, `.page-actions`. Home and subpages use the same type scale and section whitespace.
+- One type scale: large page title (`--type-display`), section title (`--type-section`), list titles (`--type-row`), muted body.
+- Kickers are small Geist Mono, blue, uppercase (`.page-kicker`).
+
+Structured content uses one list language:
 
 Structured content uses one list language:
 
@@ -131,7 +134,7 @@ Variants:
 - `index-row--status`: label / state / action, used on the homepage status block
 - `index-list--plain`: numbered `<ul>` (Projects collection prompts)
 
-Pill buttons belong in the closing action block of a page, or in one lead story. Mid-page paths use `.text-link`. Peer groups must share one button variant. Do not mix black primary and white secondary in the same three-up or four-up set.
+Pill buttons belong in the closing `.page-cta` of a page, or in one lead story. Mid-page paths use `.text-link`. A `.page-actions` cluster has one black primary; extra actions are secondary glass pills. Do not mix two primaries in the same cluster.
 
 ### What not to rebuild
 
@@ -143,7 +146,7 @@ These already failed in review and should not come back:
 - Pixel-tick ornaments on every card
 - Full-viewport ASCII decoration
 
-Shared CSS lives in `src/styles/global.css`. Page-specific exceptions should stay small. If a new block looks like a list, use `.index-list`.
+Shared CSS lives in `src/styles/global.css`. Page chrome for public routes is `PageMain`, `PageHero`, `PageSection`, and `PageCta` in `src/components/`. Page-specific exceptions should stay small. If a new block looks like a list, use `.index-list`.
 
 ## Pages
 
