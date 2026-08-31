@@ -51,8 +51,8 @@ export const pages: Record<PageId, PageMeta> = {
     id: "unfino",
     title: { zh: "未完场 UNFINO — TechFlows", en: "UNFINO — TechFlows" },
     description: {
-      zh: "未完场 UNFINO 是 TechFlows 的项目续航场，给还想做下去的项目一个下一步。第一场尚未确定。不是融资路演，不是报名即会员。",
-      en: "UNFINO is TechFlows' project-continuation space. It gives projects that still want to continue a next step. The first edition is not scheduled. It is not a fundraising pitch, and not a club you join by signing up."
+      zh: "未完场 UNFINO 是 TechFlows 的续航场。第一场尚未确定。不是产品，不是服务。",
+      en: "UNFINO is TechFlows' continuation venue. The first event is not yet set. It is not a product or a service."
     },
     paths: { zh: "/unfino/", en: "/en/unfino/" },
     image: "/assets/og-unfino.png"
@@ -71,8 +71,8 @@ export const pages: Record<PageId, PageMeta> = {
     id: "partners",
     title: { zh: "合作伙伴 — TechFlows", en: "Partners — TechFlows" },
     description: {
-      zh: "TechFlows 诞生于安徽合肥。与高校、企业、技术社区和空间合作，都从一件具体的事开始。",
-      en: "TechFlows was born in Hefei, Anhui. Partnerships with universities, companies, tech communities, and spaces all start from one concrete thing."
+      zh: "只收集合作意向。没有套餐，没有赞助权益表。",
+      en: "Partnership intent only. No packages, and no sponsor-benefits table."
     },
     paths: { zh: "/partners/", en: "/en/partners/" },
     image: "/assets/og-partners.png"
