@@ -67,8 +67,8 @@ export const translations = {
     "en": "TechFlows is an open community for young tech creators and early-stage projects. Born in Hefei, Anhui. Gatherings are in person; venue confirmed per event."
   },
   "hero.summary.4": {
-    "zh": "我们通过见面、四个问题、会后一小步、项目记录和续航场 UNFINO，让正在行动的人被看见。核心领不走就待发布。",
-    "en": "Through gatherings, four questions, one small next step afterward, project records, and UNFINO as a continuation venue, we help people in motion be seen. If the core piece is not claimed, it stays unpublished."
+    "zh": "我们通过见面、四个问题、会后一小步、项目记录和续航场 UNFINO，让正在行动的人被看见。下场见面，有人领走才发布。",
+    "en": "Through gatherings, four questions, one small next step afterward, project records, and UNFINO as a continuation venue, we help people in motion be seen. The next gathering is published when someone claims it."
   },
   "hero.entry.kicker": {
     "zh": "现在可以从这里开始",
