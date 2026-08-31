@@ -34,4 +34,5 @@ Thumbs.db
 docs/qa_*/
 docs/**/*.png
 scripts/__pycache__/
+.playwright-mcp/
 
