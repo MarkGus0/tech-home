@@ -1,0 +1,10 @@
+---
+type Props = {
+  class?: string;
+};
+
+const { class: className } = Astro.props;
+---
+<main id="main" class:list={["page", className]}>
+  <slot />
+</main>

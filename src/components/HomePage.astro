@@ -83,9 +83,9 @@ const statusRows = [
     </nav>
   </aside>
 
-  <main id="main" class="home-main">
-    <section class="hero home-hero" id="home" aria-labelledby="hero-title">
-      <div class="hero-shell">
+  <main id="main" class="page page--home">
+    <section class="page-hero hero" id="home" aria-labelledby="hero-title">
+      <div class="page-shell">
         <div class="hero-copy">
           <h1 id="hero-title" class="reveal" set:html={t("hero.title", locale)} />
           <p class="hero-cover reveal">{t("hero.cover", locale)}</p>
@@ -99,10 +99,10 @@ const statusRows = [
           </div>
 
           <div class="hero-entry-heading reveal">
-            <p class="home-section-kicker">{t("hero.entry.kicker", locale)}</p>
+            <p class="page-kicker">{t("hero.entry.kicker", locale)}</p>
             <h2>{t("hero.entry.title", locale)}</h2>
             <p>{t("hero.entry.description", locale)}</p>
-            <div class="final-actions">
+            <div class="page-actions">
               <Button href={pagePath("join", locale)}>{t("hero.entry.cta", locale)}</Button>
             </div>
           </div>
@@ -110,10 +110,10 @@ const statusRows = [
       </div>
     </section>
 
-    <section class="home-compact-section home-now-section" id="now" aria-labelledby="now-title">
-      <div class="wide-shell">
+    <section class="page-section page-section--tight" id="now" aria-labelledby="now-title">
+      <div class="page-shell">
         <div class="section-intro reveal">
-          <p class="home-section-kicker">{t("home.now.kicker", locale)}</p>
+          <p class="page-kicker">{t("home.now.kicker", locale)}</p>
           <h2 id="now-title">{t("home.now.title", locale)}</h2>
           <p>{t("home.now.intro", locale)}</p>
         </div>
@@ -132,10 +132,10 @@ const statusRows = [
       </div>
     </section>
 
-    <section class="home-compact-section home-principles-section" id="principles" aria-labelledby="principles-title">
-      <div class="wide-shell">
+    <section class="page-section" id="principles" aria-labelledby="principles-title">
+      <div class="page-shell">
         <div class="section-intro reveal">
-          <p class="home-section-kicker">{t("home.principles.kicker", locale)}</p>
+          <p class="page-kicker">{t("home.principles.kicker", locale)}</p>
           <h2 id="principles-title">{t("home.principles.title", locale)}</h2>
         </div>
         <div class="index-list">
@@ -153,10 +153,10 @@ const statusRows = [
       </div>
     </section>
 
-    <section class="home-compact-section home-status-section" id="status" aria-labelledby="status-title">
-      <div class="wide-shell">
+    <section class="page-section" id="status" aria-labelledby="status-title">
+      <div class="page-shell">
         <div class="section-intro reveal">
-          <p class="home-section-kicker">{t("home.status.kicker", locale)}</p>
+          <p class="page-kicker">{t("home.status.kicker", locale)}</p>
           <h2 id="status-title">{t("home.status.title", locale)}</h2>
           <p>{t("home.status.intro", locale)}</p>
         </div>
@@ -172,18 +172,18 @@ const statusRows = [
       </div>
     </section>
 
-    <section class="final-cta final-cta--compact home-final-cta" id="join" aria-labelledby="join-title">
-      <div class="final-shell">
-        <p class="home-section-kicker reveal">{t("home.join.kicker", locale)}</p>
+    <section class="page-cta" id="join" aria-labelledby="join-title">
+      <div class="page-shell page-cta__inner">
+        <p class="page-kicker reveal">{t("home.join.kicker", locale)}</p>
         <h2 id="join-title" class="reveal">{t("home.join.title", locale)}</h2>
-        <div class="final-copy home-final-copy">
+        <div class="page-cta__copy">
           <p class="reveal">{t("home.join.p1", locale)}</p>
           <p class="reveal strong-line">{t("home.join.p2", locale)}</p>
         </div>
-        <div class="final-actions reveal" aria-label={t("home.join.actionsAria", locale)}>
+        <div class="page-actions reveal" aria-label={t("home.join.actionsAria", locale)}>
           <Button href={pagePath("join", locale)}>{t("join.action.join", locale)}</Button>
         </div>
-        <p class="closing-line home-closing-line reveal">{t("home.join.closing", locale)}</p>
+        <p class="page-closing reveal">{t("home.join.closing", locale)}</p>
       </div>
     </section>
   </main>

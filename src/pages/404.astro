@@ -30,15 +30,15 @@ Astro.response.headers.set("X-Robots-Tag", "noindex, nofollow");
     </div>
     <a class="skip-link" href="#main">{t("skipLink", locale)}</a>
     <Header locale={locale} />
-    <main id="main" class="subpage-main">
-      <section class="hero sub-hero">
-        <div class="hero-shell">
+    <main id="main" class="page page--404">
+      <section class="page-hero">
+        <div class="page-shell">
           <div class="hero-copy">
             <h1>{t("notFound.heading", locale)}</h1>
-            <div class="hero-detail hero-detail--compact">
+            <div class="page-lead">
               <p>{t("notFound.body", locale)}</p>
             </div>
-            <div class="final-actions unfino-actions">
+            <div class="page-actions">
               <Button href={pagePath("home", locale)}>{t("notFound.home", locale)}</Button>
               <Button href={pagePath("events", locale)} variant="secondary">{t("notFound.events", locale)}</Button>
               <Button href={pagePath("join", locale)} variant="secondary">{t("notFound.join", locale)}</Button>

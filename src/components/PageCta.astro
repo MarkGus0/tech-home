@@ -1,0 +1,23 @@
+---
+type Props = {
+  title: string;
+  kicker?: string;
+  labelledby?: string;
+  actionsAria?: string;
+};
+
+const { title, kicker, labelledby, actionsAria } = Astro.props;
+---
+<section class="page-cta" aria-labelledby={labelledby}>
+  <div class="page-shell page-cta__inner">
+    {kicker ? <p class="page-kicker">{kicker}</p> : null}
+    <h2 id={labelledby}>{title}</h2>
+    <div class="page-cta__copy">
+      <slot />
+    </div>
+    <div class="page-actions" aria-label={actionsAria}>
+      <slot name="actions" />
+    </div>
+    <slot name="closing" />
+  </div>
+</section>
