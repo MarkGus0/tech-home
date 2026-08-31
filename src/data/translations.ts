@@ -578,10 +578,6 @@ export const translations = {
     "zh": "不提供系统课程、保送、融资承诺、固定园区工位。",
     "en": "We do not offer a curriculum, guaranteed placement, fundraising promises, or a fixed campus desk."
   },
-  "joinPage.tracks.title": {
-    "zh": "领走一件事",
-    "en": "Take one piece"
-  },
   "joinPage.tracks.intro": {
     "zh": "想负责一件事，再走候选 → 做一件小事 → 正式。功能活、一所学校、一座城是三扇门，不是一张菜单。普通成员不必走这条。说明在飞书，和这站是同一个社区。",
     "en": "If you want to own one thing, go candidate → one small task → formal. One job, one school, and one city are three doors, not a menu. Ordinary members do not need this path. The briefs live on Feishu; they are the same community as this site."

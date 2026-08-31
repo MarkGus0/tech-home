@@ -76,7 +76,7 @@ const trackCards = [
     slug: "city" as const,
     source: "join_track_city"
   }
-];
+] as const;
 ---
 <BaseLayout locale={locale} page="join">
   <main id="main" class="subpage-main subpage-main--join">
@@ -149,7 +149,9 @@ const trackCards = [
     <section class="reading-section" id="tracks">
       <div class="section-shell">
         <div class="chapter-copy">
-          <h2>{t("joinPage.tracks.title", locale)}</h2>
+          <p class="home-section-kicker">{t("home.tracks.kicker", locale)}</p>
+          <h2>{t("home.tracks.title", locale)}</h2>
+          <p>{t("home.tracks.intro", locale)}</p>
           <p>{t("joinPage.tracks.intro", locale)}</p>
           <div class="index-list">
             {trackCards.map((card, index) => (
