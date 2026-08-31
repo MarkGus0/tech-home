@@ -207,8 +207,8 @@ export const translations = {
     "en": "One job, one school, one city"
   },
   "home.tracks.intro": {
-    "zh": "我们还在早期。核心团队现在是 1–3 人，没有预算雇主办。三扇门不是菜单。普通成员先加入，做一件小事，再转正。想负责，就领走一件能做完的事。",
-    "en": "We are still early. The core team is 1–3 people, with no budget for a hired host team. The three doors are not a menu. Ordinary members join first, do one small thing, then become official. If you want to take responsibility, take one piece you can finish."
+    "zh": "三扇门不是菜单。普通成员先加入，做一件小事，再转正。想负责，就领走一件能做完的事。下场见面，有人领走才发布。",
+    "en": "The three doors are not a menu. Ordinary members join first, do one small thing, then become official. If you want to take responsibility, take one piece you can finish. The next gathering is published when someone claims it."
   },
   "home.tracks.job.title": {
     "zh": "社区一件功能活",
@@ -291,8 +291,8 @@ export const translations = {
     "en": "TechFlows right now"
   },
   "home.status.intro": {
-    "zh": "我们还在早期。核心团队现在是 1–3 人。下面这些是正在发生的状态，不是已经做完的规模。没有高校名单，也没有成员作品墙。",
-    "en": "We are still early. The core team is 1–3 people. What follows is live status, not a finished scale. There is no campus list and no member-work wall yet."
+    "zh": "下面这些是正在发生的状态，不是已经做完的规模。没有高校名单，也没有成员作品墙。",
+    "en": "What follows is live status, not a finished scale. There is no campus list and no member-work wall yet."
   },
   "home.status.events.label": {
     "zh": "近期活动",
